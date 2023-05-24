@@ -10,3 +10,5 @@ temp/
 *.sublime*
 package-lock.json
 yarn.lock
+
+csscomb.json
