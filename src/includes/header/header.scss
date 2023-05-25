@@ -1,4 +1,81 @@
 .header {
-	padding: 20px 0;
-	background: #ccc;
+	display: flex;
+	align-items: center;
+	flex-wrap: nowrap;
+
+	padding-top: 26px;
+	padding-right: 10px;
+	padding-bottom: 22px;
+	padding-left: 10px;
+
+	border-bottom: 1px solid #cfcfcf;
+
+	@media screen and (min-width: 768px) {
+		padding-right: 30px;
+		padding-left: 30px;
+	}
+
+	&__logo {
+		width: 89px;
+		height: 32px;
+		margin-right: auto;
+	}
+
+	&__button {
+		height: min-content;
+		margin: 0;
+		margin-top: 2px;
+		padding: 0;
+
+		transition: opacity $default-transition-duration $default-transition-function;
+
+		opacity: 1;
+		border: none;
+		background: none;
+
+		&:hover {
+			transition: none;
+
+			opacity: 0.6;
+			color: inherit;
+			background: none;
+		}
+
+		&_type {
+			&_search {
+				margin-right: 26px;
+			}
+
+			&_cart {
+				position: relative;
+
+				margin-right: 32px;
+
+				&::after {
+					position: absolute;
+					bottom: 14px;
+					left: 17px;
+
+					width: 13px;
+					height: 13px;
+
+					// Заменить на переменную
+					content: '2';
+
+					color: #ffffff;
+					border-radius: 50%;
+					background-color: #3366ff;
+
+					font-family: 'Roboto';
+					font-size: 10px;
+					font-weight: 400;
+					line-height: 12px;
+				}
+			}
+
+			&_burger {
+				margin-top: 3px;
+			}
+		}
+	}
 }
