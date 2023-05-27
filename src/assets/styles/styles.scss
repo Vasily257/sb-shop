@@ -9,11 +9,11 @@
 
 // ======= COMPONENTS =======
 @import '../../components/button/button';
-@import '../../components/stage-section/_stage_section';
-@import '../../components/billing-section/_billing_section';
 
 // ======= INCLUDES =======
 @import '../../includes/header/header';
+@import '../../includes/stage-section/stage_section';
+@import '../../includes/billing-section/billing_section';
 
 // ======= PAGES =======
 @import 'pages/main';

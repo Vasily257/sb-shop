@@ -1,14 +1,12 @@
 {% extends "../templates/base.nunj" %}
-{% from "../components/stage-section/stage-section.nunj" import stageSection %}
-{% from "../components/billing-section/billing-section.nunj" import billingSection %}
 
 {% block content %}
 
 	{% include '../includes/header/header.nunj' %}
 
 	<main class="main-page">
-		{{ stageSection( parentClass="main-page__stages" ) }}
-		{{ billingSection( parentClass="main-page__billing" ) }}
+		{% include '../includes/stage-section/stage-section.nunj' %}
+		{% include '../includes/billing-section/billing-section.nunj' %}
 	</main>
 
 {% endblock %}

@@ -1,0 +1,4 @@
+<section class="billing {{ parentClass }}">
+	<h1 class="billing__title">Billing Information</h1>
+
+</section>

@@ -1,11 +1,8 @@
 .main-page {
-	padding: 0 10px;
+	display: flex;
+	gap: 60px;
+	flex-direction: column;
+	flex-wrap: nowrap;
 
-	&__stages {
-		margin-top: 60px;
-	}
-
-	&__billing {
-		margin-top: 60px;
-	}
+	padding: 60px 10px 0;
 }
