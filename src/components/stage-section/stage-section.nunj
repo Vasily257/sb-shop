@@ -4,21 +4,26 @@
 		<ul class="stages__list">
 			{% for stage in stages %}
 
-				{# Добавить модификатор для элемента и его счетчика в зависимости от статуса #}
-				{% if stage.status === 'processed' %}
-					{% set itemClassname = 'stages__item_status_processed' %}
-					{% set numberClassname = 'stages__item-number_status_processed' %}
+				{# Добавить модификатор для элемента-линии, элемента с контентом и счетчика в зависимости от статуса #}
+				{% if stage.status === 'ready' %}
+					{% set itemContentModifier = 'stages__item-content_status_ready' %}
+				{% elif stage.status === 'processed' %}
+					{% set numberModifier = 'stages__item-number_status_processed' %}
+					{% set itemContentModifier = 'stages__item-content_status_processed' %}
+					{% set itemLineModifier = 'stages__item-line_status_processed' %}
 				{% elif stage.status === 'disabled' %}
-					{% set itemClassname = 'stages__item_status_disabled' %}
-					{% set numberClassname = 'stages__item-number_status_disabled' %}
+					{% set numberModifier = 'stages__item-number_status_disabled' %}
+					{% set itemContentModifier = 'stages__item-content_status_disabled' %}
+					{% set itemLineModifier = 'stages__item-line_status_disabled' %}
 				{% endif %}
 
-				<li class="stages__item {{ itemClassname }}">
-					<span class="stages__item-number {{ numberClassname }}">{{ stage.number }}</span>
+				<li class="stages__item-content {{ itemContentModifier }}">
+					<span class="stages__item-number {{ numberModifier }}">{{ stage.number }}</span>
 					<span class="stages__item-text">
 						{{stage.text}}
 					</span>
 				</li>
+				<li class="stages__item-line {{ itemLineModifier }}"></li>
 			{% endfor %}
 		</ul>
 	</section>
