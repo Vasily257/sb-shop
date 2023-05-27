@@ -22,5 +22,27 @@
 			"title": "Item 2",
 			"text": "Desc 2"
 		}
+	],
+	"stages": [
+		{
+			"number": 1,
+			"text": "Account",
+			"status": "ready"
+		},
+		{
+			"number": 2,
+			"text": "Shipping",
+			"status": "ready"
+		},
+		{
+			"number": 3,
+			"text": "Billing",
+			"status": "processed"
+		},
+		{
+			"number": 4,
+			"text": "Review",
+			"status": "disabled"
+		}
 	]
 }
