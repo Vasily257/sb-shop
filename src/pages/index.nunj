@@ -1,5 +1,6 @@
 {% extends "../templates/base.nunj" %}
 {% from "../components/stage-section/stage-section.nunj" import stageSection %}
+{% from "../components/billing-section/billing-section.nunj" import billingSection %}
 
 {% block content %}
 
@@ -7,6 +8,7 @@
 
 	<main class="main-page">
 		{{ stageSection( parentClass="main-page__stages" ) }}
+		{{ billingSection( parentClass="main-page__billing" ) }}
 	</main>
 
 {% endblock %}
