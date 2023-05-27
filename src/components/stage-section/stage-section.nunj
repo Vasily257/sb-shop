@@ -1,6 +1,6 @@
 {% macro stageSection(parentClass = '') %}
 
-	<section class="stages {{ parentClass }}">
+	<section class="stages {{ parentClass }}" aria-label="Process timeline">
 		<ul class="stages__list">
 			{% for stage in stages %}
 
