@@ -58,8 +58,7 @@
 				width: 13px;
 				height: 13px;
 
-				// Заменить на переменную
-				content: '2';
+				content: attr(data-counter);
 
 				color: #ffffff;
 				border-radius: 50%;

@@ -1,18 +1,23 @@
 {% from "../../components/icon/icon.nunj" import icon %}
 {% from "../../components/button/button.nunj" import button %}
 
+{% set cartCounter = 2 %}
+
 <header class="header">
-	<img class="header__logo" src={% inline 'logo.svg' %} alt="Логотип сайта" />
+	<img class="header__logo" src={% inline 'logo.svg' %} alt="Логотип сайта"/>
 	{{ button({
-		className: 'header__button header__button_type_search', attr: 'aria-label="Найти на сайте"',
-		children: icon({ iconName: 'search', attr: 'width="24" height="24" aria-hidden="true"'	})
+		className: 'header__button header__button_type_search',
+	  attr: 'aria-label="Найти на сайте"',
+		children: icon({ iconName: 'search', attr: 'width="24" height="24" aria-hidden="true"' })
 	}) }}
 	{{ button({
-  	className: 'header__button header__button_type_cart', attr: 'aria-label="Открыть корзину"',
+  	className: 'header__button header__button_type_cart',
+		attr: 'aria-label="Открыть корзину" data-counter="'~ cartCounter ~'"',
 		children: icon({ iconName: 'cart',  attr: 'width="24" height="21" aria-hidden="true"'	})
-	}) }}
+  }) }}
 	{{ button({
-  	className: 'header__button header__button_type_burger', attr: 'aria-label="Открыть меню"',
+  	className: 'header__button header__button_type_burger',
+		attr: 'aria-label="Открыть меню"',
 		children: icon({ iconName: 'burger',  attr: 'width="29" height="22" aria-hidden="true"'	})
 	}) }}
 </header>
