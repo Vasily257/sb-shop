@@ -36,7 +36,7 @@
 		&:hover {
 			transition: none;
 
-			opacity: 0.6;
+			opacity: $default-hover-opacity;
 			color: inherit;
 			background: none;
 		}
