@@ -1,0 +1,22 @@
+{% macro control(
+		className = '',
+		type = 'radio',
+		id = 'noId',
+		name = 'noName',
+		labelClassName = '',
+		labelContent = 'Label text',
+		disabled = false
+) %}
+	<p class="control {{ className }}">
+		<input
+			class="control__input control__input_type_{{ type }}"
+			type="{{ type }}"
+			id="{{ id }}"
+			name="{{ name }}"
+			{% if disabled %} disabled {% endif %}/>
+		<label
+			class="control__label {{ labelClassName }}"
+			for="{{ id }}"> {{ labelContent }}
+		</label>
+	</p>
+{% endmacro %}

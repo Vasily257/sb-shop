@@ -1,0 +1,8 @@
+{% macro image(className = '', src = '', height = '32', width = '32', altText = 'Изображение') %}
+	<img
+		class="image {{ className }}"
+		src="../../assets/images/{{ src }}"
+		height="{{ height }}"
+		width="{{ width }}"
+		alt="{{ altText }}">
+{% endmacro %}

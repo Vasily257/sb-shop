@@ -1,0 +1,70 @@
+.control {
+	display: flex;
+	align-items: center;
+
+	@supports (appearance: none) {
+		&__input {
+			position: relative;
+
+			width: 18px;
+			min-width: 18px;
+			height: 18px;
+
+			transition: border-color $default-transition-duration $default-transition-function;
+
+			border-width: 1px;
+			border-style: solid;
+			border-color: #cfcfcf;
+			background-color: #ffffff;
+
+			appearance: none;
+
+			&:hover:not(:disabled) {
+				transition: none;
+
+				border-color: $primary-color;
+			}
+
+			&_type_radio {
+				border-radius: 50%;
+
+				&::after {
+					position: absolute;
+					top: 50%;
+					left: 50%;
+
+					width: 8px;
+					height: 8px;
+
+					content: none;
+					transform: translate(-50%, -50%);
+
+					border-radius: 50%;
+					background-color: $primary-color;
+				}
+
+				&:checked:not(:disabled)::after {
+					content: '';
+				}
+
+				&:disabled::after {
+					content: '';
+
+					background-color: #cfcfcf;
+				}
+			}
+		}
+
+		&__label {
+			margin-top: 1px;
+			margin-left: 9px;
+
+			color: #000000;
+
+			font-family: 'Roboto';
+			font-size: 14px;
+			font-weight: 400;
+			line-height: 18px;
+		}
+	}
+}
