@@ -4,20 +4,20 @@
 {% set cartCounter = 2 %}
 
 <header class="header">
-	<img class="header__logo" src={% inline 'logo.svg' %} alt="Логотип сайта"/>
+	<img class="header__logo" src={% inline 'logo.svg' %} alt="Website logo"/>
 	{{ button({
 		className: 'header__button header__button_type_search',
-	  attr: 'aria-label="Найти на сайте"',
+	  attr: 'aria-label="Search on the website"',
 		children: icon({ iconName: 'search', attr: 'width="24" height="24" aria-hidden="true"' })
 	}) }}
 	{{ button({
   	className: 'header__button header__button_type_cart',
-		attr: 'aria-label="Открыть корзину" data-counter="'~ cartCounter ~'"',
+		attr: 'aria-label="Open the shopping cart, number of products: '~ cartCounter ~'" data-counter="'~ cartCounter ~'"',
 		children: icon({ iconName: 'cart',  attr: 'width="24" height="21" aria-hidden="true"'	})
   }) }}
 	{{ button({
   	className: 'header__button header__button_type_burger',
-		attr: 'aria-label="Открыть меню"',
+		attr: 'aria-label="Open the navigation menu"',
 		children: icon({ iconName: 'burger',  attr: 'width="29" height="22" aria-hidden="true"'	})
 	}) }}
 </header>
