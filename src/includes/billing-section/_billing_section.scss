@@ -1,10 +1,30 @@
 .billing {
 	&__title {
+		letter-spacing: 0.1px;
+
 		color: #000000;
 
 		font-family: 'Roboto';
 		font-size: 18px;
 		font-weight: 700;
 		line-height: 21px;
+	}
+
+	&__pay-list {
+		display: flex;
+
+		margin-top: 18px;
+	}
+
+	&__control {
+		&_type_pay-pal {
+			margin-left: 23px;
+		}
+	}
+
+	&__label-control {
+		&_type_pay-pal {
+			margin-left: 13px;
+		}
 	}
 }

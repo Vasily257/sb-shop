@@ -1,4 +1,27 @@
-<section class="billing {{ parentClass }}">
-	<h1 class="billing__title">Billing Information</h1>
+{% from "../../components/control/control.nunj" import control %}
+{% from "../../components/image/image.nunj" import image %}
+{% from "../../components/button/button.nunj" import button %}
 
+<section class="billing">
+	<h1 class="billing__title">Billing Information</h1>
+	<fieldset class="billing__pay-list">
+		{{ control(
+				type = 'radio',
+				id = 'credit-card-id',
+				name = 'payment',
+				labelContent = "Pay with Credit Card")}}
+		{{ control(
+				className = 'billing__control_type_pay-pal',
+				type = 'radio',
+				id = 'pay-pal-id',
+				name = 'payment',
+				labelClassName = 'billing__label-control_type_pay-pal',
+				labelContent = image(
+					src = 'pay-pal.svg',
+					height = '23',
+					width = '85',
+					altText = 'Логотип PayPal'
+				)
+		)}}
+	</fieldset>
 </section>
