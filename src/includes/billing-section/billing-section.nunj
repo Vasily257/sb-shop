@@ -1,27 +1,9 @@
-{% from "../../components/control/control.nunj" import control %}
-{% from "../../components/image/image.nunj" import image %}
-{% from "../../components/button/button.nunj" import button %}
+{% from "../../components/pay-methods/pay-methods.nunj" import payMethods %}
+
 
 <section class="billing">
 	<h1 class="billing__title">Billing Information</h1>
-	<fieldset class="billing__pay-controls">
-		{{ control(
-				type = 'radio',
-				id = 'credit-card-id',
-				name = 'payment',
-				labelContent = "Pay with Credit Card")}}
-		{{ control(
-				className = 'billing__pay-control billing__pay-control_type_pay-pal',
-				type = 'radio',
-				id = 'pay-pal-id',
-				name = 'payment',
-				labelClassName = 'billing__label-pay-control billing__label-pay-control_type_pay-pal',
-				labelContent = image(
-					fileName = 'pay-pal.svg',
-					height = '23',
-					width = '85',
-					altText = 'Логотип PayPal'
-				)
-		)}}
-	</fieldset>
+
+	{{ payMethods(className = "billing__pay-methods") }}
+
 </section>

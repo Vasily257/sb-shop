@@ -1,0 +1,15 @@
+.pay-methods {
+	display: flex;
+
+	&__control {
+		&_type_pay-pal {
+			margin-left: 23px;
+		}
+	}
+
+	&__label-control {
+		&_type_pay-pal {
+			margin-left: 13px;
+		}
+	}
+}

@@ -1,0 +1,26 @@
+{% from "../../components/control/control.nunj" import control %}
+{% from "../../components/image/image.nunj" import image %}
+
+{% macro payMethods(className) %}
+	<fieldset class="pay-methods {{ className }}">
+		{{ control(
+			type = 'radio',
+			id = 'credit-card-id',
+			name = 'payment',
+			labelContent = "Pay with Credit Card"
+		) }}
+		{{ control(
+			className = 'pay-methods__control pay-methods__control_type_pay-pal',
+			type = 'radio',
+			id = 'pay-pal-id',
+			name = 'payment',
+			labelClassName = 'pay-methods__label-control pay-methods__label-control_type_pay-pal',
+			labelContent = image(
+				fileName = 'pay-pal.svg',
+				height = '23',
+				width = '85',
+				altText = 'Логотип PayPal'
+			)
+		) }}
+	</fieldset>
+{% endmacro %}

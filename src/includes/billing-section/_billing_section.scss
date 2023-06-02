@@ -10,21 +10,7 @@
 		line-height: 21px;
 	}
 
-	&__pay-controls {
-		display: flex;
-
+	&__pay-methods {
 		margin-top: 18px;
-	}
-
-	&__pay-control {
-		&_type_pay-pal {
-			margin-left: 23px;
-		}
-	}
-
-	&__label-pay-control {
-		&_type_pay-pal {
-			margin-left: 13px;
-		}
 	}
 }
