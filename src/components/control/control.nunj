@@ -1,19 +1,23 @@
 {% macro control(
 		className = '',
 		type = 'radio',
+		inputClassName = '',
 		id = 'noId',
 		name = 'noName',
 		labelClassName = '',
 		labelContent = 'Label text',
+		placeholderText = '',
 		disabled = false
 ) %}
 	<p class="control {{ className }}">
 		<input
-			class="control__input control__input_type_{{ type }}"
+			class="control__input control__input_type_{{ type }} {{ inputClassName }}"
 			type="{{ type }}"
 			id="{{ id }}"
 			name="{{ name }}"
-			{% if disabled %} disabled {% endif %}/>
+			{% if placeholderText %} placeholder="{{ placeholderText }}" {% endif %}
+			{% if disabled %} disabled {% endif %}
+		/>
 		<label
 			class="control__label {{ labelClassName }}"
 			for="{{ id }}"> {{ labelContent }}
