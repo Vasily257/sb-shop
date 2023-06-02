@@ -10,19 +10,19 @@
 		line-height: 21px;
 	}
 
-	&__pay-list {
+	&__pay-controls {
 		display: flex;
 
 		margin-top: 18px;
 	}
 
-	&__control {
+	&__pay-control {
 		&_type_pay-pal {
 			margin-left: 23px;
 		}
 	}
 
-	&__label-control {
+	&__label-pay-control {
 		&_type_pay-pal {
 			margin-left: 13px;
 		}

@@ -4,18 +4,18 @@
 
 <section class="billing">
 	<h1 class="billing__title">Billing Information</h1>
-	<fieldset class="billing__pay-list">
+	<fieldset class="billing__pay-controls">
 		{{ control(
 				type = 'radio',
 				id = 'credit-card-id',
 				name = 'payment',
 				labelContent = "Pay with Credit Card")}}
 		{{ control(
-				className = 'billing__control_type_pay-pal',
+				className = 'billing__pay-control billing__pay-control_type_pay-pal',
 				type = 'radio',
 				id = 'pay-pal-id',
 				name = 'payment',
-				labelClassName = 'billing__label-control_type_pay-pal',
+				labelClassName = 'billing__label-pay-control billing__label-pay-control_type_pay-pal',
 				labelContent = image(
 					fileName = 'pay-pal.svg',
 					height = '23',
