@@ -3,12 +3,15 @@
 
 {% macro payMethods(className) %}
 	<fieldset class="pay-methods {{ className }}">
+		<legend class="pay-methods__legend visually-hidden">Pay methods</legend>
+
 		{{ control(
 			type = 'radio',
 			id = 'credit-card-id',
 			name = 'payment',
 			labelContent = "Pay with Credit Card"
 		) }}
+
 		{{ control(
 			className = 'pay-methods__control pay-methods__control_type_pay-pal',
 			type = 'radio',
@@ -22,5 +25,6 @@
 				altText = 'Логотип PayPal'
 			)
 		) }}
+
 	</fieldset>
 {% endmacro %}

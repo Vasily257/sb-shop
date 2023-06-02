@@ -1,6 +1,10 @@
 .pay-methods {
 	display: flex;
 
+	&__legend {
+		display: block;
+	}
+
 	&__control {
 		&_type_pay-pal {
 			margin-left: 23px;
