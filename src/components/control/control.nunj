@@ -1,14 +1,14 @@
 {% macro control(
-		className = '',
-		inputClassName = '',
-		labelClassName = '',
-		type = 'radio',
-		id = '',
-		name = '',
-		labelText = '',
-		placeholderText = '',
-		tooltipText = '',
-		disabled = false
+	className = '',
+	inputClassName = '',
+	labelClassName = '',
+	type = 'radio',
+	id = '',
+	name = '',
+	labelText = '',
+	placeholderText = '',
+	tooltipText = '',
+	disabled = false
 ) %}
 	<p class="control {{ className }}">
 		<input
