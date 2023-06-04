@@ -9,7 +9,7 @@
 			type = 'radio',
 			id = 'credit-card-id',
 			name = 'payment',
-			labelContent = "Pay with Credit Card"
+			labelText = "Pay with Credit Card"
 		) }}
 
 		{{ control(
@@ -18,7 +18,7 @@
 			id = 'pay-pal-id',
 			name = 'payment',
 			labelClassName = 'pay-methods__label-control pay-methods__label-control_type_pay-pal',
-			labelContent = image(
+			labelText = image(
 				fileName = 'pay-pal.svg',
 				height = '23',
 				width = '85',
