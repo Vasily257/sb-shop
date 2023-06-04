@@ -1,5 +1,6 @@
 .pay-methods {
 	display: flex;
+	align-items: center;
 
 	&__legend {
 		display: block;
@@ -7,13 +8,16 @@
 
 	&__control {
 		&_type_pay-pal {
-			margin-left: 23px;
+			display: flex;
+			align-items: center;
+
+			margin-left: 22px;
 		}
 	}
 
 	&__label {
 		&_type_pay-pal {
-			margin-left: 13px;
+			margin-left: 14px;
 		}
 	}
 }
