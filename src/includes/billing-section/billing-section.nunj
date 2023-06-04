@@ -1,4 +1,3 @@
-{% from "../../components/pay-methods/pay-methods.nunj" import payMethods %}
 {% from "../../components/credit-card/credit-card.nunj" import creditCard %}
 
 
@@ -6,7 +5,7 @@
 	<h1 class="billing__title">Billing Information</h1>
 
 	<form class="billing__form" action="#" method="post" accept-charset="UTF-8">
-		{{ payMethods(className = "billing__pay-methods") }}
+		{% include '../pay-methods/pay-methods.nunj' %}
 		{{ creditCard(className = "billing__credit-card") }}
 	</form>
 

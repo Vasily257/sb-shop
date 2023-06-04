@@ -11,13 +11,13 @@
 @import '../../components/button/button';
 @import '../../components/control/control';
 @import '../../components/image/image';
-@import '../../components/pay-methods/pay_methods';
 @import '../../components/credit-card/credit_card';
 
 // ======= INCLUDES =======
 @import '../../includes/header/header';
 @import '../../includes/stage-section/stage_section';
 @import '../../includes/billing-section/billing_section';
+@import '../../includes/pay-methods/pay_methods';
 
 // ======= PAGES =======
 @import 'pages/main';
