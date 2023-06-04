@@ -3,9 +3,9 @@
 		inputClassName = '',
 		labelClassName = '',
 		type = 'radio',
-		id = 'noId',
-		name = 'noName',
-		labelText = 'Label text',
+		id = '',
+		name = '',
+		labelText = '',
 		placeholderText = '',
 		tooltipText = '',
 		disabled = false
@@ -14,13 +14,13 @@
 		<input
 			class="control__input control__input_type_{{ type }} {{ inputClassName }}"
 			type="{{ type }}"
-			id="{{ id }}"
-			name="{{ name }}"
-			placeholder="{{ placeholderText }}"
+			{% if id %} id="{{ id }}" {% endif %}
+			{% if name %} name="{{ name }}" {% endif %}
+			{% if placeholderText %} placeholder="{{ placeholderText }}" {% endif %}
 			{% if disabled %} disabled {% endif %}
 		/>
 		<label
-			class="control__label {{ labelClassName }}"
+			class="control__label control__label_type_{{ type }} {{ labelClassName }}"
 			for="{{ id }}"> {{ labelText }}
 		</label>
 	</p>
