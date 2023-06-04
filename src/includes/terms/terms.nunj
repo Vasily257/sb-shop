@@ -1,0 +1,28 @@
+{% from "../../components/control/control.nunj" import control %}
+
+<fieldset class="terms">
+	<legend class="terms__legend visually-hidden">Terms</legend>
+
+	{# Создать текст для лейбла чекбокса с ссылками и неразрывными пробелами #}
+	{% set termLabelText %}
+		I accept the <a href="#" class="terms__link" target="_blank" rel="noopener noreferrer">terms and conditions</a>
+		and&nbsp;the&nbsp;<a href="#" class="terms__link" target="_blank" rel="noopener noreferrer">Privacy&nbsp;Policies</a>
+	{% endset %}
+
+	{{ control(
+		labelClassName = 'terms__label',
+		type = 'checkbox',
+		id = 'saving-card-info-id',
+		name = 'saving-card-info',
+		labelText = 'Save information of this credit card'
+	) }}
+
+	{{ control(
+		labelClassName = 'terms__label',
+		type = 'checkbox',
+		id = 'terms-id',
+		name = 'terms',
+		labelText = termLabelText
+	) }}
+
+</fieldset>

@@ -9,6 +9,10 @@
 			{% include '../credit-card/credit-card.nunj' %}
 		</div>
 
+		<div class="billing__terms-wrapper">
+			{% include '../terms/terms.nunj' %}
+		</div>
+
 	</form>
 
 </section>
