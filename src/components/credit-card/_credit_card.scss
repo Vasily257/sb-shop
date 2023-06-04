@@ -1,0 +1,82 @@
+.credit-card {
+	display: grid;
+	column-gap: 5px;
+	row-gap: 19px;
+	grid-template-columns: repeat(4, 1fr);
+
+	&__control {
+		display: flex;
+		align-items: start;
+		flex-direction: column-reverse;
+
+		&_type_name-on-card {
+			grid-column: 1/5;
+			grid-row: 1/2;
+		}
+
+		&_type_card-number-one {
+			grid-column: 1/2;
+			grid-row: 2/3;
+		}
+
+		&_type_card-number-two {
+			grid-column: 2/3;
+			grid-row: 2/3;
+		}
+
+		&_type_card-number-three {
+			grid-column: 3/4;
+			grid-row: 2/3;
+		}
+
+		&_type_card-number-four {
+			grid-column: 4/5;
+			grid-row: 2/3;
+		}
+
+		&_type_expire-date {
+			grid-column: 1/2;
+			grid-row: 3/4;
+		}
+
+		&_type_cvv-code {
+			position: relative;
+
+			grid-column: 2/3;
+			grid-row: 3/4;
+
+			&::after {
+				position: absolute;
+				top: 6px;
+				left: 58px;
+
+				width: 13px;
+				height: 13px;
+
+				content: '?';
+				text-align: center;
+				letter-spacing: 0.2px;
+
+				color: #000000;
+				border-radius: 50%;
+				background: #dbdbdb;
+
+				font-family: 'Roboto';
+				font-size: 10px;
+				font-weight: 400;
+				line-height: 13px;
+			}
+		}
+	}
+
+	&__label {
+		margin-left: 0;
+
+		color: #555770;
+
+		font-family: 'Roboto';
+		font-size: 12px;
+		font-weight: 500;
+		line-height: 24px;
+	}
+}

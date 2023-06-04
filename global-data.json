@@ -44,5 +44,37 @@
 			"text": "Review",
 			"status": "disabled"
 		}
+	],
+	"cardFields": [
+		{
+			"label": "Name on card",
+			"name": "name-on-card",
+			"placeholder": "Placeholder Text"
+		},
+		{
+			"label": "Card number",
+			"name": "card-number-one"
+		},
+		{
+			"label": "Card number two",
+			"name": "card-number-two"
+		},
+		{
+			"label": "Card number three",
+			"name": "card-number-three"
+		},
+		{
+			"label": "Card number four",
+			"name": "card-number-four"
+		},
+		{
+			"label": "Expire date",
+			"name": "expire-date"
+		},
+		{
+			"label": "CVV code",
+			"name": "cvv-code",
+			"tooltip": "?"
+		}
 	]
 }
