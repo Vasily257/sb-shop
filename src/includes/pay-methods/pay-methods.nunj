@@ -13,10 +13,10 @@
 
 	{{ control(
 		className = 'pay-methods__control pay-methods__control_type_pay-pal',
+		labelClassName = 'pay-methods__label pay-methods__label_type_pay-pal',
 		type = 'radio',
 		id = 'pay-pal-id',
 		name = 'payment',
-		labelClassName = 'pay-methods__label-control pay-methods__label-control_type_pay-pal',
 		labelText = image(
 			fileName = 'pay-pal.svg',
 			height = '23',
