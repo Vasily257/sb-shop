@@ -2,18 +2,22 @@
 
 	<h2 class="pay-form__title">Billing Information</h2>
 
+	{# Кнопки выбора способа оплаты #}
 	<div class="pay-form__pay-methods-wrapper">
 		{% include '../pay-methods/pay-methods.nunj' %}
 	</div>
 
+	{# Поля ввода кредитной карты #}
 	<div class="pay-form__credit-card-wrapper">
 		{% include '../credit-card/credit-card.nunj' %}
 	</div>
 
+	{# Кнопки для сохранения формы и принятия условий обслуживания #}
 	<div class="pay-form__terms-wrapper">
 		{% include '../terms/terms.nunj' %}
 	</div>
 
+	{# Кнопки управления формой #}
 	<div class="pay-form__buttons-wrapper">
 		{% include '../terms/terms.nunj' %}
 	</div>
