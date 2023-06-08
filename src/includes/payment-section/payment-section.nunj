@@ -1,0 +1,11 @@
+<section class="payment-section">
+
+	<h1 class="visually-hidden">Payment</h1>
+
+	{% include '../pay-stages/pay-stages.nunj' %}
+
+	<div class="payment-section__form">
+		{% include '../pay-form/pay-form.nunj' %}
+	</div>
+
+</section>

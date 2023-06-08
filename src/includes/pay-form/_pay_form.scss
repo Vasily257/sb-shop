@@ -1,4 +1,4 @@
-.billing {
+.pay-form {
 	&__title {
 		letter-spacing: 0.1px;
 
@@ -8,6 +8,10 @@
 		font-size: 18px;
 		font-weight: 700;
 		line-height: 21px;
+	}
+
+	&__pay-methods-wrapper {
+		margin-top: 18px;
 	}
 
 	&__form {

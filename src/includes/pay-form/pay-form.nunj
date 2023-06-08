@@ -1,0 +1,21 @@
+<form class="pay-form" action="#" method="post" accept-charset="UTF-8">
+
+	<h2 class="pay-form__title">Billing Information</h2>
+
+	<div class="pay-form__pay-methods-wrapper">
+		{% include '../pay-methods/pay-methods.nunj' %}
+	</div>
+
+	<div class="pay-form__credit-card-wrapper">
+		{% include '../credit-card/credit-card.nunj' %}
+	</div>
+
+	<div class="pay-form__terms-wrapper">
+		{% include '../terms/terms.nunj' %}
+	</div>
+
+	<div class="pay-form__buttons-wrapper">
+		{% include '../terms/terms.nunj' %}
+	</div>
+
+</form>
