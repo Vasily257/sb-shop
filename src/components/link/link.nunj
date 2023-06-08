@@ -1,0 +1,17 @@
+{% macro link(
+	className = '',
+	path = 'https://www.google.com/',
+	target = '_blank',
+	ariaLabel = '',
+	children = 'Link text'
+) -%}
+
+	<a
+		class="link {{ className }}"
+		href="{{ path }}"
+		target="{{ target }}"
+		rel="noopener noreferrer"
+		{% if ariaLabel %} aria-label="{{ ariaLabel }}" {% endif %}
+	>{{ children }}</a>
+
+{%- endmacro %}

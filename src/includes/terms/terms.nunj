@@ -1,12 +1,12 @@
 {% from "../../components/control/control.nunj" import control %}
+{% from "../../components/link/link.nunj" import link %}
 
 <fieldset class="terms">
 	<legend class="terms__legend visually-hidden">Terms</legend>
 
 	{# Создать текст для лейбла чекбокса с ссылками и неразрывными пробелами #}
 	{% set termLabelText %}
-		I accept the <a href="#" class="terms__link" target="_blank" rel="noopener noreferrer">terms and conditions</a>
-		and&nbsp;the&nbsp;<a href="#" class="terms__link" target="_blank" rel="noopener noreferrer">Privacy&nbsp;Policies</a>
+		I accept the {{ link(children = 'terms and conditions') }} and&nbsp;the&nbsp;{{link(children = 'Privacy&nbsp;Policies') }}
 	{% endset %}
 
 	{{ control(
