@@ -4,7 +4,7 @@
 	height = '32',
 	width = '32',
 	altText = 'Изображение'
-) %}
+) -%}
 
 	<img
 		class="image {{ className }}"
@@ -14,4 +14,4 @@
 		alt="{{ altText }}"
 	>
 
-{% endmacro %}
+{%- endmacro %}

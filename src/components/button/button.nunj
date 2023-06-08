@@ -5,7 +5,7 @@
 	ariaLabel = '',
 	dataCounter = '',
 	children = 'Button text'
-) %}
+) -%}
 
 	{% set modifier = '' %}
 	{% if filled %} {% set modifier = 'button_filled' %} {% endif %}
@@ -15,8 +15,6 @@
 		type="{{ type }}"
 		{% if ariaLabel %} aria-label="{{ ariaLabel }}" {% endif %}
 		{% if dataCounter %} data-counter="{{ dataCounter }}" {% endif %}
-	>
-		{{ children }}
-	</button>
+	>{{ children }}</button>
 
-{% endmacro %}
+{%- endmacro %}

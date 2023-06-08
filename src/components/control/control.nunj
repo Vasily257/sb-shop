@@ -9,7 +9,7 @@
 	placeholderText = '',
 	tooltipText = '',
 	disabled = false
-) %}
+) -%}
 
 	<p class="control {{ className }}">
 		<input
@@ -22,8 +22,8 @@
 		/>
 		<label
 			class="control__label control__label_type_{{ type }} {{ labelClassName }}"
-			for="{{ id }}"> {{ labelText }}
-		</label>
+			for="{{ id }}"
+		>{{ labelText }}</label>
 	</p>
-	
-{% endmacro %}
+
+{%- endmacro %}
