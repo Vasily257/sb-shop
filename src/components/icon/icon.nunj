@@ -1,5 +1,18 @@
-{% macro icon(props) %}
-	<svg {% if props.className %}class="{{ props.className }}"{% endif %}{% if props.attr %} {{ props.attr }}{% endif %}>
-		<use xlink:href="#icon-{{ props.iconName }}" />
+{% macro icon(
+	className = '',
+	iconName = 'search',
+	width = '24',
+	height = '24',
+	ariaHidden = true
+) %}
+
+	<svg
+		{% if className %} class="{{ className }}" {% endif %}
+		width="{{ width }}"
+		height="{{ height }}"
+		{% if ariaHidden %} aria-hidden {% endif %}
+	>
+		<use xlink:href="#icon-{{ iconName }}"/>
 	</svg>
+	
 {% endmacro %}

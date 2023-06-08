@@ -4,18 +4,19 @@
 	type = 'button',
 	ariaLabel = '',
 	dataCounter = '',
-	children = ''
+	children = 'Button text'
 ) %}
 
 	{% set modifier = '' %}
 	{% if filled %} {% set modifier = 'button_filled' %} {% endif %}
 
 	<button
-		class='button {{ modifier }} {{ className }}'
+		class="button {{ modifier }} {{ className }}"
 		type="{{ type }}"
 		{% if ariaLabel %} aria-label="{{ ariaLabel }}" {% endif %}
 		{% if dataCounter %} data-counter="{{ dataCounter }}" {% endif %}
 	>
 		{{ children }}
 	</button>
+
 {% endmacro %}

@@ -5,11 +5,12 @@
 	type = 'radio',
 	id = '',
 	name = '',
-	labelText = '',
+	labelText = 'Label text',
 	placeholderText = '',
 	tooltipText = '',
 	disabled = false
 ) %}
+
 	<p class="control {{ className }}">
 		<input
 			class="control__input control__input_type_{{ type }} {{ inputClassName }}"
@@ -24,4 +25,5 @@
 			for="{{ id }}"> {{ labelText }}
 		</label>
 	</p>
+	
 {% endmacro %}
