@@ -28,6 +28,14 @@
 		background-color: rgba(#000000, 0.3);
 	}
 
+	&:focus {
+		outline: none;
+	}
+
+	&:focus-visible {
+		outline: 2px solid $primary-color;
+	}
+
 	&_filled {
 		color: #ffffff;
 		border-color: $primary-color;

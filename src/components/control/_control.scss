@@ -10,6 +10,14 @@
 
 		@extend .animated;
 
+		&:focus {
+			outline: none;
+		}
+
+		&:focus-visible {
+			outline: 2px solid $primary-color;
+		}
+
 		@supports (appearance: none) {
 			border-width: 1px;
 			border-style: solid;
