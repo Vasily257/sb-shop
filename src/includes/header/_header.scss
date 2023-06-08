@@ -24,7 +24,7 @@
 	&__button {
 		height: min-content;
 		margin: 0;
-		margin-top: 2px;
+		margin-top: 5px;
 		padding: 0;
 
 		transition: opacity $default-transition-duration $default-transition-function;
@@ -52,7 +52,7 @@
 
 			&::after {
 				position: absolute;
-				bottom: 14px;
+				bottom: 17px;
 				left: 17px;
 
 				width: 13px;
@@ -72,7 +72,7 @@
 		}
 
 		&_type_burger {
-			margin-top: 3px;
+			margin-top: 6px;
 		}
 	}
 }
