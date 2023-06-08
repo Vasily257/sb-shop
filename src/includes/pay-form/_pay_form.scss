@@ -14,15 +14,22 @@
 		margin-top: 18px;
 	}
 
-	&__form {
-		margin-top: 18px;
-	}
-
 	&__credit-card-wrapper {
 		margin-top: 19px;
 	}
 
 	&__terms-wrapper {
 		margin-top: 36px;
+	}
+
+	&__control-buttons {
+		display: flex;
+		justify-content: space-between;
+
+		margin-top: 43px;
+	}
+
+	&__check-out-button {
+		padding: 12px 31px 11px 30px;
 	}
 }

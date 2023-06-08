@@ -1,3 +1,5 @@
+{% from "../../components/button/button.nunj" import button %}
+
 <form class="pay-form" action="#" method="post" accept-charset="UTF-8">
 
 	<h2 class="pay-form__title">Billing Information</h2>
@@ -18,8 +20,13 @@
 	</div>
 
 	{# Кнопки управления формой #}
-	<div class="pay-form__buttons-wrapper">
-		{% include '../terms/terms.nunj' %}
-	</div>
+	<ul class="pay-form__control-buttons">
+		<li>
+			{{ button(children = 'Back') }}
+		</li>
+		<li>
+			{{ button(className = 'pay-form__check-out-button', children = 'Check out', filled = true) }}
+		</li>
+	</ul>
 
 </form>
