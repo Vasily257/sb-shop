@@ -1,0 +1,25 @@
+<ul class="pay-stages" aria-label="Stages of payment">
+	{% for stage in payStages %}
+
+		{# Добавить модификатор для линии, элемента с контентом и счетчика в зависимости от статуса #}
+		{% if stage.status === 'ready' %}
+			{% set contentModifier = 'pay-stages__content_status_ready' %}
+		{% elif stage.status === 'processed' %}
+			{% set numberModifier = 'pay-stages__number_status_processed' %}
+			{% set contentModifier = 'pay-stages__content_status_processed' %}
+			{% set lineModifier = 'pay-stages__line_status_processed' %}
+		{% elif stage.status === 'disabled' %}
+			{% set numberModifier = 'pay-stages__number_status_disabled' %}
+			{% set contentModifier = 'pay-stages__content_status_disabled' %}
+			{% set lineModifier = 'pay-stages__line_status_disabled' %}
+		{% endif %}
+
+		<li class="pay-stages__content {{ contentModifier }}">
+			<span class="pay-stages__number {{ numberModifier }}">{{ stage.number }}</span>
+			<span class="pay-stages__text">
+				{{stage.text}}
+			</span>
+		</li>
+		<li class="pay-stages__line {{ lineModifier }}"></li>
+	{% endfor %}
+</ul>

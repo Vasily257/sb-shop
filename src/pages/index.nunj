@@ -5,8 +5,9 @@
 	{% include '../includes/header/header.nunj' %}
 
 	<main class="main-page">
-		{% include '../includes/stage-section/stage-section.nunj' %}
+
 		{% include '../includes/billing-section/billing-section.nunj' %}
+		
 	</main>
 
 {% endblock %}

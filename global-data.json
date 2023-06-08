@@ -23,7 +23,7 @@
 			"text": "Desc 2"
 		}
 	],
-	"stages": [
+	"payStages": [
 		{
 			"number": 1,
 			"text": "Account",
