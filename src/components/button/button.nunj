@@ -1,11 +1,21 @@
-{% macro button(props) %}
+{% macro button(
+	className = '',
+	filled = false,
+	type = 'button',
+	ariaLabel = '',
+	dataCounter = '',
+	children = ''
+) %}
+
+	{% set modifier = '' %}
+	{% if filled %} {% set modifier = 'button_filled' %} {% endif %}
+
 	<button
-		{% if props.className %} class='button {{props.className}}' {% else %} class="button" {% endif %}
-		{% if props.attr %} {{ props.attr }} {% endif %}
+		class='button {{ modifier }} {{ className }}'
+		type="{{ type }}"
+		{% if ariaLabel %} aria-label="{{ ariaLabel }}" {% endif %}
+		{% if dataCounter %} data-counter="{{ dataCounter }}" {% endif %}
 	>
-		{{ props.children }}
-		{% if props.chevronRight %}
-			<span class="button__chevron-right">&gt;</span>
-		{% endif %}
+		{{ children }}
 	</button>
 {% endmacro %}
