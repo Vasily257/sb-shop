@@ -1,16 +1,16 @@
 {% macro image(
-	className = '',
-	fileName = 'pay-pal.svg',
-	height = '32',
-	width = '32',
-	altText = 'Изображение'
+		className = '',
+		fileName = 'pay-pal.svg',
+		width = '32',
+		height = '32',
+		altText = 'Alt text'
 ) -%}
 
 	<img
 		class="image {{ className }}"
 		src="../../assets/images/{{ fileName }}"
-		height="{{ height }}"
 		width="{{ width }}"
+		height="{{ height }}"
 		alt="{{ altText }}"
 	>
 

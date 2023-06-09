@@ -21,7 +21,7 @@
 			fileName = 'pay-pal.svg',
 			height = '23',
 			width = '85',
-			altText = 'Логотип PayPal'
+			altText = 'PayPal logo'
 		)
 	) }}
 
