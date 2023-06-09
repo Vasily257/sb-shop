@@ -1,10 +1,23 @@
-{% from "../../components/icon/icon.nunj" import icon %}
 {% from "../../components/button/button.nunj" import button %}
+{% from "../../components/link/link.nunj" import link %}
+{% from "../../components/icon/icon.nunj" import icon %}
+{% from "../../components/image/image.nunj" import image %}
 
 {% set cartCounter = 2 %}
 
 <header class="header">
-	<img class="header__logo" src={% inline 'logo.svg' %} alt="Website logo"/>
+
+	{{ link(
+		className = 'header__logo-link',
+		path = '#',
+		target = '_self',
+		children = image(
+			fileName = 'logo.svg',
+			width = '89',
+			height = '32',
+			altText = 'Website logo'
+		)
+	) }}
 
 	{{ button(
 		className = 'header__button header__button_type_search',
