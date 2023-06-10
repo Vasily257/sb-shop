@@ -49,6 +49,7 @@
 		{
 			"label": "Name on card",
 			"name": "name-on-card",
+			"autocomplete": "cc-name",
 			"placeholder": "Placeholder Text"
 		},
 		{
@@ -69,11 +70,13 @@
 		},
 		{
 			"label": "Expire date",
-			"name": "expire-date"
+			"name": "expire-date",
+			"autocomplete": "cc-exp"
 		},
 		{
 			"label": "CVV code",
 			"name": "cvv-code",
+			"autocomplete": "cc-csc",
 			"tooltip": "?"
 		}
 	]

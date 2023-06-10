@@ -1,18 +1,55 @@
 {% from "../../components/control/control.nunj" import control %}
 
 <div class="credit-card" aria-label="Credit card details">
-	{% set utilClass = '' %}
 	{% for cardField in cardFields %}
 
-		{# Скрыть лейблы у последний трех ипутов card-number #}
+		{# Скрыть лейблы #}
+		{% set utilClass = '' %}
 		{% if
 			cardField.name === 'card-number-two' or
 			cardField.name === 'card-number-three' or
 			cardField.name === 'card-number-four'
 		%}
 			{% set utilClass = 'visually-hidden' %}
-		{% else %}
-			{% set utilClass = '' %}
+		{% endif %}
+
+		{# Указать номерной тип данных #}
+		{% set numeric = false %}
+		{% if
+			cardField.name === 'card-number-one' or
+			cardField.name === 'card-number-two' or
+			cardField.name === 'card-number-three' or
+			cardField.name === 'card-number-four' or
+			cardField.name === 'cvv-code'
+		%}
+			{% set numeric = true %}
+		{% endif %}
+
+		{# Указать максимальную длину ввода #}
+		{% set maxlength = null %}
+		{% if cardField.name === 'name-on-card'	%}
+			{% set maxlength = 20 %}
+		{% elif
+			cardField.name === 'card-number-one' or
+			cardField.name === 'card-number-two' or
+			cardField.name === 'card-number-three' or
+			cardField.name === 'card-number-four'
+		%}
+			{% set maxlength = 4 %}
+		{% elif cardField.name === 'cvv-code'	%}
+			{% set maxlength = 3 %}
+		{% endif %}
+
+		{# Добавить placeholder #}
+		{% set placeholder = '' %}
+		{% if cardField.placeholder %}
+			{% set placeholder = cardField.placeholder %}
+		{% endif %}
+
+		{# Добавить autocomplete #}
+		{% set autocomplete = '' %}
+		{% if cardField.autocomplete %}
+			{% set autocomplete = cardField.autocomplete %}
 		{% endif %}
 
 		{{ control(
@@ -22,7 +59,11 @@
 				id = cardField.name + '-id',
 				name = cardField.name,
 				labelText = cardField.label,
-				placeholderText = cardField.placeholder,
+				placeholderText = placeholder,
+				autocompleteValue = autocomplete,
+				numericField = numeric,
+				maxlengthNumber = maxlength,
+				required = true,
 				tooltipText = cardField.tooltip
 		) }}
 
