@@ -2,12 +2,16 @@
 	display: grid;
 	column-gap: 4px;
 	row-gap: 19px;
-	grid-template-columns: repeat(4, 1fr);
+	grid-template-columns: repeat(4, minmax(71px, 100px));
+
+	max-width: 490px;
 
 	&__control {
 		display: flex;
 		align-items: flex-start;
 		flex-direction: column-reverse;
+
+		width: 100%;
 
 		&_type_name-on-card {
 			grid-column: 1/5;
@@ -78,5 +82,18 @@
 		font-size: 12px;
 		font-weight: 500;
 		line-height: 24px;
+	}
+
+	@media only screen and (min-width: 600px) {
+		column-gap: 30px;
+
+		padding-top: 18px;
+		padding-right: 29px;
+		padding-bottom: 45px;
+		padding-left: 29px;
+
+		border: 1px solid #cfcfcf;
+		border-radius: 5px;
+		box-shadow: 0 0 32px rgba(0, 0, 0, 0.19);
 	}
 }

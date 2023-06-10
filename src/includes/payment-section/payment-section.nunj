@@ -2,7 +2,9 @@
 
 	<h1 class="visually-hidden">Payment</h1>
 
-	{% include '../pay-stages/pay-stages.nunj' %}
+	<div class="payment-section__stages">
+		{% include '../pay-stages/pay-stages.nunj' %}
+	</div>
 
 	<div class="payment-section__form">
 		{% include '../pay-form/pay-form.nunj' %}

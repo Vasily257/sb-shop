@@ -1,4 +1,6 @@
 .pay-form {
+	max-width: 638px;
+
 	&__title {
 		letter-spacing: 0.1px;
 
@@ -31,5 +33,30 @@
 
 	&__check-out-button {
 		padding: 12px 31px 11px 30px;
+	}
+
+	@media only screen and (min-width: 600px) {
+		&__title {
+			margin-left: 30px;
+		}
+
+		&__pay-methods-wrapper {
+			margin-top: 38px;
+			margin-left: 30px;
+		}
+
+		&__credit-card-wrapper {
+			margin-top: 40px;
+		}
+
+		&__terms-wrapper {
+			margin-top: 40px;
+			margin-left: 30px;
+		}
+
+		&__control-buttons {
+			margin-top: 40px;
+			margin-left: 30px;
+		}
 	}
 }

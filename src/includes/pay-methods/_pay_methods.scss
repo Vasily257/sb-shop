@@ -20,4 +20,12 @@
 			margin-left: 14px;
 		}
 	}
+
+	@media only screen and (min-width: 600px) {
+		&__control {
+			&_type_pay-pal {
+				margin-left: 82px;
+			}
+		}
+	}
 }
