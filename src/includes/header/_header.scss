@@ -9,7 +9,7 @@
 
 	border-bottom: 1px solid $border-color;
 
-	@media screen and (min-width: 768px) {
+	@media screen and (min-width: $bp-mobile-to-tablet) {
 		padding-right: 30px;
 		padding-left: 30px;
 	}
@@ -65,6 +65,12 @@
 				font-size: 10px;
 				font-weight: 400;
 				line-height: 13px;
+			}
+		}
+
+		&_type_burger {
+			@media screen and (min-width: 1200px) {
+				display: none;
 			}
 		}
 	}
