@@ -23,6 +23,27 @@
 			"text": "Desc 2"
 		}
 	],
+	"headerButtons": [
+		{
+			"name": "search",
+			"ariaLabel": "Search on the website",
+			"iconWidth": "24",
+			"iconHeight": "24"
+		},
+		{
+			"name": "cart",
+			"ariaLabel": "Open the shopping cart",
+			"iconWidth": "24",
+			"iconHeight": "21",
+			"cartCounter": "2"
+		},
+		{
+			"name": "burger",
+			"ariaLabel": "Open the navigation menu",
+			"iconWidth": "29",
+			"iconHeight": "22"
+		}
+	],
 	"payStages": [
 		{
 			"number": 1,

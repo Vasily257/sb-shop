@@ -1,6 +1,5 @@
 .header {
 	display: flex;
-	align-items: flex-end;
 
 	padding-top: 26px;
 	padding-right: 10px;
@@ -16,6 +15,30 @@
 
 	&__logo-link {
 		margin-right: auto;
+	}
+
+	&__button-list {
+		display: flex;
+		align-items: flex-end;
+		gap: 26px;
+
+		margin: 0;
+		padding: 0;
+
+		list-style-type: none;
+	}
+
+	&__button-wrapper {
+		&_type_cart {
+			width: 30.5px;
+			margin-bottom: 1px;
+		}
+
+		@media screen and (min-width: $bp-tablet-to-desktop) {
+			&_type_burger {
+				display: none;
+			}
+		}
 	}
 
 	&__button {
@@ -35,21 +58,6 @@
 			opacity: $default-hover-opacity;
 			color: inherit;
 			background: none;
-		}
-
-		&_type_search {
-			margin-right: 26px;
-		}
-
-		&_type_cart {
-			margin-right: 32px;
-			margin-bottom: 1px;
-		}
-
-		&_type_burger {
-			@media screen and (min-width: 1200px) {
-				display: none;
-			}
 		}
 	}
 }
