@@ -42,30 +42,8 @@
 		}
 
 		&_type_cart {
-			position: relative;
-
 			margin-right: 32px;
 			margin-bottom: 1px;
-
-			&::after {
-				position: absolute;
-				bottom: 17px;
-				left: 17px;
-
-				width: 13px;
-				height: 13px;
-
-				content: attr(data-counter);
-
-				color: #ffffff;
-				border-radius: 50%;
-				background-color: $primary-color;
-
-				font-family: 'Roboto';
-				font-size: 10px;
-				font-weight: 400;
-				line-height: 13px;
-			}
 		}
 
 		&_type_burger {

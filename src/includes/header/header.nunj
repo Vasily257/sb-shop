@@ -28,8 +28,8 @@
 	{{ button(
   	className = 'header__button header__button_type_cart',
 		ariaLabel = 'Open the shopping cart, number of products: ' + cartCounter,
-		dataCounter = cartCounter,
 		children = icon(iconName = 'cart', width = '24', height = '21')
+		counter = cartCounter,
   ) }}
 
 	{{ button(

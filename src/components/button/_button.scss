@@ -1,4 +1,6 @@
 .button {
+	position: relative;
+
 	display: block;
 
 	padding: 12px 29px 11px;
@@ -50,5 +52,25 @@
 		&:active {
 			background-color: rgba($primary-color, 0.8);
 		}
+	}
+
+	&__counter {
+		position: absolute;
+		bottom: 17px;
+		left: 17px;
+
+		display: block;
+
+		width: 13px;
+		height: 13px;
+
+		color: #ffffff;
+		border-radius: 50%;
+		background-color: $primary-color;
+
+		font-family: 'Roboto';
+		font-size: 10px;
+		font-weight: 400;
+		line-height: 13px;
 	}
 }

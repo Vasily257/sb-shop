@@ -3,18 +3,25 @@
 	filled = false,
 	type = 'button',
 	ariaLabel = '',
-	dataCounter = '',
+	counter = '',
 	children = 'Button text'
 ) -%}
 
+	{# Модификатор для кнопки #}
 	{% set modifier = '' %}
-	{% if filled %} {% set modifier = 'button_filled' %} {% endif %}
+	{% if filled %}
+		{% set modifier = 'button_filled' %}
+	{% endif %}
 
 	<button
 		class="button {{ modifier }} {{ className }}"
 		type="{{ type }}"
 		{% if ariaLabel %} aria-label="{{ ariaLabel }}" {% endif %}
-		{% if dataCounter %} data-counter="{{ dataCounter }}" {% endif %}
-	>{{ children }}</button>
+	>
+		{{ children }}
+		{% if counter %}
+			<span class="button__counter">{{ counter }}</span>
+		{% endif %}
+	</button>
 
 {%- endmacro %}
