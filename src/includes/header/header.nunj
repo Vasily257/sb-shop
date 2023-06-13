@@ -21,6 +21,7 @@
 
 	<ul class="header__button-list">
 		{% for headerButton in headerButtons %}
+
 			<li class="header__button-wrapper header__button-wrapper_type_{{ headerButton.name}}">
 				{{ button(
 					className = 'header__button',
@@ -29,6 +30,7 @@
 					children = icon(iconName = headerButton.name, width = headerButton.iconWidth, height = headerButton.iconHeight)
 				) }}
 			</li>
+
 		{% endfor %}
 	</ul>
 
