@@ -5,14 +5,14 @@
 	type = 'radio',
 	id = '',
 	name = '',
-	labelText = 'Label text',
-	placeholderText = '',
-	autocompleteValue = '',
-	numericField = false,
-	maxlengthNumber = null,
+	label = 'Label text',
+	placeholder = '',
+	autocomplete = '',
+	isNumeric = false,
+	maxlength = null,
 	tooltipText = '',
-	required = false,
-	disabled = false
+	isRequired = false,
+	isDisabled = false
 ) -%}
 
 	<p class="control {{ className }}">
@@ -21,18 +21,18 @@
 			type="{{ type }}"
 			{% if id %} id="{{ id }}" {% endif %}
 			{% if name %} name="{{ name }}" {% endif %}
-			{% if placeholderText %} placeholder="{{ placeholderText }}" {% endif %}
-			{% if autocompleteValue %} autocomplete="{{ autocompleteValue }}" {% endif %}
-			{% if numericField %} inputmode="numeric" {% endif %}
-			{% if numericField %} pattern = "[0-9]*" {% endif %}
-			{% if maxlengthNumber %} maxlength = "{{ maxlengthNumber }}" {% endif %}
-			{% if required %} required {% endif %}
-			{% if disabled %} disabled {% endif %}
+			{% if placeholdert %} placeholder="{{ placeholder }}" {% endif %}
+			{% if autocomplete %} autocomplete="{{ autocomplete }}" {% endif %}
+			{% if isNumeric %} inputmode="numeric" {% endif %}
+			{% if isNumeric %} pattern = "[0-9]*" {% endif %}
+			{% if maxlength %} maxlength = "{{ maxlength }}" {% endif %}
+			{% if isRequired %} required {% endif %}
+			{% if isDisabled %} disabled {% endif %}
 		/>
 		<label
 			class="control__label control__label_type_{{ type }} {{ labelClassName }}"
 			for="{{ id }}"
-		>{{ labelText }}</label>
+		>{{ label }}</label>
 	</p>
 
 {%- endmacro %}

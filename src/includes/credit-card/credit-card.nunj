@@ -14,7 +14,7 @@
 		{% endif %}
 
 		{# Указать номерной тип данных #}
-		{% set numeric = false %}
+		{% set isNumericField = false %}
 		{% if
 			cardField.name === 'card-number-one' or
 			cardField.name === 'card-number-two' or
@@ -22,34 +22,34 @@
 			cardField.name === 'card-number-four' or
 			cardField.name === 'cvv-code'
 		%}
-			{% set numeric = true %}
+			{% set isNumericField = true %}
 		{% endif %}
 
 		{# Указать максимальную длину ввода #}
-		{% set maxlength = null %}
+		{% set inputMaxlength = null %}
 		{% if cardField.name === 'name-on-card'	%}
-			{% set maxlength = 20 %}
+			{% set inputMaxlength = 20 %}
 		{% elif
 			cardField.name === 'card-number-one' or
 			cardField.name === 'card-number-two' or
 			cardField.name === 'card-number-three' or
 			cardField.name === 'card-number-four'
 		%}
-			{% set maxlength = 4 %}
+			{% set inputMaxlength = 4 %}
 		{% elif cardField.name === 'cvv-code'	%}
-			{% set maxlength = 3 %}
+			{% set inputMaxlength = 3 %}
 		{% endif %}
 
 		{# Добавить placeholder #}
-		{% set placeholder = '' %}
+		{% set placeholderText = '' %}
 		{% if cardField.placeholder %}
-			{% set placeholder = cardField.placeholder %}
+			{% set placeholderText = cardField.placeholder %}
 		{% endif %}
 
 		{# Добавить autocomplete #}
-		{% set autocomplete = '' %}
+		{% set autocompleteValue = '' %}
 		{% if cardField.autocomplete %}
-			{% set autocomplete = cardField.autocomplete %}
+			{% set autocompleteValue = cardField.autocomplete %}
 		{% endif %}
 
 		{{ control(
@@ -58,12 +58,12 @@
 				type = 'text',
 				id = cardField.name + '-id',
 				name = cardField.name,
-				labelText = cardField.label,
-				placeholderText = placeholder,
-				autocompleteValue = autocomplete,
-				numericField = numeric,
-				maxlengthNumber = maxlength,
-				required = true,
+				label = cardField.label,
+				placeholder = placeholderText,
+				autocomplete = autocompleteValue,
+				isNumeric = isNumericField,
+				maxlength = inputMaxlength,
+				isRequired = true,
 				tooltipText = cardField.tooltip
 		) }}
 

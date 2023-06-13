@@ -3,7 +3,7 @@
 		fileName = 'pay-pal.svg',
 		width = '32',
 		height = '32',
-		altText = 'Alt text'
+		alt = 'Alt text'
 ) -%}
 
 	<img
@@ -11,7 +11,7 @@
 		src="../../assets/images/{{ fileName }}"
 		width="{{ width }}"
 		height="{{ height }}"
-		alt="{{ altText }}"
+		alt="{{ alt }}"
 	>
 
 {%- endmacro %}

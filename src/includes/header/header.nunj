@@ -15,7 +15,7 @@
 			fileName = 'logo.svg',
 			width = '89',
 			height = '32',
-			altText = 'Website logo'
+			alt = 'Website logo'
 		)
 	) }}
 

@@ -14,10 +14,14 @@
 		{% set modifier = 'button_filled' %}
 	{% endif %}
 
-	<button class="button {{ modifier }} {{ className }}" type="{{ type }}" {% if ariaLabel %} aria-label="{{ ariaLabel }}" {% endif %}>
+	<button
+		class="button {{ modifier }} {{ className }}"
+		type="{{ type }}"
+		{% if ariaLabel %} aria-label="{{ ariaLabel }}" {% endif %}
+	>
 		{{ children }}
 		{% if counter %}
-			{{badge(className = 'button__notification',	type = 'notification', children = counter )}}
+			{{ badge(className = 'button__notification',	type = 'notification', children = counter ) }}
 		{% endif %}
 	</button>
 
