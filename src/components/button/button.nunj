@@ -1,3 +1,5 @@
+{% from "../../components/badge/badge.nunj" import badge %}
+
 {% macro button(
 	className = '',
 	filled = false,
@@ -7,20 +9,15 @@
 	children = 'Button text'
 ) -%}
 
-	{# Модификатор для кнопки #}
 	{% set modifier = '' %}
 	{% if filled %}
 		{% set modifier = 'button_filled' %}
 	{% endif %}
 
-	<button
-		class="button {{ modifier }} {{ className }}"
-		type="{{ type }}"
-		{% if ariaLabel %} aria-label="{{ ariaLabel }}" {% endif %}
-	>
+	<button class="button {{ modifier }} {{ className }}" type="{{ type }}" {% if ariaLabel %} aria-label="{{ ariaLabel }}" {% endif %}>
 		{{ children }}
 		{% if counter %}
-			<span class="button__counter">{{ counter }}</span>
+			{{badge(className = 'button__notification',	type = 'notification', children = counter )}}
 		{% endif %}
 	</button>
 

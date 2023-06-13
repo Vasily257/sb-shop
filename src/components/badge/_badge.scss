@@ -1,0 +1,23 @@
+.badge {
+	display: block;
+
+	width: 13px;
+	height: 13px;
+
+	border-radius: 50%;
+
+	font-family: 'Roboto';
+	font-size: 10px;
+	font-weight: 400;
+	line-height: 13px;
+
+	&_type_notification {
+		color: #ffffff;
+		background-color: $primary-color;
+	}
+
+	&_type_tooltip {
+		color: #000000;
+		background: #dbdbdb;
+	}
+}

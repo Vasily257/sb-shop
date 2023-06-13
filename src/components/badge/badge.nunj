@@ -1,0 +1,22 @@
+{% macro badge(
+	className = '',
+	type = 'notification',
+	children = 'Badge text',
+	tooltipText = ''
+) -%}
+
+	{% set modifier = '' %}
+	{% if type === 'notification' %}
+		{% set modifier = 'badge_type_notification' %}
+	{% elif type === 'tooltip' %}
+		{% set modifier = 'badge_type_tooltip' %}
+	{% endif %}
+
+	<span class="badge {{ modifier }} {{ className }}">
+		{{ children }}
+		{% if tooltipText %}
+			<span class="badge__tooltip">{{ tooltipText }}</span>
+		{% endif %}
+	</span>
+
+{%- endmacro %}
