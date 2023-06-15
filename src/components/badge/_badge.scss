@@ -1,8 +1,12 @@
 .badge {
+	position: absolute;
+
 	display: block;
 
 	width: 13px;
 	height: 13px;
+
+	text-align: center;
 
 	border-radius: 50%;
 
@@ -14,10 +18,5 @@
 	&_type_notification {
 		color: #ffffff;
 		background-color: $primary-color;
-	}
-
-	&_type_tooltip {
-		color: #000000;
-		background: #dbdbdb;
 	}
 }

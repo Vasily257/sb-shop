@@ -8,9 +8,9 @@
 	label = 'Label text',
 	placeholder = '',
 	autocomplete = '',
+	additionalElement = '',
 	isNumeric = false,
 	maxlength = null,
-	tooltipText = '',
 	isRequired = false,
 	isDisabled = false
 ) -%}
@@ -32,7 +32,10 @@
 		<label
 			class="control__label control__label_type_{{ type }} {{ labelClassName }}"
 			for="{{ id }}"
-		>{{ label }}</label>
+		>
+			{{- label -}}
+		</label>
+		{{- additionalElement -}}
 	</p>
 
 {%- endmacro %}
