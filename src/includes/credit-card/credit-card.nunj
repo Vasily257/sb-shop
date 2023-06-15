@@ -1,4 +1,6 @@
 {% from "../../components/control/control.nunj" import control %}
+{% from "../../components/button/button.nunj" import button %}
+{% from "../../components/tooltip/tooltip.nunj" import tooltip %}
 
 <div class="credit-card" aria-label="Credit card details">
 	{% for cardField in cardFields %}
@@ -11,6 +13,26 @@
 			cardField.name === 'card-number-four'
 		%}
 			{% set utilClass = 'visually-hidden' %}
+		{% endif %}
+
+		{# Добавить tooltip в label #}
+		{% set additionalButtonElement = '' %}
+		{% if cardField.name === 'cvv-code' %}
+			{% set additionalButtonElement =
+				button(
+					className = 'credit-card__tooltip-button',
+					ariaLabel = 'What is CVV code?',
+					ariaDescribedby = 'cvv-tooltip',
+					children = '?'
+				) +
+				tooltip(
+					className = 'credit-card__tooltip',
+					id = 'cvv-tooltip',
+					place = 'top',
+					children =
+						'CVV code is&nbsp;a&nbsp;tree or&nbsp;foure-digit security code located on&nbsp;the back of&nbsp;credit or&nbsp;debit cards.'
+				)
+	   	%}
 		{% endif %}
 
 		{# Указать номерной тип данных #}
@@ -40,18 +62,6 @@
 			{% set inputMaxlength = 3 %}
 		{% endif %}
 
-		{# Добавить placeholder #}
-		{% set placeholderText = '' %}
-		{% if cardField.placeholder %}
-			{% set placeholderText = cardField.placeholder %}
-		{% endif %}
-
-		{# Добавить autocomplete #}
-		{% set autocompleteValue = '' %}
-		{% if cardField.autocomplete %}
-			{% set autocompleteValue = cardField.autocomplete %}
-		{% endif %}
-
 		{{ control(
 				className = 'credit-card__control credit-card__control_type_' + cardField.name,
 				labelClassName = 'credit-card__label ' + utilClass,
@@ -59,12 +69,12 @@
 				id = cardField.name + '-id',
 				name = cardField.name,
 				label = cardField.label,
-				placeholder = placeholderText,
-				autocomplete = autocompleteValue,
+				placeholder = cardField.placeholder,
+				autocomplete = cardField.autocomplete,
+				additionalElement = additionalButtonElement,
 				isNumeric = isNumericField,
 				maxlength = inputMaxlength,
-				isRequired = true,
-				tooltipText = cardField.tooltip
+				isRequired = true
 		) }}
 
 	{% endfor %}
