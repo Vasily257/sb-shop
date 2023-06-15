@@ -1,0 +1,12 @@
+{% macro tooltip(className = '', id = '',	place = 'top', children = 'Tooltip text') -%}
+
+	{# Настроить БЭМ-модификатор #}
+	{% set modifier = '' %}
+	{% if place === 'top' %}
+		{% set modifier = 'tooltip_place_top' %}
+	{% endif %}
+
+	<span class="tooltip {{ modifier }} {{ className }}" id = "{{ id }}">
+		{{- children -}}
+	</span>
+{%- endmacro %}

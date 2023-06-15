@@ -1,0 +1,29 @@
+.tooltip {
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	display: none;
+
+	min-width: 200px;
+	max-width: 300px;
+	padding: 10px;
+
+	text-align: left;
+
+	color: #000000;
+	border-radius: 5px;
+	background-color: #b4c6ff;
+
+	font-family: 'Roboto';
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 13px;
+
+	&_place_top {
+		top: -10px;
+		left: calc(50% + 15px);
+
+		transform: translate(-50%, -100%);
+	}
+}
