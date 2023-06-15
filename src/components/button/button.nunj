@@ -3,6 +3,7 @@
 	filled = false,
 	type = 'button',
 	ariaLabel = '',
+	ariaDescribedby = '',
 	children = 'Button text'
 ) -%}
 
@@ -15,6 +16,7 @@
 		class="button {{ modifier }} {{ className }}"
 		type="{{ type }}"
 		{% if ariaLabel %} aria-label="{{ ariaLabel }}" {% endif %}
+		{% if ariaDescribedby %} aria-describedby="{{ ariaDescribedby }}" {% endif %}
 	>
 		{{- children -}}
 	</button>
