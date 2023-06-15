@@ -34,8 +34,7 @@
 			"name": "cart",
 			"ariaLabel": "Open the shopping cart",
 			"iconWidth": "24",
-			"iconHeight": "21",
-			"cartCounter": "2"
+			"iconHeight": "21"
 		},
 		{
 			"name": "burger",
@@ -97,8 +96,7 @@
 		{
 			"label": "CVV code",
 			"name": "cvv-code",
-			"autocomplete": "cc-csc",
-			"tooltip": "?"
+			"autocomplete": "cc-csc"
 		}
 	]
 }
