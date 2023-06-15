@@ -1,3 +1,4 @@
+{% from "../../components/badge/badge.nunj" import badge %}
 {% from "../../components/button/button.nunj" import button %}
 {% from "../../components/link/link.nunj" import link %}
 {% from "../../components/icon/icon.nunj" import icon %}
@@ -22,12 +23,22 @@
 	<ul class="header__button-list">
 		{% for headerButton in headerButtons %}
 
+			{# Добавить иконки для кнопок и отдельно бейдж (счетчик) для кнопки корзины #}
+			{% set childrenContent =
+				icon(iconName = headerButton.name, width = headerButton.iconWidth, height = headerButton.iconHeight)
+			%}
+			{% if headerButton.name === 'cart' %}
+				{% set childrenContent =
+					childrenContent +
+					badge(className = 'header__cart-counter',	type = 'notification', children = cartCounter)
+				%}
+			{% endif %}
+
 			<li class="header__button-wrapper header__button-wrapper_type_{{ headerButton.name}}">
 				{{ button(
 					className = 'header__button',
 					ariaLabel = headerButton.ariaLabel,
-					counter = headerButton.cartCounter,
-					children = icon(iconName = headerButton.name, width = headerButton.iconWidth, height = headerButton.iconHeight)
+					children = childrenContent
 				) }}
 			</li>
 
