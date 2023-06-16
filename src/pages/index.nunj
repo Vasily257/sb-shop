@@ -7,8 +7,11 @@
 	<main class="main-page">
 
 		<h1 class="visually-hidden">Payment</h1>
-		
+
 		{% include '../includes/payment-section/payment-section.nunj' %}
+
+		{% include '../includes/basket-section/basket-section.nunj' %}
+
 	</main>
 
 {% endblock %}

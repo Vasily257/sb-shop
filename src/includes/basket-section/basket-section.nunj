@@ -1,0 +1,9 @@
+<section class="basket-section">
+
+	<div class="basket-section__products"></div>
+
+	<div class="basket-section__promo"></div>
+
+	<div class="basket-section__cost"></div>
+
+</section>
