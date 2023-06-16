@@ -29,7 +29,7 @@
 				className = 'pay-form__check-out-button',
 				filled = true,
 				type = 'submit',
-				children = 'Check out'
+				children = 'Check Out'
 			) }}
 		</li>
 	</ul>
