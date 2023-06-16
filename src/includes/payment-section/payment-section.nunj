@@ -1,7 +1,5 @@
 <section class="payment-section">
 
-	<h1 class="visually-hidden">Payment</h1>
-
 	<div class="payment-section__stages">
 		{% include '../pay-stages/pay-stages.nunj' %}
 	</div>

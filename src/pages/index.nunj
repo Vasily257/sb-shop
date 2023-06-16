@@ -5,6 +5,9 @@
 	{% include '../includes/header/header.nunj' %}
 
 	<main class="main-page">
+
+		<h1 class="visually-hidden">Payment</h1>
+		
 		{% include '../includes/payment-section/payment-section.nunj' %}
 	</main>
 
