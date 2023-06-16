@@ -27,7 +27,7 @@
 		<li>
 			{{ button(
 				className = 'pay-form__check-out-button',
-				filled = true,
+				typeStyle = 'filled',
 				type = 'submit',
 				children = 'Check Out'
 			) }}

@@ -42,19 +42,14 @@
 	}
 
 	&__button {
-		margin: 0;
-		padding: 0;
-
 		transition: opacity $default-transition-duration $default-transition-function;
 
 		opacity: 1;
-		border: none;
 
 		&:hover {
 			transition: none;
 
 			opacity: $default-hover-opacity;
-			background: none;
 		}
 	}
 

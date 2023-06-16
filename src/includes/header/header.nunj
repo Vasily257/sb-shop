@@ -37,6 +37,7 @@
 			<li class="header__button-wrapper header__button-wrapper_type_{{ headerButton.name}}">
 				{{ button(
 					className = 'header__button',
+					typeStyle = 'reseted',
 					ariaLabel = headerButton.ariaLabel,
 					children = childrenContent
 				) }}

@@ -21,6 +21,7 @@
 			{% set additionalButtonElement =
 				button(
 					className = 'credit-card__tooltip-button',
+					typeStyle = 'reseted',
 					ariaLabel = 'What is CVV code?',
 					ariaDescribedby = 'cvv-tooltip',
 					children = '?'

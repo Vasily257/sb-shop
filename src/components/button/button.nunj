@@ -1,6 +1,6 @@
 {% macro button(
 	className = '',
-	filled = false,
+	typeStyle = 'primary',
 	type = 'button',
 	ariaLabel = '',
 	ariaDescribedby = '',
@@ -8,8 +8,10 @@
 ) -%}
 
 	{% set modifier = '' %}
-	{% if filled %}
+	{% if typeStyle === 'filled' %}
 		{% set modifier = 'button_filled' %}
+	{% elif typeStyle === 'reseted' %}
+		{% set modifier = 'button_reseted' %}
 	{% endif %}
 
 	<button
