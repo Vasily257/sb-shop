@@ -1,6 +1,6 @@
 {% from "../../components/button/button.nunj" import button %}
 
-<form class="pay-form" action="#" method="post" accept-charset="UTF-8">
+<form class="pay-form" action="https://echo.htmlacademy.ru/" method="post" accept-charset="UTF-8">
 
 	<h2 class="pay-form__title">Billing Information</h2>
 
@@ -25,7 +25,12 @@
 			{{ button(children = 'Back') }}
 		</li>
 		<li>
-			{{ button(className = 'pay-form__check-out-button', children = 'Check out', filled = true) }}
+			{{ button(
+				className = 'pay-form__check-out-button',
+				filled = true,
+				type = 'submit',
+				children = 'Check out'
+			) }}
 		</li>
 	</ul>
 
