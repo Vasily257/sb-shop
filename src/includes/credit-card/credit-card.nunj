@@ -22,6 +22,7 @@
 				button(
 					className = 'credit-card__tooltip-button',
 					typeStyle = 'reseted',
+					title = 'What is CVV code?',
 					ariaLabel = 'What is CVV code?',
 					ariaDescribedby = 'cvv-tooltip',
 					children = '?'

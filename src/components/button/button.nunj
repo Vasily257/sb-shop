@@ -3,6 +3,7 @@
 	typeStyle = 'primary',
 	type = 'button',
 	ariaLabel = '',
+	title = '',
 	ariaDescribedby = '',
 	children = 'Button text'
 ) -%}
@@ -18,6 +19,7 @@
 		class="button {{ modifier }} {{ className }}"
 		type="{{ type }}"
 		{% if ariaLabel %} aria-label="{{ ariaLabel }}" {% endif %}
+		{% if title %} title="{{ title }}" {% endif %}
 		{% if ariaDescribedby %} aria-describedby="{{ ariaDescribedby }}" {% endif %}
 	>
 		{{- children -}}
