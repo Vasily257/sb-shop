@@ -1,0 +1,31 @@
+{% from "../../components/button/button.nunj" import button %}
+{% from "../../components/control/control.nunj" import control %}
+{% from "../../components/link/link.nunj" import link %}
+{% from "../../components/icon/icon.nunj" import icon %}
+{% from "../../components/image/image.nunj" import image %}
+
+{% set subtotal = 1050 %}
+{% set tax = 100 %}
+{% set shipping = 150 %}
+{% set total = subtotal + tax + shipping %}
+
+<div class="total-cost">
+	<ul class="total-cost__list">
+		<li class="total-cost__item">
+			<span>Subtotal</span>
+			<span>${{ formatNumber(subtotal) }}</span>
+		</li>
+		<li class="total-cost__item">
+			<span>Tax</span>
+			<span>${{ formatNumber(tax) }}</span>
+		</li>
+		<li class="total-cost__item">
+			<span>Shipping</span>
+			<span>${{ formatNumber(shipping) }}</span>
+		</li>
+		<li class="total-cost__item total-cost__item_bold">
+			<span>Total</span>
+			<span>${{ formatNumber(total) }}</span>
+		</li>
+	</ul>
+</div>

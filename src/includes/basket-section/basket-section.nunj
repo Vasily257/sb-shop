@@ -4,6 +4,6 @@
 
 	{% include '../promo/promo.nunj' %}
 
-	<div class="basket-section__cost"></div>
+  {% include '../total-cost/total-cost.nunj' %}
 
 </section>
