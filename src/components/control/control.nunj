@@ -21,7 +21,7 @@
 			type="{{ type }}"
 			{% if id %} id="{{ id }}" {% endif %}
 			{% if name %} name="{{ name }}" {% endif %}
-			{% if placeholdert %} placeholder="{{ placeholder }}" {% endif %}
+			{% if placeholder %} placeholder="{{ placeholder }}" {% endif %}
 			{% if autocomplete %} autocomplete="{{ autocomplete }}" {% endif %}
 			{% if isNumeric %} inputmode="numeric" {% endif %}
 			{% if isNumeric %} pattern = "[0-9]*" {% endif %}
