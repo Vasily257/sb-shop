@@ -1,0 +1,34 @@
+.promo {
+	padding-top: 41px;
+	padding-right: 40px;
+	padding-bottom: 39px;
+	padding-left: 39px;
+
+	border-bottom: 1px solid $border-color;
+
+	&__title {
+		letter-spacing: 0.1px;
+
+		color: #000000;
+
+		font-family: 'Roboto';
+		font-size: 18px;
+		font-weight: 700;
+		line-height: 21px;
+	}
+
+	&__wrapper {
+		display: flex;
+		justify-content: space-between;
+
+		margin-top: 29px;
+	}
+
+	&__control {
+		width: 100%;
+	}
+
+	&__button {
+		margin-left: 10px;
+	}
+}

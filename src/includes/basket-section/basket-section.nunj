@@ -2,7 +2,7 @@
 
 	{% include '../products/products.nunj' %}
 
-	<div class="basket-section__promo"></div>
+	{% include '../promo/promo.nunj' %}
 
 	<div class="basket-section__cost"></div>
 
