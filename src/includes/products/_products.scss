@@ -1,0 +1,95 @@
+.products {
+	padding-top: 41px;
+	padding-right: 40px;
+	padding-bottom: 39px;
+	padding-left: 39px;
+
+	border-bottom: 1px solid $border-color;
+
+	&__title {
+		letter-spacing: 0.1px;
+
+		color: #000000;
+
+		font-family: 'Roboto';
+		font-size: 18px;
+		font-weight: 700;
+		line-height: 21px;
+	}
+
+	&__list {
+		display: flex;
+		gap: 40px;
+		flex-direction: column;
+
+		margin-top: 29px;
+	}
+
+	&__item {
+		display: grid;
+		column-gap: 12px;
+		row-gap: 15px;
+		grid-template-columns: 100px 1fr 19px;
+		grid-template-rows: 32px 53px;
+
+		color: #000000;
+
+		font-family: 'Roboto';
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 16px;
+	}
+
+	&__image {
+		grid-column: 1 / 2;
+		grid-row: 1 / 3;
+	}
+
+	&__description {
+		grid-column: 2 / 3;
+		grid-row: 1 / 3;
+
+		margin-top: 1px;
+	}
+
+	&__cost-wrapper {
+		display: flex;
+		align-items: center;
+		gap: 17px;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		grid-column: 2 / 3;
+		grid-row: 2 / 3;
+
+		height: min-content;
+	}
+
+	&__button {
+		width: 21px;
+		height: 20px;
+
+		transition: opacity $default-transition-duration $default-transition-function;
+
+		opacity: 1;
+
+		&:hover {
+			transition: none;
+
+			opacity: $default-hover-opacity;
+		}
+
+		&_type_close {
+			width: 19px;
+			height: 18px;
+		}
+	}
+
+	&__number {
+		margin-top: 1px;
+	}
+
+	&__cost {
+		margin-top: 1px;
+		margin-left: 8px;
+	}
+}

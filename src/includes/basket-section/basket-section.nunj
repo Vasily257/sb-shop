@@ -1,6 +1,6 @@
 <section class="basket-section">
 
-	<div class="basket-section__products"></div>
+	{% include '../products/products.nunj' %}
 
 	<div class="basket-section__promo"></div>
 

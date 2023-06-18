@@ -1,0 +1,56 @@
+{% from "../../components/button/button.nunj" import button %}
+{% from "../../components/control/control.nunj" import control %}
+{% from "../../components/link/link.nunj" import link %}
+{% from "../../components/icon/icon.nunj" import icon %}
+{% from "../../components/image/image.nunj" import image %}
+
+{% set productNumber = 1 %}
+{% set productCost = 525 %}
+
+<div class="products">
+	<h2 class="products__title">My basket</h2>
+	<ul class="products__list">
+
+		{% for product in products %}
+			<li class="products__item">
+				{{ image(
+					class = 'products__image',
+					fileName = product.image + '.webp',
+					height = '23',
+					width = '85',
+					alt = product.image
+				) }}
+
+				<p class="products__description">{{ product.description }}</p>
+				<p class="products__cost-wrapper">
+
+					{{ button(
+						className = 'products__button products__button_type_plus',
+						typeStyle = 'reseted',
+						ariaLabel = 'Increase the number of products',
+						children = icon(iconName = 'plus', width = 21, height = 20)
+					) }}
+
+					<span class="products__number">{{ productNumber }}</span>
+
+					{{ button(
+						className = 'products__button products__button_type_minus',
+						typeStyle = 'reseted',
+						ariaLabel = 'Increase the number of products',
+						children = icon(iconName = 'minus', width = 21, height = 20)
+					) }}
+
+					<span class="products__cost">$ {{ productCost }}</span>
+				</p>
+
+				{{ button(
+					className = 'products__button products__button_type_close',
+					typeStyle = 'reseted',
+					ariaLabel = 'Increase the number of products',
+					children = icon(iconName = 'close', width = 19, height = 18)
+				) }}
+			</li>
+		{% endfor %}
+
+	</ul>
+</div>

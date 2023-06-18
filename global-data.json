@@ -98,5 +98,15 @@
 			"name": "cvv-code",
 			"autocomplete": "cc-csc"
 		}
+	],
+	"products": [
+		{
+			"description": "Amet minim mollit non deserunt ullamco est sit",
+			"image": "jacket"
+		},
+		{
+			"description": "Amet minim mollit non",
+			"image": "sneakers"
+		}
 	]
 }
