@@ -1,8 +1,4 @@
 module.exports = {
-	addAwesome: function (str) {
-		return str + ' Awesome!';
-	},
-
 	/** Добавить разделитель для чисел */
 	formatNumber: function (number) {
 		number = number.toString();
