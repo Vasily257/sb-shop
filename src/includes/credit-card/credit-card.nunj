@@ -49,6 +49,19 @@
 			{% set isNumericField = true %}
 		{% endif %}
 
+		{# Указать паттерн ввода #}
+		{% set patternValue = '' %}
+		{% if cardField.name.startWith === 'name-on-card'	%}
+			{% set patternValue = '^[a-zA-Z]+ [a-zA-Z]+$' %}
+		{% elif
+			cardField.name === 'card-number-one' or
+			cardField.name === 'card-number-two' or
+			cardField.name === 'card-number-three' or
+			cardField.name === 'card-number-four'
+		%}
+			{% set patternValue = '[0-9]*' %}
+		{% endif %}
+
 		{# Указать максимальную длину ввода #}
 		{% set inputMaxlength = null %}
 		{% if cardField.name === 'name-on-card'	%}
@@ -75,6 +88,7 @@
 				autocomplete = cardField.autocomplete,
 				additionalElement = additionalButtonElement,
 				isNumeric = isNumericField,
+				pattern = patternValue,
 				maxlength = inputMaxlength,
 				isRequired = true
 		) }}

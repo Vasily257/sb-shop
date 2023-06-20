@@ -10,6 +10,7 @@
 	autocomplete = '',
 	additionalElement = '',
 	isNumeric = false,
+	pattern = '',
 	maxlength = null,
 	isRequired = false,
 	isDisabled = false
@@ -24,7 +25,7 @@
 			{% if placeholder %} placeholder="{{ placeholder }}" {% endif %}
 			{% if autocomplete %} autocomplete="{{ autocomplete }}" {% endif %}
 			{% if isNumeric %} inputmode="numeric" {% endif %}
-			{% if isNumeric %} pattern = "[0-9]*" {% endif %}
+			{% if pattern %} pattern = "{{ pattern }}" {% endif %}
 			{% if maxlength %} maxlength = "{{ maxlength }}" {% endif %}
 			{% if isRequired %} required {% endif %}
 			{% if isDisabled %} disabled {% endif %}

@@ -22,7 +22,8 @@
 		type = 'checkbox',
 		id = 'terms-id',
 		name = 'terms',
-		label = termLabelText
+		label = termLabelText,
+		isRequired = true
 	) }}
 
 </fieldset>
