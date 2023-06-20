@@ -63,6 +63,6 @@
 	}
 
 	@media only screen and (min-width: $bp-tablet-to-desktop) {
-		max-width: 660px;
+		min-width: 660px;
 	}
 }
