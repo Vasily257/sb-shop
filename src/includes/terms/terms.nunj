@@ -6,7 +6,7 @@
 
 	{# Создать текст для лейбла чекбокса с ссылками и неразрывными пробелами #}
 	{% set termLabelText %}
-		I accept the {{ link(children = 'terms and conditions') }} and&nbsp;the&nbsp;{{link(children = 'Privacy&nbsp;Policies') }}
+		I accept the {{ link(children = 'terms and conditions') }} and&nbsp;the&nbsp;{{ link(children = 'Privacy&nbsp;Policies') }}
 	{% endset %}
 
 	{{ control(

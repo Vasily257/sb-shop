@@ -25,12 +25,20 @@
 
 			{# Добавить иконки для кнопок и отдельно бейдж (счетчик) для кнопки корзины #}
 			{% set childrenContent =
-				icon(iconName = headerButton.name, width = headerButton.iconWidth, height = headerButton.iconHeight)
+				icon(
+					iconName = headerButton.name,
+					width = headerButton.iconWidth,
+					height = headerButton.iconHeight
+				)
 			%}
 			{% if headerButton.name === 'cart' %}
 				{% set childrenContent =
 					childrenContent +
-					badge(className = 'header__cart-counter',	type = 'notification', children = cartCounter)
+					badge(
+						className = 'header__cart-counter',
+						type = 'notification',
+						children = cartCounter
+					)
 				%}
 			{% endif %}
 

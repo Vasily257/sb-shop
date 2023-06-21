@@ -78,19 +78,19 @@
 		{% endif %}
 
 		{{ control(
-				className = 'credit-card__control credit-card__control_type_' + cardField.name,
-				labelClassName = 'credit-card__label ' + utilClass,
-				type = 'text',
-				id = cardField.name + '-id',
-				name = cardField.name,
-				label = cardField.label,
-				placeholder = cardField.placeholder,
-				autocomplete = cardField.autocomplete,
-				additionalElement = additionalButtonElement,
-				isNumeric = isNumericField,
-				pattern = patternValue,
-				maxlength = inputMaxlength,
-				isRequired = true
+			className = 'credit-card__control credit-card__control_type_' + cardField.name,
+			labelClassName = 'credit-card__label ' + utilClass,
+			type = 'text',
+			id = cardField.name + '-id',
+			name = cardField.name,
+			label = cardField.label,
+			placeholder = cardField.placeholder,
+			autocomplete = cardField.autocomplete,
+			additionalElement = additionalButtonElement,
+			isNumeric = isNumericField,
+			pattern = patternValue,
+			maxlength = inputMaxlength,
+			isRequired = true
 		) }}
 
 	{% endfor %}
