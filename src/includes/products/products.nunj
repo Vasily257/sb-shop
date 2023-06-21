@@ -36,7 +36,7 @@
 					{{ button(
 						className = 'products__button products__button_type_minus',
 						typeStyle = 'reseted',
-						ariaLabel = 'Increase the number of products',
+						ariaLabel = 'Reduce the number of products',
 						children = icon(iconName = 'plus', width = 21, height = 20)
 					) }}
 
@@ -46,7 +46,7 @@
 				{{ button(
 					className = 'products__button products__button_type_close',
 					typeStyle = 'reseted',
-					ariaLabel = 'Increase the number of products',
+					ariaLabel = 'Delete a product',
 					children = icon(iconName = 'close', width = 19, height = 18)
 				) }}
 			</li>
