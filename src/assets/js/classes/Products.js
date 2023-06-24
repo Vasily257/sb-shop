@@ -52,18 +52,18 @@ class Products {
 	_setEventListeners() {
 		for (let i = 0; i < this.productItems.length; i++) {
 			const productItem = this.productItems[i];
-			const productItemID = productItem.getAttribute('data-id');
+			const productItemId = productItem.getAttribute('data-id');
 
 			// Добавить обработчик клика для элемента товара
 			productItem.addEventListener('click', evt => {
 				const parentElement = evt.target.parentNode;
 
 				if (parentElement.classList.contains('products__button_type_plus')) {
-					this._incrementProductCount(productItemID);
+					this._incrementProductCount(productItemId);
 				}
 
 				if (parentElement.classList.contains('products__button_type_minus')) {
-					this._decrementProductCount(productItemID);
+					this._decrementProductCount(productItemId);
 				}
 
 				if (parentElement.classList.contains('products__button_type_close')) {
