@@ -1,33 +1,55 @@
 class Products {
 	constructor() {
-		/** Количество товаров, сортированные по id */
-		this.productCount = {};
+		/**
+		 * Товары, сортированные по id
+		 * @type {Record<number, {id: number, count: number,  price: number}>}
+		 */
+		this.products = {};
 
-		/** Карточки товаров */
+		/**
+		 * Промежуточная стоимость всех товаров
+		 * @type {number}
+		 */
+		this.subtotalCost = 0;
+
+		/**
+		 * Карточки товаров
+		 * @type {NodeListOf<HTMLElement>}
+		 */
 		this.productItems = document.querySelectorAll('.products__item');
 	}
 
-	/** Увеличить количество товаров на 1 */
+	/**
+	 * Увеличить количество товаров на 1
+	 * @param {number} id - идентификатор товара
+	 */
 	_incrementProductCount(id) {
-		if (!this.productCount[id]) {
-			this.productCount[id] = 0;
+		let productCount = this.products[id].count;
+
+		if (!productCount) {
+			productCount = 0;
 		}
 
 		// Ограничить количество добавляемых товаров
-		if (this.productCount[id] < 20) {
-			this.productCount[id] += 1;
+		if (productCount < 20) {
+			productCount += 1;
 		}
 	}
 
-	/** Уменьшить количество товаров на 1 */
+	/**
+	 * Уменьшить количество товаров на 1
+	 * @param {number} id - идентификатор товара
+	 */
 	_decrementProductCount(id) {
-		if (this.productCount[id] && this.productCount[id] > 0) {
-			this.productCount[id] -= 1;
+		let productCount = this.products[id].count;
+
+		if (productCount && productCount > 0) {
+			productCount -= 1;
 		}
 	}
 
 	/** Добавить слушателей событий */
-	setEventListeners() {
+	_setEventListeners() {
 		for (let i = 0; i < this.productItems.length; i++) {
 			const productItem = this.productItems[i];
 			const productItemID = productItem.getAttribute('data-id');
@@ -38,12 +60,10 @@ class Products {
 
 				if (parentElement.classList.contains('products__button_type_plus')) {
 					this._incrementProductCount(productItemID);
-					console.log(this.productCount);
 				}
 
 				if (parentElement.classList.contains('products__button_type_minus')) {
 					this._decrementProductCount(productItemID);
-					console.log(this.productCount);
 				}
 
 				if (parentElement.classList.contains('products__button_type_close')) {
@@ -51,6 +71,11 @@ class Products {
 				}
 			});
 		}
+	}
+
+	/** Инициализировать компонент */
+	init() {
+		this._setEventListeners();
 	}
 }
 export default Products;
