@@ -14,7 +14,7 @@ class ProjectApp {
 		this.env = require('./utils/env').default;
 		this.utils = require('./utils/utils').default;
 		this.classes = {
-			Basket: require('./classes/Basket').default,
+			Products: require('./classes/Products').default,
 		};
 		this.components = {
 			products: require('./components/products').default,
