@@ -95,6 +95,22 @@ const utils = {
 			number % 100 > 4 && number % 100 < 20 ? 2 : cases[number % 10 < 5 ? number % 10 : 5]
 		];
 	},
+
+	/**
+	 * Выделить числовое значение из строки
+	 * @param {string} inputString - строка, где находится числовое значение
+	 */
+	parseStringAsNumber(inputString) {
+		let outputNumber = 0;
+
+		const regExpMatchArray = inputString.match(/\d+/);
+
+		if (regExpMatchArray) {
+			outputNumber = parseInt(regExpMatchArray[0], 10);
+		}
+
+		return outputNumber;
+	},
 };
 
 export default utils;
