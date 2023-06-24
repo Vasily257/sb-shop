@@ -101,10 +101,12 @@
 	],
 	"products": [
 		{
+			"id": 32,
 			"description": "Amet minim mollit non deserunt ullamco est sit",
 			"image": "jacket"
 		},
 		{
+			"id": 764,
 			"description": "Amet minim mollit non",
 			"image": "sneakers"
 		}

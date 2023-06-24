@@ -12,7 +12,7 @@
 	<ul class="products__list">
 
 		{% for product in products %}
-			<li class="products__item">
+			<li class="products__item" data-id="{{ product.id }}">
 				{{ image(
 					class = 'products__image',
 					fileName = product.image + '.webp',
@@ -25,7 +25,7 @@
 				<p class="products__cost-wrapper">
 
 					{{ button(
-						className = 'products__button products__button_type_plus',
+						className = 'products__button products__button_type_minus',
 						typeStyle = 'reseted',
 						ariaLabel = 'Increase the number of products',
 						children = icon(iconName = 'minus', width = 21, height = 20)
@@ -34,13 +34,14 @@
 					<span class="products__number">{{ productNumber }}</span>
 
 					{{ button(
-						className = 'products__button products__button_type_minus',
+						className = 'products__button products__button_type_plus',
 						typeStyle = 'reseted',
 						ariaLabel = 'Reduce the number of products',
 						children = icon(iconName = 'plus', width = 21, height = 20)
 					) }}
 
-					<span class="products__cost">$ {{ productCost }}</span>
+					<span class="products__cost">$
+						{{ productCost }}</span>
 				</p>
 
 				{{ button(

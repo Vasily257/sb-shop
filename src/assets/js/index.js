@@ -14,9 +14,11 @@ class ProjectApp {
 		this.env = require('./utils/env').default;
 		this.utils = require('./utils/utils').default;
 		this.classes = {
-			// Signal: require('./classes/Signal').default,
+			Basket: require('./classes/Basket').default,
 		};
-		this.components = {};
+		this.components = {
+			products: require('./components/products').default,
+		};
 		this.helpers = {};
 		this.modules = {};
 		document.addEventListener('DOMContentLoaded', () => {
