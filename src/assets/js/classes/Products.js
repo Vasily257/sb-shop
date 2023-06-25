@@ -43,7 +43,8 @@ class Products {
 		}
 	}
 
-	/** Получить исходную информацию по товарам из разметки
+	/**
+	 * Получить исходную информацию по товарам из разметки
 	 * @param {HTMLElement} product - ссылка на элемент товара
 	 */
 	_getInitialDataFromMarkup(product) {
@@ -76,14 +77,16 @@ class Products {
 		};
 	}
 
-	/** Добавить слушателей событий
+	/**
+	 * Добавить слушателей событий
 	 * @param {HTMLElement} product - ссылка на элемент товара
 	 */
 	_setEventListeners(product) {
 		product.addEventListener('click', this._handleProductClick.bind(this));
 	}
 
-	/** Обработать событие клика на товар
+	/**
+	 * Обработать событие клика на товар
 	 * @param {Event} evt - событие
 	 * @param {number} productId - идентификатор товара
 	 */
