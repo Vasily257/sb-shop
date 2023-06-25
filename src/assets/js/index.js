@@ -1,14 +1,3 @@
-// import { gsap } from 'gsap';
-
-// import { ScrollToPlugin } from 'gsap/ScrollToPlugin.js';
-// gsap.registerPlugin(ScrollToPlugin);
-
-// global.gsap = gsap;
-
-// gsap.defaults({
-// 	overwrite: 'auto',
-// });
-
 class ProjectApp {
 	constructor() {
 		this.env = require('./utils/env').default;
