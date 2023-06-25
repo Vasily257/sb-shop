@@ -1,5 +1,11 @@
 import utils from '../utils/utils';
 
+/**
+ * @typedef {Object} ProductInfo
+ * @property {HTMLElement} product - ссылка на элемент товара
+ * @property {number} productId - идентификатор товара
+ */
+
 class Products {
 	constructor() {
 		/**
@@ -38,17 +44,16 @@ class Products {
 			const product = this._products[i];
 			const productId = product.getAttribute('data-id');
 
-			this._getInitialDataFromMarkup(product, productId);
-			this._getElements(product, productId);
-			this._setEventListeners(product, productId);
+			this._getInitialDataFromMarkup({ product, productId });
+			this._getElements({ product, productId });
+			this._setEventListeners({ product, productId });
 		}
 	}
 
 	/** Получить исходную информацию по товарам из разметки
-	 * @param {HTMLElement} product - ссылка на элемент товара
-	 * @param {number} productId - идентификатор товара
+	 * @param {ProductInfo} productInfo - информация о товаре
 	 */
-	_getInitialDataFromMarkup(product, productId) {
+	_getInitialDataFromMarkup({ product, productId }) {
 		const countTextContent = product.querySelector('.products__number').textContent;
 		const costTextContent = product.querySelector('.products__cost').textContent;
 
@@ -66,10 +71,9 @@ class Products {
 
 	/**
 	 * Получить ссылки на внутренние HTML-элементы товара
-	 * @param {HTMLElement} product - ссылка на элемент товара
-	 * @param {number} productId - идентификатор товара
+	 * @param {ProductInfo} productInfo - информация о товаре
 	 */
-	_getElements(product, productId) {
+	_getElements({ product, productId }) {
 		this._ixProductElements[productId] = {
 			count: product.querySelector('.products__number'),
 			cost: product.querySelector('.products__cost'),
@@ -77,10 +81,9 @@ class Products {
 	}
 
 	/** Добавить слушателей событий
-	 * @param {HTMLElement} product - ссылка на элемент товара
-	 * @param {number} productId - идентификатор товара
+	 * @param {ProductInfo} productInfo - информация о товаре
 	 */
-	_setEventListeners(product, productId) {
+	_setEventListeners({ product, productId }) {
 		product.addEventListener('click', evt => this._handleProductClick(evt, productId));
 	}
 
