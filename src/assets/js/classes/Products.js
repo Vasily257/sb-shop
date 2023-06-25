@@ -92,13 +92,13 @@ class Products {
 		const buttonElement = evt.target.parentNode;
 
 		if (buttonElement.classList.contains('products__button_type_plus')) {
-			this._incrementProductCount(productId);
+			this._increaseProductCount(productId);
 			this._updateProductCost(productId);
 			this._increaseSubtotalCost(productId);
 		}
 
 		if (buttonElement.classList.contains('products__button_type_minus')) {
-			this._decrementProductCount(productId);
+			this._decreaseProductCount(productId);
 			this._updateProductCost(productId);
 			this._decreaseSubtotalCost(productId);
 		}
@@ -112,7 +112,7 @@ class Products {
 	 * Увеличить количество товаров на 1
 	 * @param {number} productId - идентификатор товара
 	 */
-	_incrementProductCount(productId) {
+	_increaseProductCount(productId) {
 		const product = this._ixProductValues[productId];
 
 		// Ограничить количество добавляемых товаров
@@ -127,7 +127,7 @@ class Products {
 	 * Уменьшить количество товаров на 1
 	 * @param {number} productId - идентификатор товара
 	 */
-	_decrementProductCount(productId) {
+	_decreaseProductCount(productId) {
 		const product = this._ixProductValues[productId];
 
 		if (product.count > 0) {
