@@ -118,9 +118,8 @@ class Products {
 		// Ограничить количество добавляемых товаров
 		if (product.count < 20) {
 			this._ixProductValues[productId].count += 1;
+			this._ixProductElements[productId].count.textContent = product.count;
 		}
-
-		this._ixProductElements[productId].count.textContent = product.count;
 	}
 
 	/**
@@ -130,11 +129,15 @@ class Products {
 	_decreaseProductCount(productId) {
 		const product = this._ixProductValues[productId];
 
-		if (product.count > 0) {
-			this._ixProductValues[productId].count -= 1;
+		if (product.count === 1) {
+			this._ixProductElements[productId].count.closest('.products__item').remove();
 		}
 
-		this._ixProductElements[productId].count.textContent = product.count;
+		this._ixProductValues[productId].count -= 1;
+
+		if (product.count > 0) {
+			this._ixProductElements[productId].count.textContent = product.count;
+		}
 	}
 
 	/**
