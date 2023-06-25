@@ -1,7 +1,15 @@
 import utils from '../utils/utils';
+// eslint-disable-next-line no-unused-vars
+import Basket from './Basket';
 
 class Products {
-	constructor() {
+	constructor(basket) {
+		/**
+		 * Компонент корзины, который хранит информацию о промежуточной стоимости всех товаров
+		 * @type {Basket}
+		 */
+		this._basket = basket;
+
 		/**
 		 * HTML-коллекция товаров
 		 * @type {NodeListOf<HTMLElement>}
@@ -161,6 +169,8 @@ class Products {
 	 */
 	_increaseSubtotalCost(productId) {
 		this._subtotalCost += this._ixProductValues[productId].price;
+
+		this._basket.updateSubtotalCost(this._subtotalCost);
 	}
 
 	/**
@@ -169,6 +179,8 @@ class Products {
 	 */
 	_decreaseSubtotalCost(productId) {
 		this._subtotalCost -= this._ixProductValues[productId].price;
+
+		this._basket.updateSubtotalCost(this._subtotalCost);
 	}
 }
 export default Products;

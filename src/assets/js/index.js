@@ -8,7 +8,7 @@ class ProjectApp {
 			Products: require('./classes/Products').default,
 		};
 		this.components = {
-			products: require('./components/products').default,
+			init: require('./components/init'),
 		};
 		this.helpers = {};
 		this.modules = {};
