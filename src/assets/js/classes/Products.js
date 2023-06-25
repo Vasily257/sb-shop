@@ -1,11 +1,5 @@
 import utils from '../utils/utils';
 
-/**
- * @typedef {Object} ProductInfo
- * @property {HTMLElement} product - ссылка на элемент товара
- * @property {number} productId - идентификатор товара
- */
-
 class Products {
 	constructor() {
 		/**
@@ -42,18 +36,18 @@ class Products {
 	_iterateProducts() {
 		for (let i = 0; i < this._products.length; i++) {
 			const product = this._products[i];
-			const productId = product.getAttribute('data-id');
 
-			this._getInitialDataFromMarkup({ product, productId });
-			this._getElements({ product, productId });
-			this._setEventListeners({ product, productId });
+			this._getInitialDataFromMarkup(product);
+			this._getElements(product);
+			this._setEventListeners(product);
 		}
 	}
 
 	/** Получить исходную информацию по товарам из разметки
-	 * @param {ProductInfo} productInfo - информация о товаре
+	 * @param {HTMLElement} product - ссылка на элемент товара
 	 */
-	_getInitialDataFromMarkup({ product, productId }) {
+	_getInitialDataFromMarkup(product) {
+		const productId = product.getAttribute('data-id');
 		const countTextContent = product.querySelector('.products__number').textContent;
 		const costTextContent = product.querySelector('.products__cost').textContent;
 
@@ -71,9 +65,11 @@ class Products {
 
 	/**
 	 * Получить ссылки на внутренние HTML-элементы товара
-	 * @param {ProductInfo} productInfo - информация о товаре
+	 * @param {HTMLElement} product - ссылка на элемент товара
 	 */
-	_getElements({ product, productId }) {
+	_getElements(product) {
+		const productId = product.getAttribute('data-id');
+
 		this._ixProductElements[productId] = {
 			count: product.querySelector('.products__number'),
 			cost: product.querySelector('.products__cost'),
@@ -81,17 +77,18 @@ class Products {
 	}
 
 	/** Добавить слушателей событий
-	 * @param {ProductInfo} productInfo - информация о товаре
+	 * @param {HTMLElement} product - ссылка на элемент товара
 	 */
-	_setEventListeners({ product, productId }) {
-		product.addEventListener('click', evt => this._handleProductClick(evt, productId));
+	_setEventListeners(product) {
+		product.addEventListener('click', this._handleProductClick.bind(this));
 	}
 
-	/** Обработать клик на товар
+	/** Обработать событие клика на товар
 	 * @param {Event} evt - событие
 	 * @param {number} productId - идентификатор товара
 	 */
-	_handleProductClick(evt, productId) {
+	_handleProductClick(evt) {
+		const productId = evt.currentTarget.getAttribute('data-id');
 		const buttonElement = evt.target.parentNode;
 
 		if (buttonElement.classList.contains('products__button_type_plus')) {
