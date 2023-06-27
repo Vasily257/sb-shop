@@ -2,7 +2,7 @@ import Subject from './Subject';
 
 class Basket extends Subject {
 	/**
-	 * Создать экземпляр Basket, который наследует Subject
+	 * Создать экземпляр Basket, который расширяет Subject
 	 * @constructor
 	 */
 	constructor() {
