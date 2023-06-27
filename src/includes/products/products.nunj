@@ -16,8 +16,8 @@
 				{{ image(
 					class = 'products__image',
 					fileName = product.image + '.webp',
-					height = '23',
-					width = '85',
+					height = '100',
+					width = '100',
 					alt = product.image
 				) }}
 
