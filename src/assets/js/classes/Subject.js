@@ -6,14 +6,14 @@ class Subject {
 	constructor() {
 		/**
 		 * Список наблюдателей
-		 * @type {Array<Observer>}
+		 * @type {Array}
 		 */
 		this._observers = [];
 	}
 
 	/**
 	 * Добавить наблюдателя
-	 * @param {Observer} observer - наблюдатель
+	 * @param observer - наблюдатель
 	 */
 	addObserver(observer) {
 		const isNotExist = !this._observers.includes(observer);
@@ -25,7 +25,7 @@ class Subject {
 
 	/**
 	 * Удалить наблюдателя
-	 * @param {Observer} observer - наблюдатель
+	 * @param observer - наблюдатель
 	 */
 	removeObserver(observer) {
 		this._observers = this._observers.filter(iteratedObserver => iteratedObserver !== observer);
