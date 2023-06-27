@@ -3,9 +3,14 @@ import utils from '../utils/utils';
 import Basket from './Basket';
 
 class Products {
+	/**
+	 * Создать экземпляр Products, который меняет состояние Basket
+	 * @constructor
+	 * @param {Basket} basket - экземпляр Basket
+	 */
 	constructor(basket) {
 		/**
-		 * Компонент корзины, который хранит информацию о промежуточной стоимости всех товаров
+		 * Экземпляр Basket
 		 * @type {Basket}
 		 */
 		this._basket = basket;
@@ -96,27 +101,42 @@ class Products {
 	/**
 	 * Обработать событие клика на товар
 	 * @param {Event} evt - событие
-	 * @param {number} productId - идентификатор товара
 	 */
 	_handleProductClick(evt) {
 		const productId = evt.currentTarget.getAttribute('data-id');
 		const buttonElement = evt.target.parentNode;
 
 		if (buttonElement.classList.contains('products__button_type_plus')) {
-			this._increaseProductCount(productId);
-			this._updateProductCost(productId);
-			this._increaseSubtotalCost(productId);
+			this._handlePlusButtonClick(productId);
 		}
 
 		if (buttonElement.classList.contains('products__button_type_minus')) {
-			this._decreaseProductCount(productId);
-			this._updateProductCost(productId);
-			this._decreaseSubtotalCost(productId);
+			this._handleMinusButtonClick(productId);
 		}
 
 		if (buttonElement.classList.contains('products__button_type_close')) {
 			evt.currentTarget.remove();
 		}
+	}
+
+	/**
+	 * Обработать клик на кнопку увеличения количества товаров
+	 * @param {number} productId - идентификатор товара
+	 */
+	_handlePlusButtonClick(productId) {
+		this._increaseProductCount(productId);
+		this._updateProductCost(productId);
+		this._increaseSubtotalCost(productId);
+	}
+
+	/**
+	 * Обработать клик на кнопку уменьшения количества товаров
+	 * @param {number} productId - идентификатор товара
+	 */
+	_handleMinusButtonClick(productId) {
+		this._decreaseProductCount(productId);
+		this._updateProductCost(productId);
+		this._decreaseSubtotalCost(productId);
 	}
 
 	/**
@@ -183,4 +203,5 @@ class Products {
 		this._basket.updateSubtotalCost(this._subtotalCost);
 	}
 }
+
 export default Products;
