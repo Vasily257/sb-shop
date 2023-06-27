@@ -1,8 +1,3 @@
-/**
- * @typedef {Object} Observer
- * @property {Function} update - функция, которая обновляет состояние наблюдателя
- */
-
 class Subject {
 	/**
 	 * Создать экземпляр Subject, за которым будут следить наблюдатели
@@ -24,7 +19,7 @@ class Subject {
 		const isNotExist = !this._observers.includes(observer);
 
 		if (isNotExist) {
-			this.observers.push(observer);
+			this._observers.push(observer);
 		}
 	}
 
@@ -33,7 +28,7 @@ class Subject {
 	 * @param {Observer} observer - наблюдатель
 	 */
 	removeObserver(observer) {
-		this.observers = this.observers.filter(iteratedObserver => iteratedObserver !== observer);
+		this._observers = this._observers.filter(iteratedObserver => iteratedObserver !== observer);
 	}
 
 	/** Уведомить наблюдателей об изменении свойств */

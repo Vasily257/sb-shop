@@ -12,7 +12,7 @@ class Basket extends Subject {
 		 * Промежуточная стоимость всех товаров
 		 * @type {number}
 		 */
-		this._subtotalCost = 0;
+		this.subtotalCost = 0;
 	}
 
 	/**
@@ -20,7 +20,7 @@ class Basket extends Subject {
 	 * @param {number} newSubtotalCost - новая промежуточная стоимость всех товаров
 	 */
 	updateSubtotalCost(newSubtotalCost) {
-		this._subtotalCost = newSubtotalCost;
+		this.subtotalCost = newSubtotalCost;
 
 		this._notifyObservers();
 	}
