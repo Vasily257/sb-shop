@@ -13,19 +13,19 @@
 	<ul class="total-cost__list">
 		<li class="total-cost__item">
 			<span>Subtotal</span>
-			<span>${{ formatNumber(subtotal) }}</span>
+			<span class="total-cost__item-value total-cost__item-value_type_subtotal">${{ formatNumber(subtotal) }}</span>
 		</li>
 		<li class="total-cost__item">
 			<span>Tax</span>
-			<span>${{ formatNumber(tax) }}</span>
+			<span class="total-cost__item-value total-cost__item-value_type_tax">${{ formatNumber(tax) }}</span>
 		</li>
 		<li class="total-cost__item">
 			<span>Shipping</span>
-			<span>${{ formatNumber(shipping) }}</span>
+			<span class="total-cost__item-value total-cost__item-value_type_shipping">${{ formatNumber(shipping) }}</span>
 		</li>
 		<li class="total-cost__item total-cost__item_bold">
 			<span>Total</span>
-			<span>${{ formatNumber(total) }}</span>
+			<span class="total-cost__item-value total-cost__item-value_type_total">${{ formatNumber(total) }}</span>
 		</li>
 	</ul>
 </div>
