@@ -115,7 +115,7 @@ class Products {
 		}
 
 		if (buttonElement.classList.contains('products__button_type_close')) {
-			evt.currentTarget.remove();
+			this._handleCloseButtonClick({ productId, evt });
 		}
 	}
 
@@ -140,16 +140,34 @@ class Products {
 	}
 
 	/**
+	 * Обработать клик на кнопку закрытия
+	 * @param {Object} options - опции
+	 * @param {number} options.productId - идентификатор продукта
+	 * @param {Event} options.evt - объект события
+	 */
+	_handleCloseButtonClick({ productId, evt }) {
+		const productValues = this._ixProductValues[productId];
+
+		this._subtotalCost -= productValues.cost;
+		this._basket.updateSubtotalCost(this._subtotalCost);
+
+		evt.currentTarget.remove();
+
+		productValues.count = 0;
+		productValues.cost = 0;
+	}
+
+	/**
 	 * Увеличить количество товаров на 1
 	 * @param {number} productId - идентификатор товара
 	 */
 	_increaseProductCount(productId) {
-		const product = this._ixProductValues[productId];
+		const productValues = this._ixProductValues[productId];
 
 		// Ограничить количество добавляемых товаров
-		if (product.count < 20) {
+		if (productValues.count < 20) {
 			this._ixProductValues[productId].count += 1;
-			this._ixProductElements[productId].count.textContent = product.count;
+			this._ixProductElements[productId].count.textContent = productValues.count;
 		}
 	}
 
@@ -158,16 +176,16 @@ class Products {
 	 * @param {number} productId - идентификатор товара
 	 */
 	_decreaseProductCount(productId) {
-		const product = this._ixProductValues[productId];
+		const productValues = this._ixProductValues[productId];
 
-		if (product.count === 1) {
+		if (productValues.count === 1) {
 			this._ixProductElements[productId].count.closest('.products__item').remove();
 		}
 
 		this._ixProductValues[productId].count -= 1;
 
-		if (product.count > 0) {
-			this._ixProductElements[productId].count.textContent = product.count;
+		if (productValues.count > 0) {
+			this._ixProductElements[productId].count.textContent = productValues.count;
 		}
 	}
 
@@ -176,10 +194,10 @@ class Products {
 	 * @param {number} productId - идентификатор товара
 	 */
 	_updateProductCost(productId) {
-		const product = this._ixProductValues[productId];
-		product.cost = product.count * product.price;
+		const productValues = this._ixProductValues[productId];
+		productValues.cost = productValues.count * productValues.price;
 
-		const costTextContent = `$ ${utils.formatNumber(product.cost)}`;
+		const costTextContent = `$ ${utils.formatNumber(productValues.cost)}`;
 		this._ixProductElements[productId].cost.textContent = costTextContent;
 	}
 
