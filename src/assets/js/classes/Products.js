@@ -128,10 +128,7 @@ class Products {
 		if (count < 20) {
 			// Увеличить количество товаров на 1
 			const newCount = count + 1;
-
-			this._ixProductValues[productId].count = newCount;
-			this._ixProductElements[productId].count.textContent = newCount;
-			this._ixProductElements[productId].cost.textContent = this._formatCost(price * newCount);
+			this._updateProductValues({ productId, newCount, price });
 
 			// Уменьшить промежуточную стоимость всех товаров
 			this._subtotalCost += price;
@@ -149,10 +146,7 @@ class Products {
 		// Уменьшить количество товаров на 1
 		if (count > 1) {
 			const newCount = count - 1;
-
-			this._ixProductValues[productId].count = newCount;
-			this._ixProductElements[productId].count.textContent = newCount;
-			this._ixProductElements[productId].cost.textContent = this._formatCost(price * newCount);
+			this._updateProductValues({ productId, newCount, price });
 		} else if (count === 1) {
 			this._ixProductElements[productId].count.closest('.products__item').remove();
 		}
@@ -185,6 +179,19 @@ class Products {
 	 */
 	_formatCost(productCost) {
 		return `$ ${utils.formatNumber(productCost)}`;
+	}
+
+	/**
+	 * Обновить значения товара
+	 * @param {Object} values - значения товара
+	 * @param {number} values.productId - идентификатор товара
+	 * @param {number} values.newCount - обновлённое количество товаров
+	 * @param {number} values.price - цена товара
+	 */
+	_updateProductValues({ productId, newCount, price }) {
+		this._ixProductValues[productId].count = newCount;
+		this._ixProductElements[productId].count.textContent = newCount;
+		this._ixProductElements[productId].cost.textContent = this._formatCost(price * newCount);
 	}
 }
 
