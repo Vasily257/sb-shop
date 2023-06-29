@@ -123,9 +123,20 @@ class Products {
 	 * @param {number} productId - идентификатор товара
 	 */
 	_handlePlusButtonClick(productId) {
-		this._increaseProductCount(productId);
-		this._updateProductCost(productId);
-		this._increaseSubtotalCost(productId);
+		const { count, price } = this._ixProductValues[productId];
+
+		if (count < 20) {
+			// Увеличить количество товаров на 1
+			const newCount = count + 1;
+
+			this._ixProductValues[productId].count = newCount;
+			this._ixProductElements[productId].count.textContent = newCount;
+			this._ixProductElements[productId].cost.textContent = this._formatCost(price * newCount);
+
+			// Уменьшить промежуточную стоимость всех товаров
+			this._subtotalCost += price;
+			this._basket.updateSubtotalCost(this._subtotalCost);
+		}
 	}
 
 	/**
@@ -133,9 +144,22 @@ class Products {
 	 * @param {number} productId - идентификатор товара
 	 */
 	_handleMinusButtonClick(productId) {
-		this._decreaseProductCount(productId);
-		this._updateProductCost(productId);
-		this._decreaseSubtotalCost(productId);
+		const { count, price } = this._ixProductValues[productId];
+
+		// Уменьшить количество товаров на 1
+		if (count > 1) {
+			const newCount = count - 1;
+
+			this._ixProductValues[productId].count = newCount;
+			this._ixProductElements[productId].count.textContent = newCount;
+			this._ixProductElements[productId].cost.textContent = this._formatCost(price * newCount);
+		} else if (count === 1) {
+			this._ixProductElements[productId].count.closest('.products__item').remove();
+		}
+
+		// Уменьшить промежуточную стоимость всех товаров
+		this._subtotalCost -= price;
+		this._basket.updateSubtotalCost(this._subtotalCost);
 	}
 
 	/**
@@ -145,78 +169,22 @@ class Products {
 	 * @param {Event} options.evt - объект события
 	 */
 	_handleCloseButtonClick({ productId, evt }) {
-		const productValues = this._ixProductValues[productId];
-		const { price, count } = productValues;
+		const { price, count } = this._ixProductValues[productId];
 
 		this._subtotalCost -= price * count;
 		this._basket.updateSubtotalCost(this._subtotalCost);
 
+		this._ixProductValues[productId].count = 0;
+
 		evt.currentTarget.remove();
-
-		productValues.count = 0;
 	}
 
 	/**
-	 * Увеличить количество товаров на 1
-	 * @param {number} productId - идентификатор товара
+	 * Отформатировать стоимость продукта для разметки
+	 * @param {number} productCost - стоимость продукта
 	 */
-	_increaseProductCount(productId) {
-		const productValues = this._ixProductValues[productId];
-
-		// Ограничить количество добавляемых товаров
-		if (productValues.count < 20) {
-			this._ixProductValues[productId].count += 1;
-			this._ixProductElements[productId].count.textContent = productValues.count;
-		}
-	}
-
-	/**
-	 * Уменьшить количество товаров на 1
-	 * @param {number} productId - идентификатор товара
-	 */
-	_decreaseProductCount(productId) {
-		const productValues = this._ixProductValues[productId];
-
-		if (productValues.count === 1) {
-			this._ixProductElements[productId].count.closest('.products__item').remove();
-		}
-
-		this._ixProductValues[productId].count -= 1;
-
-		if (productValues.count > 0) {
-			this._ixProductElements[productId].count.textContent = productValues.count;
-		}
-	}
-
-	/**
-	 * Обновить стоимость товара
-	 * @param {number} productId - идентификатор товара
-	 */
-	_updateProductCost(productId) {
-		const productValues = this._ixProductValues[productId];
-		const { price, count } = productValues;
-
-		const costTextContent = `$ ${utils.formatNumber(price * count)}`;
-		this._ixProductElements[productId].cost.textContent = costTextContent;
-	}
-
-	/**
-	 * Увеличить промежуточную стоимость всех товаров
-	 * @param {number} productId - идентификатор товара
-	 */
-	_increaseSubtotalCost(productId) {
-		this._subtotalCost += this._ixProductValues[productId].price;
-		this._basket.updateSubtotalCost(this._subtotalCost);
-	}
-
-	/**
-	 * Уменьшить промежуточную стоимость всех товаров
-	 * @param {number} productId - идентификатор товара
-	 */
-	_decreaseSubtotalCost(productId) {
-		this._subtotalCost -= this._ixProductValues[productId].price;
-
-		this._basket.updateSubtotalCost(this._subtotalCost);
+	_formatCost(productCost) {
+		return `$ ${utils.formatNumber(productCost)}`;
 	}
 }
 
