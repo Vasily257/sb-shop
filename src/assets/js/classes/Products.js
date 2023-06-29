@@ -23,7 +23,7 @@ class Products {
 
 		/**
 		 * Ссылки на внутренние HTML-элементы товаров, индексированные по id товара
-		 * @type {Record<number, {count: HTMLElement,  cost: HTMLElement}>}
+		 * @type {Record<number, Record<string, HTMLElement>>}
 		 */
 		this._ixProductElements = {};
 
@@ -81,7 +81,7 @@ class Products {
 	 * @param {HTMLElement} product - ссылка на элемент товара
 	 */
 	_getElements(product) {
-		const productId = product.getAttribute('data-id');
+		const productId = Number(product.getAttribute('data-id'));
 
 		this._ixProductElements[productId] = {
 			count: product.querySelector('.products__number'),
