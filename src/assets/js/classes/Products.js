@@ -29,7 +29,7 @@ class Products {
 
 		/**
 		 * Значения товаров, индексированные по id товара
-		 * @type {Record<number, {count: number, cost: number, price: number,}>}
+		 * @type {Record<number, {count: number, price: number,}>}
 		 */
 		this._ixProductValues = {};
 
@@ -70,7 +70,6 @@ class Products {
 
 		this._ixProductValues[productId] = {
 			count,
-			cost,
 			price: cost / count,
 		};
 
@@ -147,14 +146,14 @@ class Products {
 	 */
 	_handleCloseButtonClick({ productId, evt }) {
 		const productValues = this._ixProductValues[productId];
+		const { price, count } = productValues;
 
-		this._subtotalCost -= productValues.cost;
+		this._subtotalCost -= price * count;
 		this._basket.updateSubtotalCost(this._subtotalCost);
 
 		evt.currentTarget.remove();
 
 		productValues.count = 0;
-		productValues.cost = 0;
 	}
 
 	/**
@@ -195,9 +194,9 @@ class Products {
 	 */
 	_updateProductCost(productId) {
 		const productValues = this._ixProductValues[productId];
-		productValues.cost = productValues.count * productValues.price;
+		const { price, count } = productValues;
 
-		const costTextContent = `$ ${utils.formatNumber(productValues.cost)}`;
+		const costTextContent = `$ ${utils.formatNumber(price * count)}`;
 		this._ixProductElements[productId].cost.textContent = costTextContent;
 	}
 
@@ -207,7 +206,6 @@ class Products {
 	 */
 	_increaseSubtotalCost(productId) {
 		this._subtotalCost += this._ixProductValues[productId].price;
-
 		this._basket.updateSubtotalCost(this._subtotalCost);
 	}
 
