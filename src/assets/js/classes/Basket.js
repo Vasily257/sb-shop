@@ -9,6 +9,12 @@ class Basket extends Subject {
 		super();
 
 		/**
+		 * Количество всех товаров
+		 * @type {number}
+		 */
+		this.totalCount = 0;
+
+		/**
 		 * Промежуточная стоимость всех товаров
 		 * @type {number}
 		 */
@@ -16,11 +22,14 @@ class Basket extends Subject {
 	}
 
 	/**
-	 * Обновить промежуточную стоимость всех товаров
-	 * @param {number} newSubtotalCost - новая промежуточная стоимость всех товаров
+	 * Обновить промежуточную стоимость и количество товаров
+	 * @param {Object} data - данные
+	 * @param {number} data.totalCount - новое количество всех товаров
+	 * @param {number} data.subtotalCost - новая промежуточная стоимость всех товаров
 	 */
-	updateSubtotalCost(newSubtotalCost) {
-		this.subtotalCost = newSubtotalCost;
+	updateCostAndCount({ totalCount, subtotalCost }) {
+		this.totalCount = totalCount;
+		this.subtotalCost = subtotalCost;
 
 		this._notifyObservers();
 	}

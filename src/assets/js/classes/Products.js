@@ -34,6 +34,12 @@ class Products {
 		this._ixProductValues = {};
 
 		/**
+		 * Количество всех товаров
+		 * @type {number}
+		 */
+		this._totalCount = 0;
+
+		/**
 		 * Промежуточная стоимость всех товаров
 		 * @type {number}
 		 */
@@ -73,6 +79,7 @@ class Products {
 			price: cost / count,
 		};
 
+		this._totalCount += count;
 		this._subtotalCost += cost;
 	}
 
@@ -130,9 +137,13 @@ class Products {
 			const newCount = count + 1;
 			this._updateProductValues({ productId, newCount, price });
 
-			// Уменьшить промежуточную стоимость всех товаров
+			// Обновить данные компонента Basket
+			this._totalCount += 1;
 			this._subtotalCost += price;
-			this._basket.updateSubtotalCost(this._subtotalCost);
+			this._basket.updateCostAndCount({
+				totalCount: this._totalCount,
+				subtotalCost: this._subtotalCost,
+			});
 		}
 	}
 
@@ -151,9 +162,13 @@ class Products {
 			this._ixProductElements[productId].count.closest('.products__item').remove();
 		}
 
-		// Уменьшить промежуточную стоимость всех товаров
+		// Обновить данные компонента Basket
+		this._totalCount -= 1;
 		this._subtotalCost -= price;
-		this._basket.updateSubtotalCost(this._subtotalCost);
+		this._basket.updateCostAndCount({
+			totalCount: this._totalCount,
+			subtotalCost: this._subtotalCost,
+		});
 	}
 
 	/**
@@ -165,11 +180,16 @@ class Products {
 	_handleCloseButtonClick({ productId, evt }) {
 		const { price, count } = this._ixProductValues[productId];
 
+		// Обновить данные компонента Basket
+		this._totalCount -= count;
 		this._subtotalCost -= price * count;
-		this._basket.updateSubtotalCost(this._subtotalCost);
+		this._basket.updateCostAndCount({
+			totalCount: this._totalCount,
+			subtotalCost: this._subtotalCost,
+		});
 
+		// Очистить данные и удалить элемент
 		this._ixProductValues[productId].count = 0;
-
 		evt.currentTarget.remove();
 	}
 
