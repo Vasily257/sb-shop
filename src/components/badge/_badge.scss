@@ -8,7 +8,7 @@
 
 	text-align: center;
 
-	border-radius: 50%;
+	border-radius: 13px;
 
 	font-family: 'Roboto';
 	font-size: 10px;
@@ -18,5 +18,11 @@
 	&_type_notification {
 		color: #ffffff;
 		background-color: $primary-color;
+	}
+
+	&_digit_multi {
+		width: min-content;
+		min-width: 13px;
+		padding: 0 3px;
 	}
 }

@@ -34,6 +34,13 @@ class Header extends Observer {
 		const basketCounter = this._rootElement.querySelector('.header__cart-counter');
 
 		basketCounter.textContent = totalCount;
+
+		// Скорректировать стили, если значение счетчика двузначное
+		if (totalCount > 9) {
+			basketCounter.classList.add('badge_digit_multi');
+		} else {
+			basketCounter.classList.remove('badge_digit_multi');
+		}
 	}
 }
 
