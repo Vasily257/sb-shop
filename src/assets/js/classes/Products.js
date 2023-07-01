@@ -58,7 +58,7 @@ class Products {
 
 			this._getInitialDataFromMarkup(product);
 			this._getElements(product);
-			this._setEventListeners(product);
+			this._setEventListener(product);
 		}
 	}
 
@@ -97,10 +97,10 @@ class Products {
 	}
 
 	/**
-	 * Добавить слушателей событий
+	 * Добавить слушателя событий
 	 * @param {HTMLElement} product - ссылка на элемент товара
 	 */
-	_setEventListeners(product) {
+	_setEventListener(product) {
 		product.addEventListener('click', this._handleProductClick.bind(this));
 	}
 
