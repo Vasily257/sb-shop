@@ -2,7 +2,7 @@
 {% from "../../components/button/button.nunj" import button %}
 {% from "../../components/tooltip/tooltip.nunj" import tooltip %}
 
-<div class="credit-card" aria-label="Credit card details">
+<ul class="credit-card" aria-label="Credit card details">
 	{% for cardField in cardFields %}
 
 		{# Скрыть лейблы #}
@@ -82,21 +82,23 @@
 			{% set inputMaxlength = 3 %}
 		{% endif %}
 
-		{{ control(
-			className = 'credit-card__control credit-card__control_type_' + cardField.name,
-			labelClassName = 'credit-card__label ' + utilClass,
-			type = 'text',
-			id = cardField.name + '-id',
-			name = cardField.name,
-			label = cardField.label,
-			placeholder = cardField.placeholder,
-			autocomplete = cardField.autocomplete,
-			additionalElement = additionalButtonElement,
-			isNumeric = isNumericField,
-			pattern = patternValue,
-			maxlength = inputMaxlength,
-			isRequired = true
-		) }}
+		<li class="credit-card__item credit-card__item_type_{{ cardField.name}}">
+			{{ control(
+				className = 'credit-card__control',
+				labelClassName = 'credit-card__label ' + utilClass,
+				type = 'text',
+				id = cardField.name + '-id',
+				name = cardField.name,
+				label = cardField.label,
+				placeholder = cardField.placeholder,
+				autocomplete = cardField.autocomplete,
+				additionalElement = additionalButtonElement,
+				isNumeric = isNumericField,
+				pattern = patternValue,
+				maxlength = inputMaxlength,
+				isRequired = true
+			) }}
+		</li>
 
 	{% endfor %}
-</div>
+</ul>

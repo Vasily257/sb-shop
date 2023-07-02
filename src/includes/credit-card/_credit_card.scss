@@ -1,18 +1,13 @@
 .credit-card {
 	display: grid;
+	align-items: end;
 	column-gap: 4px;
 	row-gap: 19px;
 	grid-template-columns: repeat(4, minmax(71px, 100px));
 
 	max-width: 490px;
 
-	&__control {
-		display: flex;
-		align-items: flex-start;
-		flex-direction: column-reverse;
-
-		width: 100%;
-
+	&__item {
 		&_type_name-on-card {
 			grid-column: 1/5;
 			grid-row: 1/2;
@@ -44,11 +39,19 @@
 		}
 
 		&_type_cvv-code {
-			position: relative;
-
 			grid-column: 2/3;
 			grid-row: 3/4;
 		}
+	}
+
+	&__control {
+		position: relative;
+
+		display: flex;
+		align-items: flex-start;
+		flex-direction: column-reverse;
+
+		width: 100%;
 	}
 
 	&__label {
