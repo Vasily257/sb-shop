@@ -9,7 +9,7 @@
 <header class="header">
 
 	{{ link(
-		className = 'header__logo-link no-select',
+		className = 'header__logo-link',
 		path = '#',
 		target = '_self',
 		children = image(

@@ -99,6 +99,8 @@
 		font-weight: 500;
 		line-height: 16px;
 
+		@extend .no-select;
+
 		&_status_processed {
 			color: #000000;
 			background-color: #ffffff;

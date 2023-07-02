@@ -15,6 +15,8 @@
 
 	&__logo-link {
 		margin-right: auto;
+
+		@extend .no-select;
 	}
 
 	&__button-list {

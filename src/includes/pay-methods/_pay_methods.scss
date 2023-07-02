@@ -24,6 +24,8 @@
 	&__label-image {
 		&_type_pay-pal {
 			min-width: 85px;
+
+			@extend .no-select;
 		}
 	}
 
