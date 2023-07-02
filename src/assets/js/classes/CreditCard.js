@@ -61,7 +61,7 @@ class CreditCard {
 		}
 
 		if (isExpireDate) {
-			this._handleExpireDateInput();
+			this._handleExpireDateInput(evt);
 		}
 	}
 
