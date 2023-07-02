@@ -15,7 +15,7 @@
 		{% endif %}
 
 		<li class="pay-stages__content {{ contentModifier }}">
-			<span class="pay-stages__number {{ numberModifier }}">{{ stage.number }}</span>
+			<span class="pay-stages__number {{ numberModifier }} no-select">{{ stage.number }}</span>
 			<span class="pay-stages__text">
 				{{stage.text}}
 			</span>
