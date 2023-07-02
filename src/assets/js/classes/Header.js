@@ -35,6 +35,13 @@ class Header extends Observer {
 
 		basketCounter.textContent = totalCount;
 
+		// Скрыть счетчик, если нет товаров
+		if (totalCount === 0) {
+			basketCounter.classList.add('badge_hidden');
+		} else {
+			basketCounter.classList.remove('badge_hidden');
+		}
+
 		// Скорректировать стили, если значение счетчика двузначное
 		if (totalCount > 9) {
 			basketCounter.classList.add('badge_digit_multi');

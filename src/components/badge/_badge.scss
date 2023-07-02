@@ -20,6 +20,10 @@
 		background-color: $primary-color;
 	}
 
+	&_hidden {
+		display: none;
+	}
+
 	&_digit_multi {
 		width: min-content;
 		min-width: 13px;
