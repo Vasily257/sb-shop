@@ -1,10 +1,11 @@
 {% from "./_head-scripts.nunj" import headScripts %}
 <!DOCTYPE html>
 <html lang="en">
-	<head >
+	<head>
 		<meta charset="utf-8"/>
 		<title>
-			{% block title %}SP.Shop{% endblock %}
+			{% block title %}SP.Shop
+			{% endblock %}
 		</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"/>
 
@@ -16,12 +17,11 @@
 	</head>
 	<body>
 
-		<div class="wrapper">
-			{% block content %}{% endblock content %}
-		</div>
+		<div class="wrapper"> {% block content %}{% endblock content %}
+			</div>
 
-		{% block scripts %}
-			<script src="assets/js/bundle.js?hash"></script>
-		{% endblock scripts %}
-	</body>
-</html>
+			{% block scripts %}
+				<script src="assets/js/bundle.js?hash"></script>
+			{% endblock scripts %}
+		</body>
+	</html>
