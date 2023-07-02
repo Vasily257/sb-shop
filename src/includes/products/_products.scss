@@ -7,14 +7,7 @@
 	border-bottom: 1px solid $border-color;
 
 	&__title {
-		letter-spacing: 0.1px;
-
-		color: #000000;
-
-		font-family: 'Roboto';
-		font-size: 18px;
-		font-weight: 700;
-		line-height: 21px;
+		@extend .title;
 	}
 
 	&__list {
