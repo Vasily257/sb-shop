@@ -1,4 +1,5 @@
 import Validator from './Validator';
+import Tooltip from './Tooltip';
 
 class CreditCard {
 	/**
@@ -17,11 +18,21 @@ class CreditCard {
 		 * @type {Validator}
 		 */
 		this._validator = new Validator();
+
+		/**
+		 * Объект для управление подсказкой
+		 * @type {Tooltip}
+		 */
+		this._tooltip = new Tooltip({
+			button: '.credit-card__tooltip-button',
+			tooltip: '.credit-card__tooltip',
+		});
 	}
 
 	/** Инициализировать компонент */
 	init() {
 		this._setEventListeners();
+		this._tooltip.init();
 	}
 
 	/** Добавить слушателей событий */
@@ -66,7 +77,7 @@ class CreditCard {
 	}
 
 	/**
-	 * Обработать событие на поле ввода даты
+	 * Обработать событие ввода на поле ввода даты
 	 * @param {Event} evt - событие
 	 */
 	_handleExpireDateInput(evt) {
