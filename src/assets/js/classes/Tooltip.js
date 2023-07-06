@@ -53,8 +53,8 @@ class Tooltip {
 	_showTooltip() {
 		this._tooltipElement.classList.add(this._shownClass);
 
-		this._removeButtonClickListener();
 		this._addOutsideClickListener();
+		this._removeButtonClickListener();
 	}
 
 	/** Удалить слушатель клика на кнопку */
@@ -68,12 +68,20 @@ class Tooltip {
 		this._clickOutsideHandler = this._hideTooltip.bind(this);
 		document.addEventListener('click', this._clickOutsideHandler);
 	}
-	/** Скрыть элемент подсказки */
-	_hideTooltip() {
-		this._tooltipElement.classList.remove(this._shownClass);
+	/**
+	 * Скрыть элемент подсказки
+	 * @param {Event} evt - событие
+	 */
+	_hideTooltip(evt) {
+		const isNotButtonAndTooltip =
+			evt.target !== this._buttonElement && evt.target !== this._tooltipElement;
 
-		this._removeOutsideClickListener();
-		this._addButtonClickListener();
+		if (isNotButtonAndTooltip) {
+			this._tooltipElement.classList.remove(this._shownClass);
+
+			this._removeOutsideClickListener();
+			this._addButtonClickListener();
+		}
 	}
 
 	/** Удалить слушатель клика вне подсказки */
