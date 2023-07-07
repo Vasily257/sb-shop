@@ -95,7 +95,7 @@ class CreditCard {
 	}
 
 	/**
-	 * Подставить и убрать разделитель чисел
+	 * Подставить и убрать разделитель даты
 	 * @param {Event} evt - событие
 	 */
 	_addNumberSeparator(evt) {
