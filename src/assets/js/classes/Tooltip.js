@@ -53,8 +53,12 @@ class Tooltip {
 	_showTooltip() {
 		this._tooltipElement.classList.add(this._shownClass);
 
-		this._addOutsideClickListener();
 		this._removeButtonClickListener();
+
+		// Добавить задержку, чтобы разделить клики на кнопку
+		setTimeout(() => {
+			this._addOutsideClickListener();
+		}, 100);
 	}
 
 	/** Удалить слушатель клика на кнопку */
@@ -73,10 +77,9 @@ class Tooltip {
 	 * @param {Event} evt - событие
 	 */
 	_hideTooltip(evt) {
-		const isNotButtonAndTooltip =
-			evt.target !== this._buttonElement && evt.target !== this._tooltipElement;
+		const isNotTooltip = evt.target !== this._tooltipElement;
 
-		if (isNotButtonAndTooltip) {
+		if (isNotTooltip) {
 			this._tooltipElement.classList.remove(this._shownClass);
 
 			this._removeOutsideClickListener();
