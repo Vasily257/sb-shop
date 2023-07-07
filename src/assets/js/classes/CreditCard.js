@@ -53,6 +53,7 @@ class CreditCard {
 		const { inputMode, id } = evt.target;
 
 		const isCardOnName = id === 'name-on-card-id';
+		const isCardNumber = /card-number/.test(id);
 		const isNumericMode = inputMode === 'numeric';
 		const isExpireDate = id === 'expire-date-id';
 
@@ -70,8 +71,13 @@ class CreditCard {
 			});
 		}
 
+		if (isCardNumber) {
+			this._manageFocus(evt);
+		}
+
 		if (isExpireDate) {
 			this._handleExpireDateInput(evt);
+			this._swithFocusForward(evt.target.closest('.credit-card__item'));
 		}
 	}
 
@@ -113,6 +119,66 @@ class CreditCard {
 			if (value.length === 3) {
 				evt.target.value = value[0] + value[1] + '/';
 			}
+		}
+	}
+
+	/**
+	 * Переместить фокус вперед или назад
+	 * @param {Event} evt - событие
+	 */
+	_manageFocus(evt) {
+		const currentItem = evt.target.closest('.credit-card__item');
+
+		this._swithFocusBack(currentItem);
+		this._swithFocusForward(currentItem);
+	}
+
+	/**
+	 * Переместить фокус на предыдущий инпут, если он не заполнен полностью
+	 * @param {HTMLElement} currentItem - текущий элемент списка
+	 */
+	_swithFocusBack(currentItem) {
+		console.log(currentItem);
+
+		// Найти элементы и максимальную длину ввода
+		const currentInput = currentItem.querySelector('input');
+		const previousItem = currentItem.previousElementSibling;
+		const previousInput = previousItem.querySelector('input');
+		const maxLength = Number(previousInput.getAttribute('maxlength'));
+
+		if (previousInput.value < maxLength) {
+			// Проверить, что мы не достигли первого поля ввода
+			if (previousInput.id === 'name-on-card-id') {
+				return;
+			}
+
+			// Перенести значение текущего поля ввода и очистить его
+			previousInput.value = currentInput.value;
+			currentInput.value = '';
+
+			// Переместить фокус на предыдущее поле ввода
+			previousInput.focus();
+
+			// Запустить функцию рекурсивно
+			this._swithFocusBack(previousItem);
+		}
+	}
+
+	/**
+	 * Переместить фокус на следующий инпут, если текущий полностью заполнен
+	 * @param {HTMLElement} currentItem - текущий элемент списка (не ипут)
+	 */
+	_swithFocusForward(currentItem) {
+		const currentInput = currentItem.querySelector('input');
+		const nextItem = currentItem.nextElementSibling;
+		const nextInput = nextItem.querySelector('input');
+		const maxLength = Number(currentInput.getAttribute('maxlength'));
+
+		const isInputFull = currentInput.value.length === maxLength;
+		const isNotLastItem = nextItem.id !== 'cvv-code-id';
+
+		if (isInputFull && isNotLastItem) {
+			nextInput.focus();
 		}
 	}
 }
