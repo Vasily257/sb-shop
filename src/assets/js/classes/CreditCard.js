@@ -80,14 +80,21 @@ class CreditCard {
 	 * @param {Event} evt - событие
 	 */
 	_handleExpireDateInput(evt) {
-		const { value } = evt.target;
-
 		this._validator.checkElementValidity({
 			element: evt.target,
 			errorMessage: 'Please enter the date in the following format: MM/YY',
 		});
 
-		// Автоматически подставить и убрать разделитель `/`
+		this._addNumberSeparator(evt);
+	}
+
+	/**
+	 * Подставить и убрать разделитель чисел
+	 * @param {Event} evt - событие
+	 */
+	_addNumberSeparator(evt) {
+		const { value } = evt.target;
+
 		if (evt.inputType === 'insertText') {
 			if (value.length === 2) {
 				evt.target.value = value + `/`;
