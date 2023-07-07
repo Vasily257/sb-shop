@@ -59,15 +59,14 @@ class CreditCard {
 		if (isCardOnName) {
 			this._validator.checkElementValidity({
 				element: evt.target,
-				errorMessage:
-					'Enter the owner`s name using only Latin letters, a space, a hyphen or an apostrophe',
+				errorMessage: 'Only letters (A-Z, a-z), spaces, hyphens, and apostrophes are allowed',
 			});
 		}
 
 		if (isNumericMode) {
 			this._validator.checkElementValidity({
 				element: evt.target,
-				errorMessage: 'Enter only numbers',
+				errorMessage: 'Only numbers are allowed',
 			});
 		}
 
@@ -85,9 +84,10 @@ class CreditCard {
 
 		this._validator.checkElementValidity({
 			element: evt.target,
-			errorMessage: 'Enter the date in YY/MM format',
+			errorMessage: 'Please enter the date in the following format: DD.MM.YYYYYY/MM',
 		});
 
+		// Автоматически подставить и убрать разделитель `/`
 		if (evt.inputType === 'insertText') {
 			if (value.length === 2) {
 				evt.target.value = value + `/`;
