@@ -84,7 +84,7 @@ class CreditCard {
 
 		this._validator.checkElementValidity({
 			element: evt.target,
-			errorMessage: 'Please enter the date in the following format: DD.MM.YYYYYY/MM',
+			errorMessage: 'Please enter the date in the following format: MM/YY',
 		});
 
 		// Автоматически подставить и убрать разделитель `/`
