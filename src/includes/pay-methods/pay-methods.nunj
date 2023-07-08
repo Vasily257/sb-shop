@@ -1,5 +1,5 @@
 {% from "../../components/control/control.nunj" import control %}
-{% from "../../components/image/image.nunj" import image %}
+{% from "../../components/icon/icon.nunj" import icon %}
 
 <fieldset class="pay-methods">
 	<legend class="pay-methods__legend visually-hidden">Pay methods</legend>
@@ -17,12 +17,12 @@
 		type = 'radio',
 		id = 'pay-pal-id',
 		name = 'payment',
-		label = image(
+		label = icon(
 			className = 'pay-methods__label-image_type_pay-pal',
-			fileName = 'pay-pal.svg',
+			iconName = 'pay-pal',
 			height = '23',
 			width = '85',
-			alt = 'PayPal logo'
+			ariaLabel = 'PayPal logo'
 		)
 	) }}
 

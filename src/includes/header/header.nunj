@@ -2,7 +2,6 @@
 {% from "../../components/button/button.nunj" import button %}
 {% from "../../components/link/link.nunj" import link %}
 {% from "../../components/icon/icon.nunj" import icon %}
-{% from "../../components/image/image.nunj" import image %}
 
 {% set cartCounter = 2 %}
 
@@ -12,11 +11,11 @@
 		className = 'header__logo-link',
 		path = '#',
 		target = '_self',
-		children = image(
-			fileName = 'logo.svg',
+		children = icon(
+			iconName = 'logo',
 			width = '89',
 			height = '32',
-			alt = 'Website logo'
+			ariaLabel = 'Website logo'
 		)
 	) }}
 
