@@ -49,6 +49,11 @@
 			"placeholder": "Placeholder Text"
 		},
 		{
+			"label": "Hidden card number",
+			"name": "card-number-hidden",
+			"autocomplete": "cc-number"
+		},
+		{
 			"label": "Card number",
 			"name": "card-number-one"
 		},

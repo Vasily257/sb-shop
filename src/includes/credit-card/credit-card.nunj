@@ -10,7 +10,8 @@
 		{% if
 			cardField.name === 'card-number-two' or
 			cardField.name === 'card-number-three' or
-			cardField.name === 'card-number-four'
+			cardField.name === 'card-number-four' or
+			cardField.name === 'card-number-hidden'
 		%}
 			{% set utilClass = 'visually-hidden' %}
 		{% endif %}
@@ -47,6 +48,12 @@
 			cardField.name === 'cvv-code'
 		%}
 			{% set isNumericField = true %}
+		{% endif %}
+
+		{# Указать тип ипута #}
+		{% set inputType = 'text' %}
+		{% if cardField.name === 'card-number-hidden' %}
+			{% set inputType = 'hidden' %}
 		{% endif %}
 
 		{# Указать паттерн ввода #}
@@ -86,7 +93,7 @@
 			{{ control(
 				className = 'credit-card__control',
 				labelClassName = 'credit-card__label ' + utilClass,
-				type = 'text',
+				type = inputType,
 				id = cardField.name + '-id',
 				name = cardField.name,
 				label = cardField.label,
