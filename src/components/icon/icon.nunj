@@ -3,14 +3,16 @@
 	iconName = 'search',
 	width = '24',
 	height = '24',
-	ariaHidden = true
+	ariaHidden = true,
+	ariaLabel = ''
 ) -%}
 
 	<svg
 		{% if className %} class="{{ className }}" {% endif %}
 		width="{{ width }}"
 		height="{{ height }}"
-		{% if ariaHidden %} aria-hidden {% endif %}
+		{% if ariaLabel %} aria-hidden={{ false }} {% endif %}
+		{% if ariaLabel %} aria-label="{{ ariaLabel }}" {% endif %}
 	>
 		<use xlink:href="#icon-{{ iconName }}"/>
 	</svg>
