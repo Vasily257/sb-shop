@@ -1,4 +1,5 @@
 import Observer from './Observer';
+import Badge from './Badge';
 
 class Header extends Observer {
 	/**
@@ -14,6 +15,12 @@ class Header extends Observer {
 		 * @type {HTMLElement}
 		 */
 		this._rootElement = document.querySelector('.header');
+
+		/**
+		 * Объект для управление бейджом
+		 * @type {Badge}
+		 */
+		this._badge = new Badge('.header__cart-counter');
 	}
 
 	/** Инициализировать компонент */
@@ -31,22 +38,20 @@ class Header extends Observer {
 	 * @param {number} totalCount - количество всех товаров
 	 */
 	_updateTotalCount(totalCount) {
-		const basketCounter = this._rootElement.querySelector('.header__cart-counter');
-
-		basketCounter.textContent = totalCount;
+		this._badge.updateTextContent(totalCount);
 
 		// Скрыть счетчик, если нет товаров
 		if (totalCount === 0) {
-			basketCounter.classList.add('badge_hidden');
+			this._badge.hide();
 		} else {
-			basketCounter.classList.remove('badge_hidden');
+			this._badge.show();
 		}
 
 		// Скорректировать стили, если значение счетчика двузначное
 		if (totalCount > 9) {
-			basketCounter.classList.add('badge_digit_multi');
+			this._badge.increaseSize();
 		} else {
-			basketCounter.classList.remove('badge_digit_multi');
+			this._badge.decreaseSize();
 		}
 	}
 }
