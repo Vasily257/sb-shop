@@ -16,7 +16,7 @@ class Observer {
 	}
 	/** Обновить данные наблюдателя */
 	update() {
-		console.log('This is subject with changed data:', this._subject);
+		console.log('This is a subject with changed data:', this._subject);
 	}
 }
 
