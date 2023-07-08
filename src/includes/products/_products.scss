@@ -57,6 +57,13 @@
 		height: min-content;
 	}
 
+	&__cost-inner {
+		display: flex;
+		justify-content: space-between;
+
+		width: 84px;
+	}
+
 	&__button {
 		width: 21px;
 		height: 20px;
@@ -78,7 +85,7 @@
 	}
 
 	&__number {
-		margin-top: 1px;
+		margin-top: 3px;
 	}
 
 	&__cost {
