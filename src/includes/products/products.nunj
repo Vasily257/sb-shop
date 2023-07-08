@@ -15,10 +15,11 @@
 			<li class="products__item" data-id="{{ product.id }}">
 				{{ image(
 					class = 'products__image',
-					fileName = product.image + '.webp',
+					fileName = product.image,
 					height = '100',
 					width = '100',
-					alt = product.image
+					alt = product.image,
+					formats = ['webp', 'png']
 				) }}
 
 				<p class="products__description">{{ product.description }}</p>
