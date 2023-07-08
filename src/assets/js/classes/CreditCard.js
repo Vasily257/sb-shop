@@ -138,22 +138,28 @@ class CreditCard {
 	 * @param {HTMLElement} currentItem - текущий элемент списка
 	 */
 	_swithFocusBack(currentItem) {
-		console.log(currentItem);
-
 		// Найти элементы и максимальную длину ввода
 		const currentInput = currentItem.querySelector('input');
 		const previousItem = currentItem.previousElementSibling;
 		const previousInput = previousItem.querySelector('input');
 		const maxLength = Number(previousInput.getAttribute('maxlength'));
 
-		if (previousInput.value < maxLength) {
+		const isNotInputFull = previousInput.value.length < maxLength;
+		const isFirstItem = previousInput.id === 'name-on-card-id';
+
+		const totalLength = previousInput.value.length + currentInput.value.length;
+		const isNotExceedMaxlength = totalLength <= maxLength;
+
+		// Проверить, что предыдущее поле ввода не заполнено полностью
+		// и что новое значение не будет превышать максимальную длину
+		if (isNotInputFull && isNotExceedMaxlength) {
 			// Проверить, что мы не достигли первого поля ввода
-			if (previousInput.id === 'name-on-card-id') {
+			if (isFirstItem) {
 				return;
 			}
 
 			// Перенести значение текущего поля ввода и очистить его
-			previousInput.value = currentInput.value;
+			previousInput.value += currentInput.value;
 			currentInput.value = '';
 
 			// Переместить фокус на предыдущее поле ввода
