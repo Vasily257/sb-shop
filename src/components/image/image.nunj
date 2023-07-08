@@ -3,15 +3,18 @@
 		fileName = 'pay-pal.svg',
 		width = '32',
 		height = '32',
-		alt = 'Alt text'
+		alt = 'Alt text',
+		formats = ['png']
 ) -%}
 
-	<img
-		class="image {{ className }}"
-		src="../../assets/images/{{ fileName }}"
-		width="{{ width }}"
-		height="{{ height }}"
-		alt="{{ alt }}"
-	>
+	{% set filePathWithoutFormat = '../../assets/images/' + fileName %}
+
+	<picture>
+		{% for format in formats %}
+			<source srcset="{{ filePathWithoutFormat }}.{{format}}, {{ filePathWithoutFormat }}@2x.{{format}} 2x">
+		{% endfor %}
+
+		<img class="image {{ className }}" src="{{ filePathWithoutFormat }}.png" width="{{ width }}" height="{{ height }}" alt="{{ alt }}">
+	</picture>
 
 {%- endmacro %}
