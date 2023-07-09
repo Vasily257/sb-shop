@@ -19,6 +19,12 @@
 		@extend .no-select;
 	}
 
+	&__logo {
+		display: block;
+
+		@extend .no-select;
+	}
+
 	&__button-list {
 		display: flex;
 		align-items: flex-end;

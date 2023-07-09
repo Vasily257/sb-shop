@@ -12,6 +12,7 @@
 		path = '#',
 		target = '_self',
 		children = icon(
+			className = 'header__logo',
 			iconName = 'logo',
 			width = '89',
 			height = '32',
