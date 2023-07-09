@@ -14,10 +14,16 @@ class CreditCard {
 		this._rootElement = document.querySelector('.credit-card');
 
 		/**
-		 * HTML-элементы инпутов с номером карты
-		 * @type {Record<string, HTMLElement>}
+		 * Объединённый ипнут, который скрыт
+		 * @type {HTMLElement}
 		 */
-		this._cardInputElements = {};
+		this._unitedCardInput = this._rootElement.querySelector('#card-number-united-id');
+
+		/**
+		 * HTML-элементы инпутов с номером карты (объединённый ипнут не учитывается)
+		 * @type {Array<HTMLElement>}
+		 */
+		this._cardNumberInputElements = [];
 
 		/**
 		 * Объект для валидации значений
@@ -47,12 +53,9 @@ class CreditCard {
 
 		for (let i = 0; i < inputElements.length; i++) {
 			const inputElement = inputElements[i];
-			this._setEventListener(inputElement);
 
-			const isCardNumber = this._checkCardNumberInput(inputElement.id);
-			if (isCardNumber) {
-				this._addCardNumberInput(inputElement);
-			}
+			this._setEventListener(inputElement);
+			this._addCardNumberInput(inputElement);
 		}
 	}
 
@@ -92,8 +95,6 @@ class CreditCard {
 
 		if (isCardNumber) {
 			this._manageFocus(evt);
-
-			this._updateUnitedCardInput();
 		}
 
 		if (isExpireDate) {
@@ -103,11 +104,11 @@ class CreditCard {
 	}
 
 	/**
-	 * Проверить, относится ли инпут к номеру карты
+	 * Проверить, относится ли инпут к номеру карты (объединённый ипнут не учитывается)
 	 * @param {string} inputId - id инпута
 	 */
 	_checkCardNumberInput(inputId) {
-		return /card-number/.test(inputId);
+		return /card-number-(one|two|three|four)/.test(inputId);
 	}
 
 	/**
@@ -218,23 +219,24 @@ class CreditCard {
 	}
 
 	/**
-	 * Добавить инпут, который относятся к номеру карты
+	 * Добавить инпут, который относится к номеру карты
 	 * @param {HTMLElement} currentInputElement - текущий инпут
 	 */
 	_addCardNumberInput(currentInputElement) {
-		this._cardInputElements[currentInputElement.id] = currentInputElement;
+		const isCardNumber = this._checkCardNumberInput(currentInputElement.id);
+
+		if (isCardNumber) {
+			this._cardNumberInputElements.push(currentInputElement);
+		}
 	}
 
 	/** Заполнить инпут с объединенным номером карты */
-	_updateUnitedCardInput() {
-		const unitedCardInput = this._cardInputElements['card-number-united-id'];
-		const firstCardInput = this._cardInputElements['card-number-one-id'];
-		const secondCardInput = this._cardInputElements['card-number-two-id'];
-		const thirdCardInput = this._cardInputElements['card-number-three-id'];
-		const fourCardInput = this._cardInputElements['card-number-four-id'];
+	updateUnitedCardInput() {
+		for (let i = 0; i < this._cardNumberInputElements.length; i++) {
+			const inputElement = this._cardNumberInputElements[i];
 
-		unitedCardInput.value =
-			firstCardInput.value + secondCardInput.value + thirdCardInput.value + fourCardInput.value;
+			this._unitedCardInput.value += inputElement.value;
+		}
 	}
 }
 
