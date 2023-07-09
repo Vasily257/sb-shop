@@ -49,8 +49,8 @@
 			"placeholder": "Placeholder Text"
 		},
 		{
-			"label": "Hidden card number",
-			"name": "card-number-hidden",
+			"label": "United card number",
+			"name": "card-number-united",
 			"autocomplete": "cc-number"
 		},
 		{

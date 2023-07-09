@@ -11,7 +11,7 @@
 			cardField.name === 'card-number-two' or
 			cardField.name === 'card-number-three' or
 			cardField.name === 'card-number-four' or
-			cardField.name === 'card-number-hidden'
+			cardField.name === 'card-number-united'
 		%}
 			{% set utilClass = 'visually-hidden' %}
 		{% endif %}
@@ -52,7 +52,7 @@
 
 		{# Указать тип ипута #}
 		{% set inputType = 'text' %}
-		{% if cardField.name === 'card-number-hidden' %}
+		{% if cardField.name === 'card-number-united' %}
 			{% set inputType = 'hidden' %}
 		{% endif %}
 

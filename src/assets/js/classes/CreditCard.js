@@ -14,6 +14,12 @@ class CreditCard {
 		this._rootElement = document.querySelector('.credit-card');
 
 		/**
+		 * HTML-элементы инпутов с номером карты
+		 * @type {Record<string, HTMLElement>}
+		 */
+		this._cardInputElements = {};
+
+		/**
 		 * Объект для валидации значений
 		 * @type {Validator}
 		 */
@@ -31,18 +37,31 @@ class CreditCard {
 
 	/** Инициализировать компонент */
 	init() {
-		this._setEventListeners();
+		this._iterateInputs();
 		this._tooltip.init();
 	}
 
-	/** Добавить слушателей событий */
-	_setEventListeners() {
+	/** Перебрать HTML-коллекцию товаров */
+	_iterateInputs() {
 		const inputElements = this._rootElement.querySelectorAll('input');
 
 		for (let i = 0; i < inputElements.length; i++) {
 			const inputElement = inputElements[i];
-			inputElement.addEventListener('input', this._handleInput.bind(this));
+			this._setEventListener(inputElement);
+
+			const isCardNumber = this._checkCardNumberInput(inputElement.id);
+			if (isCardNumber) {
+				this._addCardNumberInput(inputElement);
+			}
 		}
+	}
+
+	/**
+	 * Добавить слушателя событий
+	 * @param {HTMLElement} - элемент инпута
+	 */
+	_setEventListener(inputElement) {
+		inputElement.addEventListener('input', this._handleInput.bind(this));
 	}
 
 	/**
@@ -53,7 +72,7 @@ class CreditCard {
 		const { inputMode, id } = evt.target;
 
 		const isCardOnName = id === 'name-on-card-id';
-		const isCardNumber = /card-number/.test(id);
+		const isCardNumber = this._checkCardNumberInput(id);
 		const isNumericMode = inputMode === 'numeric';
 		const isExpireDate = id === 'expire-date-id';
 
@@ -73,12 +92,22 @@ class CreditCard {
 
 		if (isCardNumber) {
 			this._manageFocus(evt);
+
+			this._updateUnitedCardInput();
 		}
 
 		if (isExpireDate) {
 			this._handleExpireDateInput(evt);
 			this._swithFocusForward(evt.target.closest('.credit-card__item'));
 		}
+	}
+
+	/**
+	 * Проверить, относится ли инпут к номеру карты
+	 * @param {string} inputId - id инпута
+	 */
+	_checkCardNumberInput(inputId) {
+		return /card-number/.test(inputId);
 	}
 
 	/**
@@ -186,6 +215,26 @@ class CreditCard {
 		if (isInputFull && isNotLastItem) {
 			nextInput.focus();
 		}
+	}
+
+	/**
+	 * Добавить инпут, который относятся к номеру карты
+	 * @param {HTMLElement} currentInputElement - текущий инпут
+	 */
+	_addCardNumberInput(currentInputElement) {
+		this._cardInputElements[currentInputElement.id] = currentInputElement;
+	}
+
+	/** Заполнить инпут с объединенным номером карты */
+	_updateUnitedCardInput() {
+		const unitedCardInput = this._cardInputElements['card-number-united-id'];
+		const firstCardInput = this._cardInputElements['card-number-one-id'];
+		const secondCardInput = this._cardInputElements['card-number-two-id'];
+		const thirdCardInput = this._cardInputElements['card-number-three-id'];
+		const fourCardInput = this._cardInputElements['card-number-four-id'];
+
+		unitedCardInput.value =
+			firstCardInput.value + secondCardInput.value + thirdCardInput.value + fourCardInput.value;
 	}
 }
 
