@@ -114,47 +114,6 @@ class CreditCard {
 	}
 
 	/**
-	 * Обработать событие ввода на поле ввода даты
-	 * @param {Event} evt - событие
-	 */
-	_handleExpireDateInput(evt) {
-		this._validator.checkElementValidity({
-			element: evt.target,
-			errorMessage: 'Please enter the date in the following format: MM/YY',
-		});
-
-		this._addNumberSeparator(evt);
-	}
-
-	/**
-	 * Подставить и убрать разделитель даты
-	 * @param {Event} evt - событие
-	 */
-	_addNumberSeparator(evt) {
-		const { value } = evt.target;
-
-		if (evt.inputType === 'insertText') {
-			if (value.length === 2) {
-				evt.target.value = value + `/`;
-			}
-
-			if (value.length === 3) {
-				evt.target.value = value[0] + value[1] + '/' + value[2];
-			}
-		}
-
-		if (evt.inputType === 'deleteContentBackward') {
-			if (value.length === 2) {
-				evt.target.value = evt.target.value.slice(0, -1);
-			}
-
-			if (value.length === 3) {
-				evt.target.value = value[0] + value[1] + '/';
-			}
-		}
-	}
-
-	/**
 	 * Переместить фокус вперед или назад
 	 * @param {Event} evt - событие
 	 */
@@ -217,6 +176,47 @@ class CreditCard {
 
 		if (isInputFull && isNotLastItem) {
 			nextInput.focus();
+		}
+	}
+
+	/**
+	 * Обработать событие ввода на поле ввода даты
+	 * @param {Event} evt - событие
+	 */
+	_handleExpireDateInput(evt) {
+		this._validator.checkElementValidity({
+			element: evt.target,
+			errorMessage: 'Please enter the date in the following format: MM/YY',
+		});
+
+		this._addNumberSeparator(evt);
+	}
+
+	/**
+	 * Подставить и убрать разделитель даты
+	 * @param {Event} evt - событие
+	 */
+	_addNumberSeparator(evt) {
+		const { value } = evt.target;
+
+		if (evt.inputType === 'insertText') {
+			if (value.length === 2) {
+				evt.target.value = value + `/`;
+			}
+
+			if (value.length === 3) {
+				evt.target.value = value[0] + value[1] + '/' + value[2];
+			}
+		}
+
+		if (evt.inputType === 'deleteContentBackward') {
+			if (value.length === 2) {
+				evt.target.value = evt.target.value.slice(0, -1);
+			}
+
+			if (value.length === 3) {
+				evt.target.value = value[0] + value[1] + '/';
+			}
 		}
 	}
 
