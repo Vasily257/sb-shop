@@ -14,7 +14,7 @@ class CreditCard {
 		this._rootElement = document.querySelector('.credit-card');
 
 		/**
-		 * Объединённый ипнут, который скрыт
+		 * Объединённый ипнут номера карты, который скрыт
 		 * @type {HTMLElement}
 		 */
 		this._unitedCardInput = this._rootElement.querySelector('#card-number-united-id');
