@@ -5,11 +5,11 @@ class PayForm {
 	/**
 	 * Создать экземпляр PayForm, который работает с формой отправки платежных данных
 	 * @constructor
-	 * @param {CreditCard} creditCard - экземпляр CreditCard
+	 * @param {CreditCard} creditCard - экземпляр CreditCard, в котором находятся платежные данные
 	 */
 	constructor(creditCard) {
 		/**
-		 * Корневной HTML-элемент компонента
+		 * Корневной элемент компонента
 		 * @type {HTMLElement}
 		 */
 		this._rootElement = document.querySelector('.pay-form');
@@ -33,12 +33,12 @@ class PayForm {
 
 	/**
 	 * Обработать событие ввода
-	 * @param {Event} evt - событие
+	 * @param {Event} evt - объект события
 	 */
 	_handleSubmit() {
 		this._creditCard.updateUnitedCardInput();
 
-		// Разрешить выполнить действие по умолчанию
+		// Отправить данные на сервер (выполнить действие по умолчанию)
 		return true;
 	}
 }
