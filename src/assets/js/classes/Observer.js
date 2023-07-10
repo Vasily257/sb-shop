@@ -3,7 +3,7 @@ import Subject from './Subject';
 
 class Observer {
 	/**
-	 * Создать экземпляр Observer, который будет следить за Subject
+	 * Создать экземпляр Observer, который наблюдает за Subject
 	 * @constructor
 	 * @param {Subject} subject - объект наблюдения
 	 */
