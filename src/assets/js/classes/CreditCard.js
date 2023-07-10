@@ -57,7 +57,7 @@ class CreditCard {
 			const inputElement = inputElements[i];
 
 			this._setEventListener(inputElement);
-			this._addCardNumberInput(inputElement);
+			this._updateCardNumberInputList(inputElement);
 		}
 	}
 
@@ -136,7 +136,7 @@ class CreditCard {
 		const maxLength = Number(previousInput.getAttribute('maxlength'));
 
 		const isNotInputFull = previousInput.value.length < maxLength;
-		const isFirstItem = previousInput.id === 'name-on-card-id';
+		const isFirstInput = previousInput.id === 'name-on-card-id';
 
 		const totalLength = previousInput.value.length + currentInput.value.length;
 		const isNotExceedMaxlength = totalLength <= maxLength;
@@ -144,8 +144,8 @@ class CreditCard {
 		// Проверить, что предыдущее поле ввода не заполнено полностью
 		// и что новое значение не будет превышать максимальную длину
 		if (isNotInputFull && isNotExceedMaxlength) {
-			// Проверить, что мы не достигли первого поля ввода
-			if (isFirstItem) {
+			// Проверить, что мы не достигли первого инпута
+			if (isFirstInput) {
 				return;
 			}
 
@@ -189,14 +189,14 @@ class CreditCard {
 			errorMessage: 'Please enter the date in the following format: MM/YY',
 		});
 
-		this._addNumberSeparator(evt);
+		this._manageDateSeparatorDisplay(evt);
 	}
 
 	/**
 	 * Подставить и убрать разделитель даты
 	 * @param {Event} evt - событие
 	 */
-	_addNumberSeparator(evt) {
+	_manageDateSeparatorDisplay(evt) {
 		const { value } = evt.target;
 
 		if (evt.inputType === 'insertText') {
@@ -224,7 +224,7 @@ class CreditCard {
 	 * Добавить инпут, который относится к номеру карты
 	 * @param {HTMLElement} currentInputElement - текущий инпут
 	 */
-	_addCardNumberInput(currentInputElement) {
+	_updateCardNumberInputList(currentInputElement) {
 		const isCardNumber = this._checkCardNumberInput(currentInputElement.id);
 
 		if (isCardNumber) {
@@ -245,8 +245,8 @@ class CreditCard {
 		}, 100);
 	}
 
-	/** Обновить значения инпутов карты при автоподстановке */
-	_updateCardNumberValue() {
+	/** Обновить значения инпутов номера карты при автоподстановке */
+	_updateCardNumberInputValues() {
 		const unitedValue = this._unitedCardInput.value;
 
 		for (let i = 0; i < this._cardNumberInputElements.length; i++) {
