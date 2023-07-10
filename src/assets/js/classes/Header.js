@@ -6,14 +6,14 @@ import Badge from './Badge';
 class Header extends Observer {
 	/**
 	 * Создать экземпляр Header, который расширяет Observer
-	 * @param {Subject} subject - экземпляр объекта наблюдения
+	 * @param {Subject} subject - экземпляр объекта наблюдения (Basket)
 	 * @constructor
 	 */
 	constructor(subject) {
 		super(subject);
 
 		/**
-		 * Корневной HTML-элемент компонента
+		 * Корневной элемент компонента
 		 * @type {HTMLElement}
 		 */
 		this._rootElement = document.querySelector('.header');
