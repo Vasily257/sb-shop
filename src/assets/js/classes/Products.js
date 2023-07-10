@@ -58,7 +58,7 @@ class Products {
 
 			this._getInitialDataFromMarkup(product);
 			this._getElements(product);
-			this._setEventListener(product);
+			this._setEventListeners(product);
 		}
 	}
 
@@ -100,24 +100,47 @@ class Products {
 	 * Добавить слушателя событий
 	 * @param {HTMLElement} product - ссылка на элемент товара
 	 */
-	_setEventListener(product) {
-		product.addEventListener('click', this._handleProductClick.bind(this));
+	_setEventListeners(product) {
+		product.addEventListener('click', this._handleProductAction.bind(this));
+		product.addEventListener('keydown', this._handleProductAction.bind(this));
 	}
 
 	/**
-	 * Обработать событие клика на товар
+	 * Обработать событие клика или нажатия клавиши на товар
 	 * @param {Event} evt - событие
 	 */
-	_handleProductClick(evt) {
+	_handleProductAction(evt) {
 		const productId = evt.currentTarget.getAttribute('data-id');
-		const buttonElement = evt.target.parentNode;
 
+		let buttonElement = null;
+
+		if (evt.type === 'click') {
+			buttonElement = evt.target.parentNode;
+		}
+
+		if (evt.type === 'keydown' && (evt.key === 'Enter' || evt.key === ' ')) {
+			buttonElement = evt.target;
+		}
+
+		if (buttonElement) {
+			this._handleButtontsAction({ evt, buttonElement, productId });
+		}
+	}
+
+	/**
+	 * Обработать событие клика или нажатия клавиши на кнопку
+	 * @param {Object} props - параметры
+	 * @param {Event} props.evt - событие
+	 * @param {string} props.buttonElement - элемент кнопки
+	 * @param {string} props.productId - id товара
+	 */
+	_handleButtontsAction({ evt, buttonElement, productId }) {
 		if (buttonElement.classList.contains('products__button_type_plus')) {
-			this._handlePlusButtonClick(productId);
+			this._handlePlusButtonAction(productId);
 		}
 
 		if (buttonElement.classList.contains('products__button_type_minus')) {
-			this._handleMinusButtonClick(productId);
+			this._handleMinusButtonAction(productId);
 		}
 
 		if (buttonElement.classList.contains('products__button_type_close')) {
@@ -129,10 +152,11 @@ class Products {
 	 * Обработать клик на кнопку увеличения количества товаров
 	 * @param {number} productId - идентификатор товара
 	 */
-	_handlePlusButtonClick(productId) {
+	_handlePlusButtonAction(productId) {
 		const { count, price } = this._ixProductValues[productId];
+		const maxProductCount = 10;
 
-		if (count < 20) {
+		if (count < maxProductCount) {
 			// Увеличить количество товаров на 1
 			const newCount = count + 1;
 			this._updateProductValues({ productId, newCount, price });
@@ -151,7 +175,7 @@ class Products {
 	 * Обработать клик на кнопку уменьшения количества товаров
 	 * @param {number} productId - идентификатор товара
 	 */
-	_handleMinusButtonClick(productId) {
+	_handleMinusButtonAction(productId) {
 		const { count, price } = this._ixProductValues[productId];
 
 		// Уменьшить количество товаров на 1
