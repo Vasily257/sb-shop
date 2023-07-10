@@ -1,10 +1,12 @@
 import Observer from './Observer';
+// eslint-disable-next-line no-unused-vars
+import Subject from './Subject';
 import Badge from './Badge';
 
 class Header extends Observer {
 	/**
 	 * Создать экземпляр Header, который расширяет Observer
-	 * @param {Basket} subject - экземпляр объекта наблюдения
+	 * @param {Subject} subject - экземпляр объекта наблюдения
 	 * @constructor
 	 */
 	constructor(subject) {
