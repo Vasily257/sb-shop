@@ -3,24 +3,24 @@ import Tooltip from './Tooltip';
 
 class CreditCard {
 	/**
-	 * Создать экземпляр CreditCard, который работает с полями ввода карты
+	 * Создать экземпляр CreditCard, который обрабатывает инпуты карты
 	 * @constructor
 	 */
 	constructor() {
 		/**
-		 * Корневной HTML-элемент компонента
+		 * Корневной элемент компонента
 		 * @type {HTMLElement}
 		 */
 		this._rootElement = document.querySelector('.credit-card');
 
 		/**
-		 * Объединённый ипнут номера карты, который скрыт
+		 * Объединённый инпут номера карты, который скрыт в разметке
 		 * @type {HTMLElement}
 		 */
 		this._unitedCardInput = this._rootElement.querySelector('#card-number-united-id');
 
 		/**
-		 * HTML-элементы инпутов с номером карты (объединённый ипнут не учитывается)
+		 * Инпуты номера карты без объединённого инпута
 		 * @type {Array<HTMLElement>}
 		 */
 		this._cardNumberInputElements = [];
@@ -32,7 +32,7 @@ class CreditCard {
 		this._validator = new Validator();
 
 		/**
-		 * Объект для управление подсказкой
+		 * Объект для управление тултипом
 		 * @type {Tooltip}
 		 */
 		this._tooltip = new Tooltip({
@@ -49,7 +49,7 @@ class CreditCard {
 		this._tooltip.init();
 	}
 
-	/** Перебрать HTML-коллекцию товаров */
+	/** Перебрать инпуты компонента */
 	_iterateInputs() {
 		const inputElements = this._rootElement.querySelectorAll('input');
 
@@ -71,7 +71,7 @@ class CreditCard {
 
 	/**
 	 * Обработать событие ввода
-	 * @param {Event} evt - событие
+	 * @param {Event} evt - объект события
 	 */
 	_handleInput(evt) {
 		const { inputMode, id } = evt.target;
@@ -106,7 +106,7 @@ class CreditCard {
 	}
 
 	/**
-	 * Проверить, относится ли инпут к номеру карты (объединённый ипнут не учитывается)
+	 * Проверить, относится ли инпут к номеру карты (объединённый инпут не учитывается)
 	 * @param {string} inputId - id инпута
 	 */
 	_checkCardNumberInput(inputId) {
@@ -114,8 +114,8 @@ class CreditCard {
 	}
 
 	/**
-	 * Переместить фокус вперед или назад
-	 * @param {Event} evt - событие
+	 * Переместить фокус на следующий или предыдущий инпут
+	 * @param {Event} evt - объект события
 	 */
 	_manageFocus(evt) {
 		const currentItem = evt.target.closest('.credit-card__item');
@@ -126,7 +126,7 @@ class CreditCard {
 
 	/**
 	 * Переместить фокус на предыдущий инпут, если он не заполнен полностью
-	 * @param {HTMLElement} currentItem - текущий элемент списка
+	 * @param {HTMLElement} currentItem - текущий элемент списка, в котором находится инпут
 	 */
 	_swithFocusBack(currentItem) {
 		// Найти элементы и максимальную длину ввода
@@ -141,19 +141,20 @@ class CreditCard {
 		const totalLength = previousInput.value.length + currentInput.value.length;
 		const isNotExceedMaxlength = totalLength <= maxLength;
 
-		// Проверить, что предыдущее поле ввода не заполнено полностью
-		// и что новое значение не будет превышать максимальную длину
+		// Проверить, что предыдущий инпут не заполнен полностью,
+		// и что новое значение инпута не будет превышать максимальную длину
 		if (isNotInputFull && isNotExceedMaxlength) {
 			// Проверить, что мы не достигли первого инпута
 			if (isFirstInput) {
 				return;
 			}
 
-			// Перенести значение текущего поля ввода и очистить его
+			// Перенести значение текущего инпута в предыдущий инпут,
+			// а затем очистить значение текущего инпута
 			previousInput.value += currentInput.value;
 			currentInput.value = '';
 
-			// Переместить фокус на предыдущее поле ввода
+			// Переместить фокус на предыдущий инпут
 			previousInput.focus();
 
 			// Запустить функцию рекурсивно
@@ -163,7 +164,7 @@ class CreditCard {
 
 	/**
 	 * Переместить фокус на следующий инпут, если текущий полностью заполнен
-	 * @param {HTMLElement} currentItem - текущий элемент списка (не ипут)
+	 * @param {HTMLElement} currentItem - текущий элемент списка, в котором находится инпут
 	 */
 	_swithFocusForward(currentItem) {
 		const currentInput = currentItem.querySelector('input');
@@ -180,8 +181,8 @@ class CreditCard {
 	}
 
 	/**
-	 * Обработать событие ввода на поле ввода даты
-	 * @param {Event} evt - событие
+	 * Обработать событие ввода на инпуте даты
+	 * @param {Event} evt - объект события
 	 */
 	_handleExpireDateInput(evt) {
 		this._validator.checkElementValidity({
@@ -193,8 +194,8 @@ class CreditCard {
 	}
 
 	/**
-	 * Подставить и убрать разделитель даты
-	 * @param {Event} evt - событие
+	 * Подставить или убрать разделитель даты
+	 * @param {Event} evt - объект события
 	 */
 	_manageDateSeparatorDisplay(evt) {
 		const { value } = evt.target;
@@ -221,7 +222,7 @@ class CreditCard {
 	}
 
 	/**
-	 * Добавить инпут, который относится к номеру карты
+	 * Добавить инпут в список инпутов номера карты, если он относится к ним
 	 * @param {HTMLElement} currentInputElement - текущий инпут
 	 */
 	_updateCardNumberInputList(currentInputElement) {
@@ -238,20 +239,21 @@ class CreditCard {
 			const isUnitedCardNumberFull = this._unitedCardInput.value.length === 16;
 
 			if (isUnitedCardNumberFull) {
-				this._updateCardNumberValue();
+				this._updateCardNumberInputValues();
 
 				clearInterval(timerId);
 			}
 		}, 100);
 	}
 
-	/** Обновить значения инпутов номера карты при автоподстановке */
+	/** Обновить значения инпутов номера карты при браузерной автоподстановке */
 	_updateCardNumberInputValues() {
 		const unitedValue = this._unitedCardInput.value;
 
 		for (let i = 0; i < this._cardNumberInputElements.length; i++) {
 			const inputElement = this._cardNumberInputElements[i];
 
+			// Определить индексы, который выделяют по 4 цифры из объединённого инпута
 			const maxLength = 4;
 			const startIndex = i * maxLength;
 			const endIndex = (i + 1) * maxLength;

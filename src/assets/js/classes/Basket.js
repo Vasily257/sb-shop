@@ -2,7 +2,7 @@ import Subject from './Subject';
 
 class Basket extends Subject {
 	/**
-	 * Создать экземпляр Basket, который расширяет Subject
+	 * Создать экземпляр Basket, который управляет данными корзины и наследуется от Subject
 	 * @constructor
 	 */
 	constructor() {
@@ -23,9 +23,9 @@ class Basket extends Subject {
 
 	/**
 	 * Обновить промежуточную стоимость и количество товаров
-	 * @param {Object} data - данные
-	 * @param {number} data.totalCount - новое количество всех товаров
-	 * @param {number} data.subtotalCost - новая промежуточная стоимость всех товаров
+	 * @param {Object} args - аргументы функции
+	 * @param {number} args.totalCount - количество всех товаров
+	 * @param {number} args.subtotalCost - промежуточная стоимость всех товаров
 	 */
 	updateCostAndCount({ totalCount, subtotalCost }) {
 		this.totalCount = totalCount;

@@ -6,20 +6,20 @@ class Badge {
 	 */
 	constructor(badgeSelector) {
 		/**
-		 * Ссылка на элемент бейджа
+		 * Элемент бейджа
 		 * @type {HTMLElement}
 		 */
 		this._badgeElement = document.querySelector(badgeSelector);
 
 		/**
-		 * Класс для скрытия элемента бейджа
+		 * БЭМ-модификатор для скрытия бейджа
 		 * @type {string}
 		 */
 		this._hiddenClass = 'badge_hidden';
 
 		/**
-		 * БЭМ-модификатор, который увеличивает размер бейджа,
-		 * если он в роли счетчика, и значение счетчика больше 9
+		 * БЭМ-модификатор, который увеличивает размер бейджа-счетчика,
+		 * если значение счетчика больше 9
 		 * @type {string}
 		 */
 		this._multiDigitClass = 'badge_digit_multi';
@@ -46,7 +46,7 @@ class Badge {
 	}
 
 	/** Обновить значение бейджа
-	 * @param {string} text - новое значение
+	 * @param {string} text - значение бейджа
 	 */
 	updateTextContent(text) {
 		this._badgeElement.textContent = text;
