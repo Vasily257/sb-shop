@@ -1,6 +1,6 @@
 class Subject {
 	/**
-	 * Создать экземпляр Subject, за которым будут следить наблюдатели
+	 * Создать экземпляр Subject, за которым следят наблюдатели
 	 * @constructor
 	 */
 	constructor() {
@@ -31,7 +31,7 @@ class Subject {
 		this._observers = this._observers.filter(iteratedObserver => iteratedObserver !== observer);
 	}
 
-	/** Уведомить наблюдателей об изменении свойств */
+	/** Уведомить наблюдателей об изменении свойств субъекта */
 	_notifyObservers() {
 		for (let i = 0; i < this._observers.length; i++) {
 			const observer = this._observers[i];
