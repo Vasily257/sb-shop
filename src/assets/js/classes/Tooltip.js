@@ -1,26 +1,26 @@
 class Tooltip {
 	/**
-	 * Создать экземпляр Tooltip, который будет управлять всплывающими подсказками
-	 * @param {Object} props - параметры
-	 * @param {string} props.button - селектор кнопки, которые управляет показом подсказки
-	 * @param {string} props.tooltip - селектор подсказки
+	 * Создать экземпляр Tooltip, который управляет тултипами
+	 * @param {Object} params - параметры
+	 * @param {string} params.button - селектор кнопки, который управляет показом тултипа
+	 * @param {string} params.tooltip - селектор тултипа
 	 * @constructor
 	 */
-	constructor(props) {
+	constructor(params) {
 		/**
-		 * Ссылка на элемент подсказки
+		 * Элемент тултипа
 		 * @type {HTMLElement}
 		 */
-		this._tooltipElement = document.querySelector(props.tooltip);
+		this._tooltipElement = document.querySelector(params.tooltip);
 
 		/**
-		 * Ссылка на элемент кнопки
+		 * Элемент кнопки
 		 * @type {HTMLElement}
 		 */
-		this._buttonElement = document.querySelector(props.button);
+		this._buttonElement = document.querySelector(params.button);
 
 		/**
-		 * Класс для отображения элемента подсказки
+		 * БЭМ-модификатор для отображения тултипа
 		 * @type {string}
 		 */
 		this._shownClass = 'tooltip_shown';
@@ -32,7 +32,7 @@ class Tooltip {
 		this._clickButtonHandler = null;
 
 		/**
-		 * Обработчик клика вне элемента подсказки
+		 * Обработчик клика на область вне тултипа
 		 * @type {Function}
 		 */
 		this._clickOutsideHandler = null;
@@ -49,13 +49,14 @@ class Tooltip {
 		this._buttonElement.addEventListener('click', this._clickButtonHandler);
 	}
 
-	/** Отобразить элемент подсказки */
+	/** Отобразить тултип */
 	_showTooltip() {
 		this._tooltipElement.classList.add(this._shownClass);
 
 		this._removeButtonClickListener();
 
-		// Добавить задержку, чтобы разделить клики на кнопку
+		// Добавить задержку, чтобы разделить клики на кнопку,
+		// иначе два обработчика срабатывают одновременно, и тултип сразу скрывается
 		setTimeout(() => {
 			this._addOutsideClickListener();
 		}, 100);
@@ -67,14 +68,14 @@ class Tooltip {
 		this._clickButtonHandler = null;
 	}
 
-	/** Добавить слушатель клика вне подсказки */
+	/** Добавить слушатель клика на область вне тултипа */
 	_addOutsideClickListener() {
 		this._clickOutsideHandler = this._hideTooltip.bind(this);
 		document.addEventListener('click', this._clickOutsideHandler);
 	}
 	/**
-	 * Скрыть элемент подсказки
-	 * @param {Event} evt - событие
+	 * Скрыть тутлип
+	 * @param {Event} evt - объект события
 	 */
 	_hideTooltip(evt) {
 		const isNotTooltip = evt.target !== this._tooltipElement;
@@ -87,7 +88,7 @@ class Tooltip {
 		}
 	}
 
-	/** Удалить слушатель клика вне подсказки */
+	/** Удалить слушатель клика на область вне тултипа */
 	_removeOutsideClickListener() {
 		document.removeEventListener('click', this._clickOutsideHandler);
 		this._clickOutsideHandler = null;
