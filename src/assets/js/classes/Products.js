@@ -4,7 +4,7 @@ import Basket from './Basket';
 
 class Products {
 	/**
-	 * Создать экземпляр Products, который меняет состояние Basket
+	 * Создать экземпляр Products, который меняет данные товаров в Basket
 	 * @constructor
 	 * @param {Basket} basket - экземпляр Basket
 	 */
@@ -16,13 +16,13 @@ class Products {
 		this._basket = basket;
 
 		/**
-		 * HTML-коллекция товаров
+		 * Коллекция товаров
 		 * @type {NodeListOf<HTMLElement>}
 		 */
 		this._products = document.querySelectorAll('.products__item');
 
 		/**
-		 * Ссылки на внутренние HTML-элементы товаров, индексированные по id товара
+		 * Внутренние элементы товаров, индексированные по id товара
 		 * @type {Record<number, Record<string, HTMLElement>>}
 		 */
 		this._ixProductElements = {};
@@ -51,7 +51,7 @@ class Products {
 		this._iterateProducts();
 	}
 
-	/** Перебрать HTML-коллекцию товаров */
+	/** Перебрать коллекцию товаров */
 	_iterateProducts() {
 		for (let i = 0; i < this._products.length; i++) {
 			const product = this._products[i];
@@ -64,7 +64,7 @@ class Products {
 
 	/**
 	 * Получить исходную информацию по товарам из разметки
-	 * @param {HTMLElement} product - ссылка на элемент товара
+	 * @param {HTMLElement} product - товар
 	 */
 	_getInitialDataFromMarkup(product) {
 		const productId = product.getAttribute('data-id');
@@ -84,8 +84,8 @@ class Products {
 	}
 
 	/**
-	 * Получить ссылки на внутренние HTML-элементы товара
-	 * @param {HTMLElement} product - ссылка на элемент товара
+	 * Получить внутренние элементы товара
+	 * @param {HTMLElement} product - товар
 	 */
 	_getElements(product) {
 		const productId = Number(product.getAttribute('data-id'));
@@ -98,7 +98,7 @@ class Products {
 
 	/**
 	 * Добавить слушателя событий
-	 * @param {HTMLElement} product - ссылка на элемент товара
+	 * @param {HTMLElement} product - товар
 	 */
 	_setEventListeners(product) {
 		product.addEventListener('click', this._handleProductAction.bind(this));
@@ -107,7 +107,7 @@ class Products {
 
 	/**
 	 * Обработать событие клика или нажатия клавиши на товар
-	 * @param {Event} evt - событие
+	 * @param {Event} evt - объект события
 	 */
 	_handleProductAction(evt) {
 		const productId = evt.currentTarget.getAttribute('data-id');
@@ -129,10 +129,10 @@ class Products {
 
 	/**
 	 * Обработать событие клика или нажатия клавиши на кнопку
-	 * @param {Object} props - параметры
-	 * @param {Event} props.evt - событие
-	 * @param {string} props.buttonElement - элемент кнопки
-	 * @param {string} props.productId - id товара
+	 * @param {Object} args - аргументы функции
+	 * @param {Event} args.evt - объект события
+	 * @param {string} args.buttonElement - элемент кнопки
+	 * @param {string} args.productId - id товара
 	 */
 	_handleButtontsAction({ evt, buttonElement, productId }) {
 		if (buttonElement.classList.contains('products__button_type_plus')) {
@@ -149,7 +149,7 @@ class Products {
 	}
 
 	/**
-	 * Обработать клик на кнопку увеличения количества товаров
+	 * Обработать клик на кнопку, которая увеличивает количество товаров
 	 * @param {number} productId - идентификатор товара
 	 */
 	_handlePlusButtonAction(productId) {
@@ -172,7 +172,7 @@ class Products {
 	}
 
 	/**
-	 * Обработать клик на кнопку уменьшения количества товаров
+	 * Обработать клик на кнопку, которая уменьшает количество товаров
 	 * @param {number} productId - идентификатор товара
 	 */
 	_handleMinusButtonAction(productId) {
@@ -197,9 +197,9 @@ class Products {
 
 	/**
 	 * Обработать клик на кнопку закрытия
-	 * @param {Object} options - опции
-	 * @param {number} options.productId - идентификатор продукта
-	 * @param {Event} options.evt - объект события
+	 * @param {Object} args - аргументы функции
+	 * @param {number} args.productId - идентификатор продукта
+	 * @param {Event} args.evt - объект события
 	 */
 	_handleCloseButtonClick({ productId, evt }) {
 		const { price, count } = this._ixProductValues[productId];
@@ -227,10 +227,10 @@ class Products {
 
 	/**
 	 * Обновить значения товара
-	 * @param {Object} values - значения товара
-	 * @param {number} values.productId - идентификатор товара
-	 * @param {number} values.newCount - обновлённое количество товаров
-	 * @param {number} values.price - цена товара
+	 * @param {Object} args - аргументы функции
+	 * @param {number} args.productId - идентификатор товара
+	 * @param {number} args.newCount - обновлённое количество товаров
+	 * @param {number} args.price - цена товара
 	 */
 	_updateProductValues({ productId, newCount, price }) {
 		this._ixProductValues[productId].count = newCount;
