@@ -1,8 +1,8 @@
 {% macro image(
 		className = '',
-		fileName = 'pay-pal.svg',
-		width = '32',
-		height = '32',
+		fileName = 'jacket',
+		width = '100',
+		height = '100',
 		alt = 'Alt text',
 		formats = ['png']
 ) -%}
