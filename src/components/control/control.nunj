@@ -30,13 +30,17 @@
 			{% if isRequired %} required {% endif %}
 			{% if isDisabled %} disabled {% endif %}
 		/>
-		<label
-			class="control__label control__label_type_{{ type }} {{ labelClassName }}"
-			for="{{ id }}"
-		>
-			{{- label -}}
-		</label>
-		{{- additionalElement -}}
+		
+		{% if type !== 'hidden' %}
+			<label class="control__label control__label_type_{{ type }} {{ labelClassName }}" for="{{ id }}">
+				{{- label -}}
+			</label>
+		{% endif %}
+
+		{% if additionalElement %}
+			{{- additionalElement -}}
+		{% endif %}
+
 	</p>
 
 {%- endmacro %}
