@@ -18,7 +18,7 @@
 		id = 'pay-pal-id',
 		name = 'payment',
 		label = icon(
-			className = 'pay-methods__label-image_type_pay-pal',
+			className = 'pay-methods__label-image pay-methods__label-image_type_pay-pal',
 			iconName = 'pay-pal',
 			height = '23',
 			width = '85',

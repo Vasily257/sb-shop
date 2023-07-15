@@ -7,6 +7,8 @@
 	}
 
 	&__control {
+		position: relative;
+
 		&_type_pay-pal {
 			display: flex;
 			align-items: center;
@@ -16,12 +18,16 @@
 	}
 
 	&__label {
+		position: relative;
+
 		&_type_pay-pal {
 			margin-left: 14px;
 		}
 	}
 
 	&__label-image {
+		position: relative;
+
 		&_type_pay-pal {
 			min-width: 85px;
 
