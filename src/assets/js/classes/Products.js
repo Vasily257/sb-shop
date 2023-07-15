@@ -111,18 +111,14 @@ class Products {
 	 */
 	_handleProductAction(evt) {
 		const productId = evt.currentTarget.getAttribute('data-id');
+		const buttonElement = evt.target.closest('.products__button');
 
-		let buttonElement = null;
+		const isClick = evt.type === 'click';
+		const isKeyDown = evt.type === 'keydown' && (evt.key === 'Enter' || evt.key === ' ');
 
-		if (evt.type === 'click') {
-			buttonElement = evt.target.parentNode;
-		}
+		if ((isClick || isKeyDown) && buttonElement) {
+			evt.preventDefault();
 
-		if (evt.type === 'keydown' && (evt.key === 'Enter' || evt.key === ' ')) {
-			buttonElement = evt.target;
-		}
-
-		if (buttonElement) {
 			this._handleButtontsAction({ evt, buttonElement, productId });
 		}
 	}
