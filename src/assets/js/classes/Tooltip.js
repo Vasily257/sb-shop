@@ -23,7 +23,7 @@ class Tooltip {
 		 * БЭМ-модификатор для отображения тултипа
 		 * @type {string}
 		 */
-		this._shownClass = 'tooltip_shown';
+		this._shownClass = 'tooltip_visibility_shown';
 
 		/**
 		 * Обработчик клика на кнопку
