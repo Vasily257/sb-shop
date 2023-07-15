@@ -7,19 +7,16 @@
 		{% elif stage.status === 'processed' %}
 			{% set numberModifier = 'pay-stages__number_status_processed' %}
 			{% set contentModifier = 'pay-stages__content_status_processed' %}
-			{% set lineModifier = 'pay-stages__line_status_processed' %}
-		{% elif stage.status === 'disabled' %}
-			{% set numberModifier = 'pay-stages__number_status_disabled' %}
-			{% set contentModifier = 'pay-stages__content_status_disabled' %}
-			{% set lineModifier = 'pay-stages__line_status_disabled' %}
+		{% elif stage.status === 'upcoming' %}
+			{% set numberModifier = 'pay-stages__number_status_upcoming' %}
+			{% set contentModifier = 'pay-stages__content_status_upcoming' %}
 		{% endif %}
 
 		<li class="pay-stages__content {{ contentModifier }}">
-			<span class="pay-stages__number {{ numberModifier }}">{{ stage.number }}</span>
+			<span class="pay-stages__number {{ numberModifier }}" aria-label="Status: {{ stage.status }}">{{ stage.number }}</span>
 			<span class="pay-stages__text">
 				{{stage.text}}
 			</span>
 		</li>
-		<li class="pay-stages__line {{ lineModifier }}"></li>
 	{% endfor %}
 </ul>
