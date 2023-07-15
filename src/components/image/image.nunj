@@ -7,7 +7,7 @@
 		formats = ['png']
 ) -%}
 
-	{% set filePathWithoutFormat = '../../assets/images/' + fileName %}
+	{% set filePathWithoutFormat = './assets/images/' + fileName %}
 
 	<picture>
 		{% for format in formats %}
