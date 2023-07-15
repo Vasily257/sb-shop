@@ -101,8 +101,17 @@ class Products {
 	 * @param {HTMLElement} product - товар
 	 */
 	_setEventListeners(product) {
-		product.addEventListener('click', this._handleProductAction.bind(this));
-		product.addEventListener('keydown', this._handleProductAction.bind(this));
+		this._actionHandler = this._handleProductAction.bind(this);
+
+		product.addEventListener('click', this._actionHandler);
+		product.addEventListener('keydown', this._actionHandler);
+
+		if (module.hot) {
+			module.hot.dispose(() => {
+				product.removeEventListener('click', this._actionHandler);
+				product.removeEventListener('keydown', this._actionHandler);
+			});
+		}
 	}
 
 	/**

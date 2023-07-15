@@ -28,7 +28,15 @@ class PayForm {
 
 	/** Добавить слушателя событий */
 	_setEventListener() {
-		this._rootElement.addEventListener('submit', this._handleSubmit.bind(this));
+		this._submitHandler = this._handleSubmit.bind(this);
+
+		this._rootElement.addEventListener('submit', this._submitHandler);
+
+		if (module.hot) {
+			module.hot.dispose(() => {
+				this._rootElement.removeEventListener('submit', this._submitHandler);
+			});
+		}
 	}
 
 	/**

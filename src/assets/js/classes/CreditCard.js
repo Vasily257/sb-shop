@@ -66,7 +66,15 @@ class CreditCard {
 	 * @param {HTMLElement} - элемент инпута
 	 */
 	_setEventListener(inputElement) {
-		inputElement.addEventListener('input', this._handleInput.bind(this));
+		this._inputHandler = this._handleInput.bind(this);
+
+		inputElement.addEventListener('input', this._inputHandler);
+
+		if (module.hot) {
+			module.hot.dispose(() => {
+				inputElement.removeEventListener('input', this._inputHandler);
+			});
+		}
 	}
 
 	/**

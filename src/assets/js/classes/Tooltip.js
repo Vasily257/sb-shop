@@ -46,7 +46,14 @@ class Tooltip {
 	/** Добавить слушатель клика на кнопку */
 	_addButtonClickListener() {
 		this._clickButtonHandler = this._showTooltip.bind(this);
+
 		this._buttonElement.addEventListener('click', this._clickButtonHandler);
+
+		if (module.hot) {
+			module.hot.dispose(() => {
+				this._buttonElement.removeEventListener('click', this._clickButtonHandler);
+			});
+		}
 	}
 
 	/** Отобразить тултип */
