@@ -5,9 +5,8 @@
 {% from "../../components/image/image.nunj" import image %}
 
 
-<div class="promo">
+<form class="promo" action="https://echo.htmlacademy.ru/" method="post" accept-charset="UTF-8">
 	<h2 class="promo__title">Promo code</h2>
-
 	<div class="promo__wrapper">
 
 		{{ control(
@@ -28,5 +27,4 @@
 		) }}
 
 	</div>
-
-</div>
+</form>
