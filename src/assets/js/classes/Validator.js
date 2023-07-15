@@ -1,9 +1,9 @@
 /** Создать экземпляр Validator, который будет валидировать значения */
 class Validator {
 	/** Проверить валидность элемента
-	 * @param {Object} props - параметры
-	 * @param {HTMLElement} props.element - валидируемый элемент
-	 * @param {string} props.errorMessage - сообщение об ошибке
+	 * @param {Object} params - параметры
+	 * @param {HTMLElement} params.element - валидируемый элемент
+	 * @param {string} params.errorMessage - сообщение об ошибке
 	 */
 	checkElementValidity({ element, errorMessage }) {
 		const { validity } = element;

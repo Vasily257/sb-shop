@@ -5,7 +5,7 @@ import Badge from './Badge';
 
 class Header extends Observer {
 	/**
-	 * Создать экземпляр Header, который расширяет Observer
+	 * Создать экземпляр Header, который управляет шапкой сайта и наследуется от Observer
 	 * @param {Subject} subject - экземпляр объекта наблюдения (Basket)
 	 * @constructor
 	 */

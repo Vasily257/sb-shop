@@ -3,24 +3,24 @@ import Observer from './Observer';
 
 class TotalCost extends Observer {
 	/**
-	 * Создать экземпляр TotalCost, который расширяет Observer
-	 * @param subject - экземпляр объекта наблюдения
+	 * Создать экземпляр TotalCost, который управляет разделом со стоимостями и наследуется от Observer
+	 * @param {Subject} subject - экземпляр объекта наблюдения (Basket)
 	 * @constructor
 	 */
 	constructor(subject) {
 		super(subject);
 
 		/**
-		 * Корневной HTML-элемент компонента
+		 * Корневной элемент компонента
 		 * @type {HTMLElement}
 		 */
 		this._rootElement = document.querySelector('.total-cost');
 
 		/**
-		 * Статические стоимости (налог и доставка)
+		 * Статические стоимости, которые не зависят от количества товара
 		 * @type {number}
 		 */
-		this._fixedCosts = 0;
+		this._staticCosts = 0;
 	}
 
 	/** Инициализировать компонент */
@@ -40,7 +40,7 @@ class TotalCost extends Observer {
 		const tax = utils.parseStringAsNumber(taxContent);
 		const shipping = utils.parseStringAsNumber(shippingContent);
 
-		this._fixedCosts = tax + shipping;
+		this._staticCosts = tax + shipping;
 	}
 
 	/** Обновить данные наблюдателя */
@@ -53,7 +53,7 @@ class TotalCost extends Observer {
 	 * @param {number} subtotal - промежуточная стоимость
 	 */
 	_updateTotalCost(subtotal) {
-		const totalCost = subtotal + this._fixedCosts;
+		const totalCost = subtotal + this._staticCosts;
 
 		const root = this._rootElement;
 		const subtotalElement = root.querySelector('.total-cost__item-value_type_subtotal');
