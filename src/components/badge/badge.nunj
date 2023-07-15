@@ -1,6 +1,5 @@
 {% macro badge(className = '', type = 'notification',	children = 'Badge text') -%}
 
-	{# Настроить БЭМ-модификатор #}
 	{% set modifier = '' %}
 	{% if type === 'notification' %}
 		{% set modifier = 'badge_type_notification' %}

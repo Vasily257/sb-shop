@@ -15,7 +15,7 @@ class Badge {
 		 * БЭМ-модификатор для скрытия бейджа
 		 * @type {string}
 		 */
-		this._hiddenClass = 'badge_hidden';
+		this._hiddenClass = 'badge_visibility_hidden';
 
 		/**
 		 * БЭМ-модификатор, который увеличивает размер бейджа-счетчика,
