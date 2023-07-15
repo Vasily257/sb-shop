@@ -9,23 +9,21 @@
 {% set shipping = 150 %}
 {% set total = subtotal + tax + shipping %}
 
-<div class="total-cost">
-	<ul class="total-cost__list">
-		<li class="total-cost__item">
-			<span>Subtotal</span>
-			<span class="total-cost__item-value total-cost__item-value_type_subtotal">${{ formatNumber(subtotal) }}</span>
-		</li>
-		<li class="total-cost__item">
-			<span>Tax</span>
-			<span class="total-cost__item-value total-cost__item-value_type_tax">${{ formatNumber(tax) }}</span>
-		</li>
-		<li class="total-cost__item">
-			<span>Shipping</span>
-			<span class="total-cost__item-value total-cost__item-value_type_shipping">${{ formatNumber(shipping) }}</span>
-		</li>
-		<li class="total-cost__item total-cost__item_bold">
-			<span>Total</span>
-			<span class="total-cost__item-value total-cost__item-value_type_total">${{ formatNumber(total) }}</span>
-		</li>
-	</ul>
-</div>
+<ul class="total-cost">
+	<li class="total-cost__item">
+		<span>Subtotal</span>
+		<span class="total-cost__item-value total-cost__item-value_type_subtotal">${{ formatNumber(subtotal) }}</span>
+	</li>
+	<li class="total-cost__item">
+		<span>Tax</span>
+		<span class="total-cost__item-value total-cost__item-value_type_tax">${{ formatNumber(tax) }}</span>
+	</li>
+	<li class="total-cost__item">
+		<span>Shipping</span>
+		<span class="total-cost__item-value total-cost__item-value_type_shipping">${{ formatNumber(shipping) }}</span>
+	</li>
+	<li class="total-cost__item total-cost__item_bold">
+		<span>Total</span>
+		<span class="total-cost__item-value total-cost__item-value_type_total">${{ formatNumber(total) }}</span>
+	</li>
+</ul>
