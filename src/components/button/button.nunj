@@ -10,9 +10,9 @@
 
 	{% set modifier = '' %}
 	{% if typeStyle === 'filled' %}
-		{% set modifier = 'button_filled' %}
+		{% set modifier = 'button_style_filled' %}
 	{% elif typeStyle === 'reseted' %}
-		{% set modifier = 'button_reseted' %}
+		{% set modifier = 'button_style_reseted' %}
 	{% endif %}
 
 	<button

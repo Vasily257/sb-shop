@@ -39,7 +39,7 @@
 		outline-offset: 2px;
 	}
 
-	&_filled {
+	&_style_filled {
 		color: #ffffff;
 		border-color: $primary-color;
 		background-color: $primary-color;
@@ -54,7 +54,7 @@
 		}
 	}
 
-	&_reseted {
+	&_style_reseted {
 		margin: 0;
 		padding: 0;
 
