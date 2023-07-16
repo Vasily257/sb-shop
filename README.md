@@ -4,7 +4,7 @@
 This project is a test task for the "layout designer-perfectionist" position at [Sborka Project](https://sborkaproject.com/).
   
 ## Functionality  
-The project is a single-page website with responsive layout built using flexbox and grid layout. 
+The project is a single-page website with responsive layout built using flexbox and grid layout.  
 The website user can:
 - change the items quantity
 - enter saved card data
