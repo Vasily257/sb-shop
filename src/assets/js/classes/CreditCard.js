@@ -44,7 +44,6 @@ class CreditCard {
 	/** Инициализировать компонент */
 	init() {
 		this._iterateInputs();
-		this._addAutocompleteTracking();
 
 		this._tooltip.init();
 	}
@@ -238,35 +237,6 @@ class CreditCard {
 
 		if (isCardNumber) {
 			this._cardNumberInputElements.push(currentInputElement);
-		}
-	}
-
-	/** Добавить отслеживание автозаполнения */
-	_addAutocompleteTracking() {
-		const timerId = setInterval(() => {
-			const isUnitedCardNumberFull = this._unitedCardInput.value.length === 16;
-
-			if (isUnitedCardNumberFull) {
-				this._updateCardNumberInputValues();
-
-				clearInterval(timerId);
-			}
-		}, 100);
-	}
-
-	/** Обновить значения инпутов номера карты при браузерной автоподстановке */
-	_updateCardNumberInputValues() {
-		const unitedValue = this._unitedCardInput.value;
-
-		for (let i = 0; i < this._cardNumberInputElements.length; i++) {
-			const inputElement = this._cardNumberInputElements[i];
-
-			// Определить индексы, который выделяют по 4 цифры из объединённого инпута
-			const maxLength = 4;
-			const startIndex = i * maxLength;
-			const endIndex = (i + 1) * maxLength;
-
-			inputElement.value = unitedValue.substring(startIndex, endIndex);
 		}
 	}
 
