@@ -12,7 +12,8 @@
     "zip": "cross-env NODE_ENV=production gulp zip",
     "prettier": "prettier ./src/**/*.{scss,js} --write",
     "eslint": "eslint ./src/assets/js/**/*.js --fix",
-    "lint": "npm run prettier && npm run eslint"
+    "lint": "npm run prettier && npm run eslint",
+    "deploy": "npm run build && scp -r ./build/* root@92.38.241.48:/home/sb-shop"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
