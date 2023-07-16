@@ -55,19 +55,23 @@
 		},
 		{
 			"label": "Card number",
-			"name": "card-number-one"
+			"name": "card-number-one",
+			"autocomplete": "cc-number-1"
 		},
 		{
 			"label": "Card number two",
-			"name": "card-number-two"
+			"name": "card-number-two",
+			"autocomplete": "cc-number-2"
 		},
 		{
 			"label": "Card number three",
-			"name": "card-number-three"
+			"name": "card-number-three",
+			"autocomplete": "cc-number-3"
 		},
 		{
 			"label": "Card number four",
-			"name": "card-number-four"
+			"name": "card-number-four",
+			"autocomplete": "cc-number-4"
 		},
 		{
 			"label": "Expire date",
