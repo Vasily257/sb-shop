@@ -45,6 +45,7 @@
 			cardField.name === 'card-number-two' or
 			cardField.name === 'card-number-three' or
 			cardField.name === 'card-number-four' or
+			cardField.name === 'expire-date' or
 			cardField.name === 'cvv-code'
 		%}
 			{% set isNumericField = true %}
