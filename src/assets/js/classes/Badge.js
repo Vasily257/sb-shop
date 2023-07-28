@@ -35,16 +35,6 @@ class Badge {
 		this._badgeElement.classList.remove(this._hiddenClass);
 	}
 
-	/** Увеличить размер бейджа */
-	increaseSize() {
-		this._badgeElement.classList.add(this._multiDigitClass);
-	}
-
-	/** Уменьшить размер бейджа */
-	decreaseSize() {
-		this._badgeElement.classList.remove(this._multiDigitClass);
-	}
-
 	/** Обновить значение бейджа
 	 * @param {string} text - значение бейджа
 	 */

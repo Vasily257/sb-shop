@@ -3,12 +3,12 @@
 
 	display: block;
 
-	width: 13px;
 	height: 13px;
+	padding-inline: 3.7px;
 
 	text-align: center;
 
-	border-radius: 13px;
+	border-radius: 100vmax;
 
 	font-family: 'Roboto';
 	font-size: 10px;
@@ -22,11 +22,5 @@
 
 	&_visibility_hidden {
 		display: none;
-	}
-
-	&_digit_multi {
-		width: min-content;
-		min-width: 13px;
-		padding: 0 3px;
 	}
 }

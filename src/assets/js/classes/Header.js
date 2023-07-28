@@ -48,13 +48,6 @@ class Header extends Observer {
 		} else {
 			this._badge.show();
 		}
-
-		// Скорректировать стили, если значение счетчика двузначное
-		if (totalCount > 9) {
-			this._badge.increaseSize();
-		} else {
-			this._badge.decreaseSize();
-		}
 	}
 }
 
