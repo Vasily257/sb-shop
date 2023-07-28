@@ -4,7 +4,10 @@
 	padding-top: 60px;
 
 	&__form {
-		margin: 60px 0 30px;
+		margin-top: 60px;
+		margin-right: 0;
+		margin-bottom: 30px;
+		margin-left: 0;
 	}
 
 	@media only screen and (min-width: $bp-mobile-to-tablet) {
@@ -14,7 +17,9 @@
 		}
 
 		&__form {
-			margin: 60px 50px 40px;
+			margin-right: 50px;
+			margin-bottom: 40px;
+			margin-left: 50px;
 		}
 	}
 
@@ -24,6 +29,15 @@
 			justify-content: center;
 
 			margin-right: 80px;
+		}
+	}
+
+	@media only screen and (min-width: $bp-desktop-to-desktop-hd) {
+		&__form {
+			justify-content: flex-start;
+
+			margin-left: 270px;
+			margin-right: auto;
 		}
 	}
 }
