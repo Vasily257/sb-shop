@@ -38,10 +38,18 @@
 	}
 
 	&__description {
+		display: -webkit-box;
+		overflow: hidden;
 		grid-column: 2 / 3;
 		grid-row: 1 / 3;
 
+		height: min-content;
 		margin-top: 1px;
+
+		text-overflow: ellipsis;
+
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 2;
 	}
 
 	&__cost-wrapper {
