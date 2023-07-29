@@ -90,6 +90,12 @@
 			{% set inputMaxlength = 3 %}
 		{% endif %}
 
+		{# Указать, обязателен ли инпут к заполнению #}
+		{% set isRequiredInput = true %}
+		{% if cardField.name === 'card-number-united'	%}
+			{% set isRequiredInput = false %}
+		{% endif %}
+
 		<li class="credit-card__item credit-card__item_type_{{ cardField.name}}">
 			{{ control(
 				className = 'credit-card__control',
@@ -104,7 +110,7 @@
 				isNumeric = isNumericField,
 				pattern = patternValue,
 				maxlength = inputMaxlength,
-				isRequired = true
+				isRequired = isRequiredInput
 			) }}
 		</li>
 

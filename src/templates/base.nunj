@@ -2,18 +2,18 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8"/>
+		<meta charset="utf-8">
 		<link rel="icon" href="./assets/images/favicon.ico">
 		<title>
 			{% block title %}SP.Shop
 			{% endblock %}
 		</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 
 		{{ headScripts() }}
 
 		{% block stylesheets %}
-			<link rel="stylesheet" href="assets/css/styles.css?hash"/>
+			<link rel="stylesheet" href="assets/css/styles.css?hash">
 		{% endblock stylesheets %}
 	</head>
 	<body>

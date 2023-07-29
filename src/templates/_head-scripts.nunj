@@ -1,5 +1,5 @@
 {% macro headScripts() %}
-	<script type="text/javascript">
+	<script>
 		;(function(){
 			var modificators = [],
 				nv = navigator,

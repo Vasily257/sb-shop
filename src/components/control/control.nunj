@@ -29,8 +29,8 @@
 			{% if maxlength %} maxlength = "{{ maxlength }}" {% endif %}
 			{% if isRequired %} required {% endif %}
 			{% if isDisabled %} disabled {% endif %}
-		/>
-		
+		>
+
 		{% if type !== 'hidden' %}
 			<label class="control__label control__label_type_{{ type }} {{ labelClassName }}" for="{{ id }}">
 				{{- label -}}
