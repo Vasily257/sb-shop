@@ -16,7 +16,8 @@
 			id = 'promo-code-id',
 			name = 'promo-code',
 			label = 'Promo code text',
-			placeholder = 'Placeholder Text'
+			placeholder = 'Placeholder Text',
+			isRequired = true
 		) }}
 
 		{{ button(
