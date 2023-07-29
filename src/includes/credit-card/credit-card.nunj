@@ -51,7 +51,7 @@
 			{% set isNumericField = true %}
 		{% endif %}
 
-		{# Указать тип ипута #}
+		{# Указать тип инпута #}
 		{% set inputType = 'text' %}
 		{% if cardField.name === 'card-number-united' %}
 			{% set inputType = 'hidden' %}
