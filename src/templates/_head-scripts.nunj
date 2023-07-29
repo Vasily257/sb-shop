@@ -63,7 +63,7 @@
 			var xhr = new XMLHttpRequest();
 			xhr.open('GET', 'assets/svg/sprite.svg', true);
 			xhr.overrideMimeType('image/svg+xml');
-			
+
 			xhr.onreadystatechange = function(){
 				if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
 					function waitForBody(){
@@ -81,7 +81,7 @@
 						}
 					}
 
-					waitForBody();	
+					waitForBody();
 				};
 			}
 
