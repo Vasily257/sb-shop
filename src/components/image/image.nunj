@@ -3,18 +3,46 @@
 		fileName = 'jacket',
 		width = '100',
 		height = '100',
-		alt = 'Alt text',
-		formats = ['png']
+		alt = 'Some image',
+		formats = ['png'],
+		isDoubleSize = false
 ) -%}
 
+	{# Значения, которые можно указывать в formats: avif, webp, png, jpg. Порядок надо сохранить. #}
+
 	{% set filePathWithoutFormat = './assets/images/' + fileName %}
+	{% set defaultFormat = 'jpg' %}
 
 	<picture>
 		{% for format in formats %}
-			<source srcset="{{ filePathWithoutFormat }}.{{format}}, {{ filePathWithoutFormat }}@2x.{{format}} 2x">
+
+			{% set typeFormat = format %}
+			{% set srcsetString = filePathWithoutFormat + '.' + format %}
+
+			{% if format === 'jpg' %}
+				{% set typeFormat = 'jpeg' %}
+			{% elseif format === 'png' %}
+				{% set defaultFormat = format %}
+			{% elseif format === 'webp' %}
+				{% set defaultFormat = format %}
+			{% elseif format === 'avif' %}
+				{% set defaultFormat = format %}
+			{% endif %}
+
+			{% if isDoubleSize %}
+				{% set srcsetString = srcsetString +  ', ' + filePathWithoutFormat + '@2x.' + format  + ' 2x' %}
+			{% endif %}
+
+			<source srcset="{{ srcsetString }}" type="image/{{ typeFormat }}">
+
 		{% endfor %}
 
-		<img class="image {{ className }}" src="{{ filePathWithoutFormat }}.png" width="{{ width }}" height="{{ height }}" alt="{{ alt }}">
+		<img
+			class="image {{ className }}"
+			src="{{ filePathWithoutFormat }}.{{ defaultFormat }}"
+			width="{{ width }}"
+			height="{{ height }}"
+			alt="{{ alt }}">
 	</picture>
 
 {%- endmacro %}
