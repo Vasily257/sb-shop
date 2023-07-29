@@ -56,22 +56,22 @@
 		{
 			"label": "Card number",
 			"name": "card-number-one",
-			"autocomplete": "cc-number-1"
+			"autocomplete": "cc-number"
 		},
 		{
 			"label": "Card number two",
 			"name": "card-number-two",
-			"autocomplete": "cc-number-2"
+			"autocomplete": "cc-number"
 		},
 		{
 			"label": "Card number three",
 			"name": "card-number-three",
-			"autocomplete": "cc-number-3"
+			"autocomplete": "cc-number"
 		},
 		{
 			"label": "Card number four",
 			"name": "card-number-four",
-			"autocomplete": "cc-number-4"
+			"autocomplete": "cc-number"
 		},
 		{
 			"label": "Expire date",
