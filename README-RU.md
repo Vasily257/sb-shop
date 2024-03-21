@@ -28,9 +28,6 @@
 ## Технологический стек 
 `Nunjucks`, `SCSS`, `JS`, `Gulp`, `Webpack`  
   
-## Ссылки  
-Сайт: https://v1364358.hosted-by-vdsina.ru/sb-shop/ 
-   
 ## Использование
 Чтобы склонировать проект, вам надо открыть нужную директорию и использовать команды:  
 **HTTPS**: `git clone https://github.com/Vasily257/sborka-test-task.git`  
