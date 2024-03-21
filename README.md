@@ -29,10 +29,7 @@ The project has several features:
 
 ## Technology stack  
 `Nunjucks`, `SCSS`, `JS`, `Gulp`, `Webpack`  
-  
-## Links  
-A website: https://v1364358.hosted-by-vdsina.ru/sb-shop/ 
-   
+     
 ## Usage  
 To clone a project, you need to open desired directory and use the command:  
 **HTTPS**: `git clone https://github.com/Vasily257/movies-explorer-api.git`  
